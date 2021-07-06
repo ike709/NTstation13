@@ -40,4 +40,4 @@
 	return
 	
 // Used by the Nano UI Manager (/datum/nanomanager) to track UIs opened by this mob
-/mob/var/list/open_uis = list()
+ 

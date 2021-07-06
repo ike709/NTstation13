@@ -138,17 +138,17 @@
 				else
 					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
-			if(icon_x in 12 to 20)
+			if(icon_x >= 12 && icon_x <= 20)
 				selecting = "head"
 				switch(icon_y)
 					if(23 to 24)
-						if(icon_x in 15 to 17)
+						if(icon_x >= 15 && icon_x <= 17)
 							selecting = "mouth"
 					if(26) //Eyeline, eyes are on 15 and 17
-						if(icon_x in 14 to 18)
+						if(icon_x >= 14 && icon_x <= 18)
 							selecting = "eyes"
 					if(25 to 27)
-						if(icon_x in 15 to 17)
+						if(icon_x >= 15 && icon_x <= 17)
 							selecting = "eyes"
 
 	if(old_selecting != selecting)

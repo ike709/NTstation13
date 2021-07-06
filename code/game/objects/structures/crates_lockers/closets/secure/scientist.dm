@@ -27,7 +27,7 @@
 
 
 
-/obj/structure/closet/secure_closet/RD
+/obj/structure/closet/secure_closet/rd
 	name = "\proper research director's locker"
 	req_access = list(access_rd)
 	icon_state = "rdsecure1"

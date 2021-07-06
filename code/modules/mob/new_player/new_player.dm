@@ -113,7 +113,7 @@
 				observer.started_as_observer = 1
 				close_spawn_windows()
 				var/obj/O = locate("landmark*Observer-Start")
-				src << "\blue Now teleporting."
+				src << "lue Now teleporting."
 				observer.loc = O.loc
 				if(client.prefs.be_random_name)
 					client.prefs.real_name = random_name(gender)
@@ -136,7 +136,7 @@
 		if(href_list["SelectedJob"])
 
 			if(!enter_allowed)
-				usr << "\blue There is an administrative lock on entering the game!"
+				usr << "lue There is an administrative lock on entering the game!"
 				return
 
 			AttemptLateSpawn(href_list["SelectedJob"])

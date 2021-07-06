@@ -41,7 +41,7 @@
 	if(!proximity) return
 	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
-		user << "\blue You fill the balloon with the contents of [A]."
+		user << "lue You fill the balloon with the contents of [A]."
 		src.desc = "A translucent balloon with some form of liquid sloshing around in it."
 		src.update_icon()
 	return
@@ -58,7 +58,7 @@
 					qdel(src)
 				else
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
-					user << "\blue You fill the balloon with the contents of [O]."
+					user << "lue You fill the balloon with the contents of [O]."
 					O.reagents.trans_to(src, 10)
 	src.update_icon()
 	return
@@ -131,7 +131,7 @@
 
 	if (istype(A, /obj/item/toy/ammo/gun))
 		if (src.bullets >= 7)
-			user << "\blue It's already fully loaded!"
+			user << "lue It's already fully loaded!"
 			return 1
 		if (A.amount_left <= 0)
 			user << "\red There are no more caps!"
@@ -195,7 +195,7 @@
 	set src in view(2)
 	..()
 	if (bullets)
-		usr << "\blue It is loaded with [bullets] foam darts!"
+		usr << "lue It is loaded with [bullets] foam darts!"
 
 /obj/item/toy/crossbow/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/toy/ammo/crossbow))
@@ -203,7 +203,7 @@
 			user.drop_item()
 			qdel(I)
 			bullets++
-			user << "\blue You load the foam dart into the crossbow."
+			user << "lue You load the foam dart into the crossbow."
 		else
 			usr << "\red It's already fully loaded."
 
@@ -319,7 +319,7 @@
 /obj/item/toy/sword/attack_self(mob/user as mob)
 	active = !( active )
 	if (active)
-		user << "\blue You extend the plastic blade with a quick flick of your wrist."
+		user << "lue You extend the plastic blade with a quick flick of your wrist."
 		playsound(user, 'sound/weapons/saberon.ogg', 20, 1)
 		if(hacked)
 			item_color = "rainbow"
@@ -333,7 +333,7 @@
 		else
 			SetLuminosity(f_lum)
 	else
-		user << "\blue You push the plastic blade back down into the handle."
+		user << "lue You push the plastic blade back down into the handle."
 		playsound(user, 'sound/weapons/saberoff.ogg', 20, 1)
 		icon_state = "sword0"
 		item_state = "sword0"
@@ -563,19 +563,19 @@
 /*
  * AI core prizes
  */
-/obj/item/toy/AI
+/obj/item/toy/ai
 	name = "toy AI"
 	desc = "A little toy model AI core with real law announcing action!"
 	icon_state = "AI"
 	var/cooldown = 0
 
-/obj/item/toy/AI/attack_self(mob/user)
+/obj/item/toy/ai/attack_self(mob/user)
 	if(!cooldown) //for the sanity of everyone
-		var/message = generate_ion_law()
+	//	var/message = generate_ion_law()
 		user << "<span class='notice'>You press the button on [src].</span>"
 		playsound(user, 'sound/machines/click.ogg', 20, 1)
-		src.loc.visible_message("\red \icon[src] [message]")
-		cooldown = 1
+		//src.loc.visible_message("\red \icon[src] [message]")
+	//	cooldown = 1
 		spawn(30) cooldown = 0
 		return
 	..()
@@ -725,7 +725,7 @@ obj/item/toy/cards/deck/attackby(obj/item/toy/cards/cardhand/C, mob/living/user)
 					M.put_in_l_hand(src)
 				else if("r_hand")
 					M.put_in_r_hand(src)
-				usr << "<span class='notice'>You pick up the deck.</span>"
+			//	usr << "<span class='notice'>You pick up the deck.</span>"
 	else
 		usr << "<span class='notice'>You can't reach it from here.</span>"
 

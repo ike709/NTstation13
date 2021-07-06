@@ -100,12 +100,12 @@ Doing this because FindTurfs() isn't even used
 	if(Debug)
 		var/image/I = image('icons/misc/mark.dmi', "blank")
 
-		if(lentext(tn)>8)
+		if(length(tn)>8)
 			tn = "*"
 
-		var/len = lentext(tn)
+		var/len = length(tn)
 
-		for(var/d = 1 to lentext(tn))
+		for(var/d = 1 to length(tn))
 
 
 			var/char = copytext(tn, len-d+1, len-d+2)
@@ -537,7 +537,7 @@ Doing this because FindTurfs() isn't even used
 						P.oxygen = 755985
 						P.oldoxy = 755985
 						P.tmpoxy = 755985
-	usr << "\blue Blowing up station ..."
+	usr << "lue Blowing up station ..."
 	world << "[usr.key] has used boom boom boom shake the room"
 */
 

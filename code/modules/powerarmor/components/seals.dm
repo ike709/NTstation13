@@ -19,7 +19,7 @@
 	switch(parent.active)
 		if(1)
 			if(!sudden)
-				usr << "\blue Atmospheric seals disengaged."
+				usr << "lue Atmospheric seals disengaged."
 			parent.gas_transfer_coefficient = 1
 			parent.permeability_coefficient = 1
 			parent.flags &= ~STOPSPRESSUREDMAGE
@@ -41,16 +41,16 @@
 				parent.shoes.min_cold_protection_temperature = null
 			sealed = 0
 
-			parent.armor["bio"] = initial(parent.armor["bio"])
+		/*	parent.armor["bio"] = initial(parent.armor["bio"])
 			if(parent.helm)
 				parent.helm.armor["bio"] = initial(parent.helm.armor["bio"])
 			if(parent.gloves)
 				parent.gloves.armor["bio"] = initial(parent.gloves.armor["bio"])
 			if(parent.shoes)
-				parent.shoes.armor["bio"] = initial(parent.shoes.armor["bio"])
+				parent.shoes.armor["bio"] = initial(parent.shoes.armor["bio"])*/
 
 		if(0)
-			usr << "\blue Atmospheric seals engaged."
+			usr << "lue Atmospheric seals engaged."
 			parent.gas_transfer_coefficient = 0.01
 			parent.permeability_coefficient = 0.02
 			parent.flags |= STOPSPRESSUREDMAGE
@@ -120,7 +120,7 @@
 			user << "\red Unable to initialize helmet seal, armor seals not active."
 			return
 		if(!helm.parent)
-			user << "\blue Helmet locked."
+			user << "lue Helmet locked."
 			helm.flags |= NODROP
 			parent.helm = helm
 			helm.parent = parent
@@ -130,7 +130,7 @@
 			parent.helm.max_heat_protection_temperature = helmet_max
 			parent.helm.min_cold_protection_temperature = helmet_min
 			parent.helm.flags |= STOPSPRESSUREDMAGE
-			user << "\blue Helmet atmospheric seals engaged."
+			user << "lue Helmet atmospheric seals engaged."
 			if(manual)
 				for (var/armorvar in helm.armor)
 					helm.armor[armorvar] = parent.armor[armorvar]
@@ -138,7 +138,7 @@
 			return
 		else
 			if(manual)
-				user << "\blue Helmet atmospheric seals disengaged."
+				user << "lue Helmet atmospheric seals disengaged."
 			parent.helm.gas_transfer_coefficient = 1
 			parent.helm.permeability_coefficient = 1
 			parent.helm.max_heat_protection_temperature = null
@@ -147,7 +147,7 @@
 			if(manual && parent.reactive)
 				for (var/armorvar in helm.armor)
 					helm.armor[armorvar] = parent.reactive.togglearmor[armorvar]
-					helm.armor["bio"] = initial(helm.armor["bio"])
+				//	helm.armor["bio"] = initial(helm.armor["bio"])
 			if(parent.helm.on)
 				parent.helm.on = 0
 				parent.helm.update_icon()
@@ -155,7 +155,7 @@
 			if(!sudden)
 				if(manual)
 					sleep(20)
-					user << "\blue Helmet unlocked."
+					user << "lue Helmet unlocked."
 				helm.flags &= ~NODROP
 				parent.helm = null
 				helm.parent = null

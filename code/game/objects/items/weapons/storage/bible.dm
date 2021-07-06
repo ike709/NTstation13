@@ -102,17 +102,17 @@
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity) return
 	if (istype(A, /turf/simulated/floor))
-		user << "\blue You hit the floor with the bible."
+		user << "lue You hit the floor with the bible."
 		if(user.mind && (user.mind.assigned_role == "Chaplain"))
 			call(/obj/effect/rune/proc/revealrunes)(src)
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent("water")) //blesses all the water in the holder
-			user << "\blue You bless [A]."
+			user << "lue You bless [A]."
 			var/water2holy = A.reagents.get_reagent_amount("water")
 			A.reagents.del_reagent("water")
 			A.reagents.add_reagent("holywater",water2holy)
 		if(A.reagents && A.reagents.has_reagent("unholywater")) //yeah yeah, copy pasted code - sue me
-			user << "\blue You purify [A]."
+			user << "lue You purify [A]."
 			var/unholy2clean = A.reagents.get_reagent_amount("unholywater")
 			A.reagents.del_reagent("unholywater")
 			A.reagents.add_reagent("cleaner",unholy2clean)		//it cleans their soul, get it? I'll get my coat...

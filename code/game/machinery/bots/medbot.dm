@@ -39,7 +39,7 @@
 	var/treat_virus = 1 //If on, the bot will attempt to treat viral infections, curing them if possible.
 	var/shut_up = 0 //self explanatory :)
 	bot_type = MED_BOT
-	bot_filter = RADIO_MEDBOT
+	bot_filter = "12"
 
 /obj/machinery/bot/medbot/mysterious
 	name = "\improper Mysterious Medibot"
@@ -60,11 +60,11 @@
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	w_class = 3.0
 
-	/obj/item/weapon/firstaid_arm_assembly/New()
-		..()
-		spawn(5)
-			if(skin)
-				overlays += image('icons/obj/aibots.dmi', "kit_skin_[skin]")
+/obj/item/weapon/firstaid_arm_assembly/New()
+	..()
+	spawn(5)
+		if(skin)
+			overlays += image('icons/obj/aibots.dmi', "kit_skin_[skin]")
 
 /obj/machinery/bot/medbot/proc/updateicon()
 	if(!on)

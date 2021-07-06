@@ -30,8 +30,8 @@
 	diaryofmeanpeople << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
-	if(byond_version < RECOMMENDED_VERSION)
-		world.log << "Your server's BYOND version does not meet the recommended requirements for NTstation code. Please update BYOND."
+	//if(byond_version < RECOMMENDED_VERSION)
+	//	world.log << "Your server's BYOND version does not meet the recommended requirements for NTstation code. Please update BYOND."
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
 
@@ -162,15 +162,15 @@
 		return list2params(s)
 	else if (copytext(T,1,9) == "announce")
 		var/input[] = params2list(T)
-		if(global.comms_allowed)
+	/*	if(global.comms_allowed)
 			if(input["key"] != global.comms_key)
 				return "Bad Key"
 			else
-				#define CHAT_PULLR 2048
+#define CHAT_PULLR 2048
 				for(var/client/C in clients)
 					if(C.prefs && (C.prefs.toggles & CHAT_PULLR))
 						C << "<span class='announce'>PR: [input["announce"]]</span>"
-				#undef CHAT_PULLR
+#undef CHAT_PULLR*/
 
 /world/Reboot(var/reason)
 #ifdef dellogging
@@ -185,9 +185,10 @@
 	spawn(0)
 		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
 
-	for(var/client/C in clients)
+	/*for(var/client/C in clients)
 		if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
+	*/
 
 	// Note: all clients automatically connect to the world after it restarts
 

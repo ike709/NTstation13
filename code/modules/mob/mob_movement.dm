@@ -41,7 +41,7 @@
 	set hidden = 1
 
 	if(!usr.pulling)
-		usr << "\blue You are not pulling anything."
+		usr << "lue You are not pulling anything."
 		return
 	usr.stop_pulling()
 
@@ -179,7 +179,7 @@
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						src << "\blue You're restrained! You can't move!"
+						src << "lue You're restrained! You can't move!"
 						return 0
 					else
 						M.stop_pulling()
@@ -376,7 +376,7 @@
 
 	//Check to see if we slipped
 	if(prob(Process_Spaceslipping(5)))
-		src << "\blue <B>You slipped!</B>"
+		src << "lue <B>You slipped!</B>"
 		src.inertia_dir = src.last_move
 		step(src, src.inertia_dir)
 		return 0

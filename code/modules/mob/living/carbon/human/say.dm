@@ -10,7 +10,7 @@
 		if(!IsVocal())
 			if(length(message) >= 2)
 				if(mind && mind.changeling)
-					if(copytext(message, 1, 2) != "*" && copytext(message, 1, 3) != ":g" && copytext(message, 1, 3) != ":G" && copytext(message, 1, 3) != ":ï")
+					if(copytext(message, 1, 2) != "*" && copytext(message, 1, 3) != ":g" && copytext(message, 1, 3) != ":G" && copytext(message, 1, 3) != ":ï¿½")
 						return
 					else
 						return ..(message)
@@ -68,7 +68,7 @@
 	if(stat == CONSCIOUS)
 		if(client)
 			var/virgin = 1	//has the text been modified yet?
-			var/temp = winget(client, "input", "text")
+			var/temp =// winget(client, "input", "text")
 			if(findtextEx(temp, "Say \"", 1, 7) && length(temp) > 5)	//case sensitive means
 
 				temp = replacetext(temp, ";", "")	//general radio

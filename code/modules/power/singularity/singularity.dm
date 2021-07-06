@@ -442,7 +442,7 @@ var/global/list/uneatable = list(
 			if (istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				if(istype(H.glasses,/obj/item/clothing/glasses/meson))
-					H << "\blue You look directly into The [src.name], good thing you had your protective eyewear on!"
+					H << "lue You look directly into The [src.name], good thing you had your protective eyewear on!"
 					return
 		M << "\red You look directly into The [src.name] and feel weak."
 		M.apply_effect(3, STUN)
@@ -605,7 +605,7 @@ var/global/list/uneatable = list(
 		//no living humans, follow a ghost instead.
 
 /obj/machinery/singularity/narsie/proc/acquire(var/mob/food)
-	target << "\blue <b>NAR-SIE HAS LOST INTEREST IN YOU</b>"
+	target << "lue <b>NAR-SIE HAS LOST INTEREST IN YOU</b>"
 	target = food
 	if(ishuman(target))
 		target << "\red <b>NAR-SIE HUNGERS FOR YOUR SOUL</b>"

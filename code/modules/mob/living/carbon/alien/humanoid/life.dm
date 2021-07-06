@@ -105,7 +105,8 @@
 		if(losebreath>0) //Suffocating so do not take a breath
 			losebreath--
 			if (prob(75)) //High chance of gasping for air
-				spawn emote("gasp")
+				spawn(0)
+					emote("gasp")
 			if(istype(loc, /obj/))
 				var/obj/location_as_object = loc
 				location_as_object.handle_internal_lifeform(src, 0)
@@ -267,7 +268,7 @@
 		if(has_organic_effect(/datum/organic_effect/fat))
 			if(nutrition < 100)
 				if(prob(round((50 - nutrition) / 100)))
-					src << "\blue You feel fit again!"
+					src << "lue You feel fit again!"
 					remove_organic_effect(/datum/organic_effect/fat)
 		else
 			if(nutrition > 500)

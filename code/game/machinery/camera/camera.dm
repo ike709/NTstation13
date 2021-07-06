@@ -192,23 +192,24 @@
 		U << "You hold \the [itemname] up to the camera ..."
 		for(var/mob/O in player_list)
 			if(istype(O, /mob/living/silicon/ai))
-				var/mob/living/silicon/ai/AI = O
+				return
+				/*var/mob/living/silicon/ai/AI = O
 				if(U.name == "Unknown") AI << "<b>[U]</b> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ..."
 				else AI << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U]'>[U]</a></b> holds <a href='?_src_=usr;show_paper=1;'>\a [itemname]</a> up to one of your cameras ..."
-				AI.last_paper_seen = "<HTML><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>"
+				AI.last_paper_seen = "<HTML><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>"*/
 			else if (O.client && O.client.eye == src)
 				O << "[U] holds \a [itemname] up to one of the cameras ..."
 				O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
 	else if (istype(W, /obj/item/device/camera_bug))
 		if (!src.can_use())
-			user << "\blue Camera non-functional"
+			user << "lue Camera non-functional"
 			return
 		if(istype(src.bug))
-			user << "\blue Camera bug removed."
+			user << "lue Camera bug removed."
 			src.bug.bugged_cameras -= src.c_tag
 			src.bug = null
 		else
-			user << "\blue Camera bugged."
+			user << "lue Camera bugged."
 			src.bug = W
 			src.bug.bugged_cameras[src.c_tag] = src
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))//Putting it here last since it's a special case. I wonder if there is a better way to do these than type casting.
@@ -218,7 +219,7 @@
 		spark_system.start()
 		playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 		playsound(loc, "sparks", 50, 1)
-		visible_message("\blue The camera has been sliced apart by [] with an energy blade!")
+		visible_message("lue The camera has been sliced apart by [] with an energy blade!")
 		qdel(src)
 	else if(istype(W, /obj/item/device/laser_pointer))
 		var/obj/item/device/laser_pointer/L = W
@@ -275,7 +276,7 @@
 		return 0
 	return 1
 
-/obj/machinery/camera/proc/can_see()
+/obj/machinery/camera/can_see()
 	var/list/see = null
 	var/turf/pos = get_turf(src)
 	if(isXRay())

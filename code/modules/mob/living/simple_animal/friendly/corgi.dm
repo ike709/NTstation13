@@ -76,7 +76,7 @@
 			if( O.force )
 				usr << "\red [src] is wearing too much armor. You can't cause \him any damage."
 				for (var/mob/M in viewers(src, null))
-					M.show_message("\red \b [user] hits [src] with [O], however [src] is too armored.")
+					M.show_message("\red [user] hits [src] with [O], however [src] is too armored.")
 			else
 				usr << "\red [src] is wearing too much armor. You can't reach \his skin."
 				for (var/mob/M in viewers(src, null))
@@ -141,7 +141,7 @@
 					var/obj/item/item_to_add = usr.get_active_hand()
 
 					if(!item_to_add)
-						usr.visible_message("\blue [usr] pets [src]","\blue You rest your hand on [src]'s back for a moment.")
+						usr.visible_message("lue [usr] pets [src]","lue You rest your hand on [src]'s back for a moment.")
 						return
 					if(istype(item_to_add,/obj/item/weapon/plastique)) // last thing he ever wears, I guess
 						item_to_add.afterattack(src,usr,1)
@@ -193,7 +193,7 @@
 		if(usr)	usr << "\red You can't put more than one hat on [src]!"
 		return
 	if(!item_to_add)
-		usr.visible_message("\blue [usr] pets [src]","\blue You rest your hand on [src]'s head for a moment.")
+		usr.visible_message("lue [usr] pets [src]","lue You rest your hand on [src]'s head for a moment.")
 		return
 
 
@@ -453,7 +453,7 @@
 /mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/weapon/newspaper))
 		if(!stat)
-			user.visible_message("\blue [user] baps [name] on the nose with the rolled up [O]")
+			user.visible_message("lue [user] baps [name] on the nose with the rolled up [O]")
 			spawn(0)
 				for(var/i in list(1,2,4,8,4,2,1,2))
 					dir = i

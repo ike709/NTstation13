@@ -79,13 +79,13 @@
 	user.changeNext_move(8)
 	if (src.destroyed && src.occupied)
 		new /obj/item/weapon/gun/energy/laser/captain( src.loc )
-		user << "\b You deactivate the hover field built into the case."
+		user << "You deactivate the hover field built into the case."
 		src.occupied = 0
 		src.add_fingerprint(user)
 		update_icon()
 		return
 	else
-		usr << text("\blue You kick the display case.")
+		usr << text("lue You kick the display case.")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
 				O << text("\red [] kicks the display case.", usr)

@@ -19,12 +19,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	Failing all that, the standard sanity checks are performed. They simply check the data is suitable, reverting to
 	initial() values if necessary.
 */
-/datum/preferences/proc/savefile_needs_update(savefile/S)
+/datum/preferences/proc/savefile_needs_update(var/S)
 	var/savefile_version
 	S["version"] >> savefile_version
 
 	if(savefile_version < SAVEFILE_VERSION_MIN)
-		S.dir.Cut()
+	//	S.dir.Cut()
 		return -2
 	if(savefile_version < SAVEFILE_VERSION_MAX)
 		return savefile_version
@@ -80,6 +80,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	path = "data/player_saves/[copytext(ckey,1,2)]/[ckey]/[filename]"
 
 /datum/preferences/proc/load_preferences()
+	return/*
 	if(!path)				return 0
 	if(!fexists(path))		return 0
 
@@ -113,9 +114,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	toggles			= sanitize_integer(toggles, 0, 65535, initial(toggles))
 	ghost_form		= sanitize_inlist(ghost_form, ghost_forms, initial(ghost_form))
 
-	return 1
+	return 1*/
 
 /datum/preferences/proc/save_preferences()
+	return/*
 	if(!path)				return 0
 	var/savefile/S = new /savefile(path)
 	if(!S)					return 0
@@ -132,9 +134,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["toggles"]			<< toggles
 	S["ghost_form"]			<< ghost_form
 
-	return 1
+	return 1*/
 
 /datum/preferences/proc/load_character(slot)
+	return /*
 	if(!path)				return 0
 	if(!fexists(path))		return 0
 	var/savefile/S = new /savefile(path)
@@ -223,9 +226,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	job_engsec_med = sanitize_integer(job_engsec_med, 0, 65535, initial(job_engsec_med))
 	job_engsec_low = sanitize_integer(job_engsec_low, 0, 65535, initial(job_engsec_low))
 
-	return 1
+	return 1*/
 
 /datum/preferences/proc/save_character()
+	return /*
 	if(!path)				return 0
 	var/savefile/S = new /savefile(path)
 	if(!S)					return 0
@@ -263,7 +267,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["job_engsec_med"]		<< job_engsec_med
 	S["job_engsec_low"]		<< job_engsec_low
 
-	return 1
+	return 1*/
 
 
 #undef SAVEFILE_VERSION_MAX

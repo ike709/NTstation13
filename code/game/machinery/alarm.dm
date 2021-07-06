@@ -788,9 +788,9 @@ table tr:first-child th:first-child { border: none;}
 				if(stat & (NOPOWER|BROKEN))
 					user << "It does nothing"
 				else
-					if(src.allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
+					if(src.allowed(usr) && !wires.IsIndexCut(1))
 						locked = !locked
-						user << "\blue You [ locked ? "lock" : "unlock"] the Air Alarm interface."
+						user << "lue You [ locked ? "lock" : "unlock"] the Air Alarm interface."
 						src.updateUsrDialog()
 					else
 						user << "\red Access denied."

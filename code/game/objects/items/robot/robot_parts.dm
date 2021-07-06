@@ -148,9 +148,9 @@
 			src.chest = W
 			src.updateicon()
 		else if(!W:wires)
-			user << "\blue You need to attach wires to it first!"
+			user << "lue You need to attach wires to it first!"
 		else
-			user << "\blue You need to attach a cell to it first!"
+			user << "lue You need to attach a cell to it first!"
 
 	if(istype(W, /obj/item/robot_parts/head))
 		if(src.head)	return
@@ -160,7 +160,7 @@
 			src.head = W
 			src.updateicon()
 		else
-			user << "\blue You need to attach a flash to it first!"
+			user << "lue You need to attach a flash to it first!"
 
 	if (istype(W, /obj/item/device/multitool))
 		if(check_completion())
@@ -309,22 +309,22 @@
 	..()
 	if(istype(W, /obj/item/weapon/stock_parts/cell))
 		if(src.cell)
-			user << "\blue You have already inserted a cell!"
+			user << "lue You have already inserted a cell!"
 			return
 		else
 			user.drop_item()
 			W.loc = src
 			src.cell = W
-			user << "\blue You insert the cell!"
+			user << "lue You insert the cell!"
 	if(istype(W, /obj/item/stack/cable_coil))
 		if(src.wires)
-			user << "\blue You have already inserted wire!"
+			user << "lue You have already inserted wire!"
 			return
 		else
 			var/obj/item/stack/cable_coil/coil = W
 			coil.use(1)
 			src.wires = 1.0
-			user << "\blue You insert the wire!"
+			user << "lue You insert the wire!"
 	return
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
@@ -332,10 +332,10 @@
 	if(istype(W, /obj/item/device/flash))
 		var/obj/item/device/flash/F = W
 		if(src.flash1 && src.flash2)
-			user << "\blue You have already inserted the eyes!"
+			user << "lue You have already inserted the eyes!"
 			return
 		else if(F.broken)
-			user << "\blue You can't use a broken flash!"
+			user << "lue You can't use a broken flash!"
 			return
 		else
 			user.drop_item()
@@ -344,6 +344,6 @@
 				src.flash2 = F
 			else
 				src.flash1 = F
-			user << "\blue You insert the flash into the eye socket!"
+			user << "lue You insert the flash into the eye socket!"
 	return
 

@@ -1,5 +1,5 @@
 /mob/living/silicon/hivebot/New(loc,mainframe)
-	src << "\blue Your icons have been generated!"
+	src << "lue Your icons have been generated!"
 	updateicon()
 
 	if(mainframe)
@@ -446,7 +446,7 @@ Frequency:
 				return
 			else
 				if(Debug)
-					diary <<"src.pulling disappeared? at [__LINE__] in mob.dm - src.pulling = [src.pulling]"
+					diary <<"src.pulling disappeared? at in mob.dm - src.pulling = [src.pulling]"
 					diary <<"REPORT THIS"
 
 		/////

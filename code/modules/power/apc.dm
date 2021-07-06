@@ -1,7 +1,4 @@
-#define APC_WIRE_IDSCAN 1
-#define APC_WIRE_MAIN_POWER1 2
-#define APC_WIRE_MAIN_POWER2 3
-#define APC_WIRE_AI_CONTROL 4
+
 
 //update_state
 #define UPSTATE_CELL_IN 1
@@ -540,7 +537,7 @@
 	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.get_fuel() < 3)
-			user << "\blue You need more welding fuel to complete this task."
+			user << "lue You need more welding fuel to complete this task."
 			return
 		user << "You start welding the APC frame..."
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
@@ -635,7 +632,7 @@
 /obj/machinery/power/apc/attack_alien(mob/living/carbon/alien/humanoid/user)
 	if(!user)
 		return
-	user.visible_message("\red [user.name] slashes at the [src.name]!", "\blue You slash at the [src.name]!")
+	user.visible_message("\red [user.name] slashes at the [src.name]!", "lue You slash at the [src.name]!")
 	playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 
 	var/allcut = wires.IsAllCut()
@@ -781,13 +778,13 @@
 		user << "\red You must stand to use this [src]!"
 		return 0
 	if (istype(user, /mob/living/silicon))
-		var/mob/living/silicon/ai/AI = user
+		var/mob/living/silicon/ai/ai = user
 		var/mob/living/silicon/robot/robot = user
 		if (                                                             \
 			src.aidisabled ||                                            \
 			malfhack && istype(malfai) &&                                \
 			(                                                            \
-				(istype(AI) && (malfai!=AI && malfai != AI.parent)) ||   \
+				(istype(ai) && (malfai!=ai && malfai != ai.parent)) ||   \
 				(istype(robot) && (robot in malfai.connected_robots))    \
 			)                                                            \
 		)

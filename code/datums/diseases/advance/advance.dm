@@ -48,10 +48,10 @@ var/list/advance_cures = 	list(
 /datum/disease/advance/New(var/process = 1, var/datum/disease/advance/D)
 
 	// Setup our dictionary if it hasn't already.
-	if(!dictionary_symptoms.len)
+/*	if(!dictionary_symptoms.len)
 		for(var/symp in list_symptoms)
 			var/datum/symptom/S = new symp
-			dictionary_symptoms[S.id] = symp
+			dictionary_symptoms[S.id] = symp*/
 
 	if(!istype(D))
 		D = null
@@ -139,11 +139,11 @@ var/list/advance_cures = 	list(
 
 	// Generate symptoms. By default, we only choose non-deadly symptoms.
 	var/list/possible_symptoms = list()
-	for(var/symp in list_symptoms)
+	/*for(var/symp in list_symptoms)
 		var/datum/symptom/S = new symp
 		if(S.level >= level_min && S.level <= level_max)
 			if(!HasSymptom(S))
-				possible_symptoms += S
+				possible_symptoms += S*/
 
 	if(!possible_symptoms.len)
 		return generated
@@ -377,7 +377,7 @@ var/list/advance_cures = 	list(
 
 	var/list/symptoms = list()
 	symptoms += "Done"
-	symptoms += list_symptoms.Copy()
+	//symptoms += list_symptoms.Copy()
 	do
 		if(user)
 			var/symptom = input(user, "Choose a symptom to add ([i] remaining)", "Choose a Symptom") in symptoms
@@ -422,4 +422,3 @@ var/list/advance_cures = 	list(
 		src << "<a href='?_src_=vars;Vars=\ref[D]'>[D.name] - [D.holder]</a>"
 */
 
-#undef RANDOM_STARTING_LEVEL

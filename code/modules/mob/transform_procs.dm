@@ -353,7 +353,7 @@
 
 	var/mob/living/carbon/slime/new_slime
 	if(reproduce)
-		var/number = pick(14;2,3,4)	//reproduce (has a small chance of producing 3 or 4 offspring)
+		var/number = 2//ick(14;2,3,4)	//reproduce (has a small chance of producing 3 or 4 offspring)
 		var/list/babies = list()
 		for(var/i=1,i<=number,i++)
 			var/mob/living/carbon/slime/M = new/mob/living/carbon/slime(loc)

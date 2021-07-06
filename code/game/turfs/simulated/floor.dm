@@ -56,7 +56,7 @@ var/list/wood_icons = list("wood","wood-broken")
 		if(1.0)
 			src.ChangeTurf(/turf/space)
 		if(2.0)
-			switch(pick(1,2;75,3))
+			switch(pick(1,2,3))
 				if (1)
 					src.ReplaceWithLattice()
 					if(prob(33)) new /obj/item/stack/sheet/metal(src)
@@ -428,9 +428,9 @@ turf/simulated/floor/proc/update_icon()
 				qdel(C)
 				T.state = C //fixing it by bashing it with a light bulb, fun eh?
 				update_icon()
-				user << "\blue You replace the light bulb."
+				user << "lue You replace the light bulb."
 			else
-				user << "\blue The lightbulb seems fine, no need to replace it."
+				user << "lue The lightbulb seems fine, no need to replace it."
 
 	if(istype(C, /obj/item/weapon/crowbar) && (!(is_plating())))
 		if(broken || burnt)
@@ -464,7 +464,7 @@ turf/simulated/floor/proc/update_icon()
 		var/obj/item/stack/rods/R = C
 		if (is_plating())
 			if (R.amount >= 2)
-				user << "\blue Reinforcing the floor..."
+				user << "lue Reinforcing the floor..."
 				if(do_after(user, 30) && R && R.amount >= 2 && is_plating())
 					ChangeTurf(/turf/simulated/floor/engine)
 					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
@@ -502,7 +502,7 @@ turf/simulated/floor/proc/update_icon()
 				levelupdate()
 				playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			else
-				user << "\blue This section is too damaged to support a tile. Use a welder to fix the damage."
+				user << "lue This section is too damaged to support a tile. Use a welder to fix the damage."
 
 
 	if(istype(C, /obj/item/stack/cable_coil))
@@ -520,7 +520,7 @@ turf/simulated/floor/proc/update_icon()
 		if(is_grass_floor())
 			new /obj/item/weapon/ore/glass(src)
 			new /obj/item/weapon/ore/glass(src) //Make some sand if you shovel grass
-			user << "\blue You shovel the grass."
+			user << "lue You shovel the grass."
 			make_plating()
 		else
 			user << "\red You cannot shovel this."
@@ -536,4 +536,4 @@ turf/simulated/floor/proc/update_icon()
 					burnt = 0
 					broken = 0
 				else
-					user << "\blue You need more welding fuel to complete this task."
+					user << "lue You need more welding fuel to complete this task."

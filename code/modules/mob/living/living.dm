@@ -17,7 +17,7 @@
 		src.adjustOxyLoss(src.health + 200)
 		src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
 		if(!whispered)
-			src << "\blue You have given up life and succumbed to death."
+			src << "lue You have given up life and succumbed to death."
 		death()
 
 /mob/living/proc/InCritical()
@@ -225,10 +225,10 @@
 
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
-	var/t = shooter:zone_sel.selecting
+	/*var/t = shooter:zone_sel.selecting
 	if ((t in list( "eyes", "mouth" )))
-		t = "head"
-	var/obj/item/organ/limb/def_zone = ran_zone(t)
+		t = "head"*/
+	var/obj/item/organ/limb/def_zone = ran_zone("head")
 	return def_zone
 
 
@@ -339,7 +339,7 @@
 				return
 			else
 				if(Debug)
-					diary <<"pulling disappeared? at [__LINE__] in mob.dm - pulling = [pulling]"
+					diary <<"pulling disappeared? at  in mob.dm - pulling = [pulling]"
 					diary <<"REPORT THIS"
 
 		/////

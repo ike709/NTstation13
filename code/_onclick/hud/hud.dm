@@ -30,7 +30,7 @@ var/datum/global_hud/global_hud = new()
 	var/obj/screen/O
 	var/i
 	//that nasty looking dither you  get when you're short-sighted
-	vimpaired = newlist(/obj/screen,/obj/screen,/obj/screen,/obj/screen)
+	vimpaired = list(new /obj/screen, new /obj/screen, new /obj/screen,new /obj/screen)
 	O = vimpaired[1]
 	O.screen_loc = "WEST,SOUTH to CENTER-3,NORTH"	//West dither
 	O = vimpaired[2]
@@ -41,7 +41,7 @@ var/datum/global_hud/global_hud = new()
 	O.screen_loc = "WEST,CENTER+3 to EAST,NORTH"	//North dither
 
 	//welding mask overlay black/dither
-	darkMask = newlist(/obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen)
+	darkMask = list(new /obj/screen, new /obj/screen, new /obj/screen,new /obj/screen, new /obj/screen, new /obj/screen, new /obj/screen,new /obj/screen)
 	O = darkMask[1]
 	O.screen_loc = "CENTER-5,CENTER-5 to CENTER-3,CENTER+5" //West dither
 	O = darkMask[2]

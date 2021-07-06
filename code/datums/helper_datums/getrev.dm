@@ -61,11 +61,11 @@ var/global/datum/getrev/revdata = new()
 	if(href_list["project_open"])
 		if(alert(usr, "This will open the project in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		usr << link("[project_href]/commit/[revision]")
+		//usr << link("[project_href]/commit/[revision]")
 	else if(href_list["new_issue_open"])
 		if(alert(usr, "This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		usr << link("[project_href]/issues/new")
+		//usr << link("[project_href]/issues/new")
 
 
 		world.log << "Running NTStation revision:"

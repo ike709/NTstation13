@@ -82,9 +82,9 @@
 
 	Parse()
 		ASSERT(tokens)
-		for(,src.index<=src.tokens.len, src.index++)
+		for(index,src.index<=src.tokens.len, src.index++)
 			curToken=tokens[index]
-			switch(curToken.type)
+			switch(curToken)
 				if(/token/keyword)
 					var/n_Keyword/kw=options.keywords[curToken.value]
 					kw=new kw()
@@ -172,8 +172,8 @@
 			if(!CheckToken("(", /token/symbol)) //Check for and skip open parenthesis
 				return
 			var/loops = 0
-			for()
-				loops++
+			for(loops, loops < 800, loops++)
+				//loops++
 				if(loops>=800)
 					errors +=new/scriptError("Cannot find ending params.")
 					return

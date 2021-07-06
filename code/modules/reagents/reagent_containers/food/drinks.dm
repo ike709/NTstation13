@@ -77,7 +77,7 @@
 				return
 
 			var/trans = target.reagents.trans_to(src, target:amount_per_transfer_from_this)
-			user << "\blue You fill [src] with [trans] units of the contents of [target]."
+			user << "lue You fill [src] with [trans] units of the contents of [target]."
 
 		else if(target.is_open_container()) //Something like a glass. Player probably wants to transfer TO it.
 			if(!reagents.total_volume)
@@ -89,7 +89,7 @@
 				return
 
 			var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this)
-			user << "\blue You transfer [trans] units of the solution to [target]."
+			user << "lue You transfer [trans] units of the solution to [target]."
 
 			if(isrobot(user)) //Cyborg modules that include drinks automatically refill themselves, but drain the borg's cell
 				var/mob/living/silicon/robot/bro = user
@@ -105,15 +105,15 @@
 		..()
 		if (!(usr in range(0)) && usr!=src.loc) return
 		if(!reagents || reagents.total_volume==0)
-			usr << "\blue \The [src] is empty!"
+			usr << "lue \The [src] is empty!"
 		else if (reagents.total_volume<=src.volume/4)
-			usr << "\blue \The [src] is almost empty!"
+			usr << "lue \The [src] is almost empty!"
 		else if (reagents.total_volume<=src.volume*0.66)
-			usr << "\blue \The [src] is half full!"
+			usr << "lue \The [src] is half full!"
 		else if (reagents.total_volume<=src.volume*0.90)
-			usr << "\blue \The [src] is almost full!"
+			usr << "lue \The [src] is almost full!"
 		else
-			usr << "\blue \The [src] is full!"
+			usr << "lue \The [src] is full!"
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -170,7 +170,7 @@ var/specops_shuttle_timeleft = 0
 
 /obj/machinery/computer/specops_shuttle/attackby(I as obj, user as mob)
 	if(istype(I,/obj/item/weapon/card/emag))
-		user << "\blue The electronic systems in this console are far too advanced for your primitive hacking peripherals."
+		user << "lue The electronic systems in this console are far too advanced for your primitive hacking peripherals."
 	else
 		return attack_hand(user)
 
@@ -214,7 +214,7 @@ var/specops_shuttle_timeleft = 0
 	if (href_list["sendtodock"])
 		if(!specops_shuttle_at_station|| specops_shuttle_moving_to_station || specops_shuttle_moving_to_centcom) return
 
-		usr << "\blue Central Command will not allow the Special Operations shuttle to return."
+		usr << "lue Central Command will not allow the Special Operations shuttle to return."
 		return
 
 	else if (href_list["sendtostation"])
@@ -224,7 +224,7 @@ var/specops_shuttle_timeleft = 0
 			usr << "\red The Special Operations shuttle is unable to leave."
 			return
 
-		usr << "\blue The Special Operations shuttle will arrive on [station_name] in [(SPECOPS_MOVETIME/10)] seconds."
+		usr << "lue The Special Operations shuttle will arrive on [station_name] in [(SPECOPS_MOVETIME/10)] seconds."
 
 		temp += "Shuttle departing.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 		updateUsrDialog()

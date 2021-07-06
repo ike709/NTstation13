@@ -17,7 +17,7 @@
 */
 //
 	Equal
-		precedence=OOP_EQUAL
+		precedence=4
 
 /*
 	Class: NotEqual
@@ -25,7 +25,7 @@
 */
 //
 	NotEqual
-		precedence=OOP_EQUAL
+		precedence=4
 
 /*
 	Class: Greater
@@ -33,7 +33,7 @@
 */
 //
 	Greater
-		precedence=OOP_COMPARE
+		precedence=5
 
 /*
 	Class: Less
@@ -41,7 +41,7 @@
 */
 //
 	Less
-		precedence=OOP_COMPARE
+		precedence=5
 
 /*
 	Class: GreaterOrEqual
@@ -49,7 +49,7 @@
 */
 //
 	GreaterOrEqual
-		precedence=OOP_COMPARE
+		precedence=5
 
 /*
 	Class: LessOrEqual
@@ -57,7 +57,7 @@
 */
 //
 	LessOrEqual
-		precedence=OOP_COMPARE
+		precedence=5
 
 
 ////////// Logical Operators //////////
@@ -68,7 +68,7 @@
 */
 //
 	LogicalAnd
-		precedence=OOP_AND
+		precedence=6
 
 /*
 	Class: LogicalOr
@@ -76,7 +76,7 @@
 */
 //
 	LogicalOr
-		precedence=OOP_OR
+		precedence=6
 
 /*
 	Class: LogicalXor
@@ -84,7 +84,7 @@
 */
 //
 	LogicalXor					//Not implemented in nS
-		precedence=OOP_OR
+		precedence=6
 
 
 ////////// Bitwise Operators //////////
@@ -98,7 +98,7 @@
 */
 //
 	BitwiseAnd
-		precedence=OOP_BIT
+		precedence=7
 
 /*
 	Class: BitwiseOr
@@ -109,7 +109,7 @@
 */
 //
 	BitwiseOr
-		precedence=OOP_BIT
+		precedence=7
 
 /*
 	Class: BitwiseXor
@@ -120,7 +120,7 @@
 */
 //
 	BitwiseXor
-		precedence=OOP_BIT
+		precedence=7
 
 
 ////////// Arithmetic Operators //////////
@@ -131,7 +131,7 @@
 */
 //
 	Add
-		precedence=OOP_ADD
+		precedence=7
 
 /*
 	Class: Subtract
@@ -139,7 +139,7 @@
 */
 //
 	Subtract
-		precedence=OOP_ADD
+		precedence=2
 
 /*
 	Class: Multiply
@@ -147,7 +147,7 @@
 */
 //
 	Multiply
-		precedence=OOP_MULTIPLY
+		precedence=1
 
 /*
 	Class: Divide
@@ -155,7 +155,7 @@
 */
 //
 	Divide
-		precedence=OOP_MULTIPLY
+		precedence=2
 
 /*
 	Class: Power
@@ -163,7 +163,7 @@
 */
 //
 	Power
-		precedence=OOP_POW
+		precedence=3
 
 /*
 	Class: Modulo
@@ -171,4 +171,4 @@
 */
 //
 	Modulo
-		precedence=OOP_MULTIPLY
+		precedence=4

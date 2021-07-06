@@ -14,7 +14,7 @@
 	if(IsGuestKey(user.key))
 		return 0
 
-	var/savefile/F = new /savefile(src.savefile_path(user))
+	/*var/savefile/F = new /savefile(src.savefile_path(user))
 
 
 	F["name"] << src.name
@@ -22,7 +22,7 @@
 	F["role"] << src.role
 	F["comments"] << src.comments
 
-	F["version"] << 1
+	F["version"] << 1*/
 
 	return 1
 
@@ -35,7 +35,7 @@
 	if (IsGuestKey(user.key))
 		return 0
 
-	var/path = savefile_path(user)
+	/*var/path = savefile_path(user)
 
 	if (!fexists(path))
 		return 0
@@ -56,5 +56,5 @@
 	F["name"] >> src.name
 	F["description"] >> src.description
 	F["role"] >> src.role
-	F["comments"] >> src.comments
+	F["comments"] >> src.comments*/
 	return 1

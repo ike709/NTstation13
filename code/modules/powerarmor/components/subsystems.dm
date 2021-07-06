@@ -11,10 +11,10 @@
 	switch(parent.active)
 		if(1)
 			if(!sudden)
-				usr << "\blue Movement assist servos disengaged."
+				usr << "lue Movement assist servos disengaged."
 			parent.slowdown += toggleslowdown
 		if(0)
-			usr << "\blue Movement assist servos engaged."
+			usr << "lue Movement assist servos engaged."
 			parent.slowdown -= toggleslowdown
 
 /obj/item/weapon/powerarmor/servos/is_subsystem()
@@ -47,9 +47,9 @@
 	switch(parent.active)
 		if(1)
 			if(!sudden)
-				usr << "\blue Medical injector disengaged."
+				usr << "lue Medical injector disengaged."
 		if(0)
-			usr << "\blue Medical injector engaged."
+			usr << "lue Medical injector engaged."
 
 /obj/item/weapon/powerarmor/medinj/is_subsystem()
 	return "medinj"
@@ -72,7 +72,7 @@
 
 	for(var/mob/living/carbon/human/M in range(0, parent))
 		if(M.wear_suit == parent)
-			M << "\blue Medicals injected."
+			M << "lue Medicals injected."
 			M.reagents.add_reagent("doctorsdelight", 5)
 			M.reagents.add_reagent("synaptizine", 5)
 			M.reagents.add_reagent("anti_toxin", 5)
@@ -96,9 +96,9 @@
 	switch(parent.active)
 		if(1)
 			if(!sudden)
-				usr << "\blue Automatic fire extinguisher disengaged."
+				usr << "lue Automatic fire extinguisher disengaged."
 		if(0)
-			usr << "\blue Automatic fire extinguisher engaged."
+			usr << "lue Automatic fire extinguisher engaged."
 
 /obj/item/weapon/powerarmor/autoext/is_subsystem()
 	return "autoext"
@@ -108,8 +108,8 @@
 	if(ishuman(parent.loc))
 		var/mob/living/carbon/human/H = parent.loc
 		if(H.on_fire && parent.use_power(150))
-			H << "\blue *fssszt*"
-			H << "\blue Fire extinguished."
+			H << "lue *fssszt*"
+			H << "lue Fire extinguished."
 			H.ExtinguishMob()
 			H.bodytemperature -= rand(25,30)
 
@@ -132,9 +132,9 @@
 			if(active)
 				toggle_grip(sudden)
 			if(!sudden)
-				usr << "\blue Magnetic grip modules disengaged."
+				usr << "lue Magnetic grip modules disengaged."
 		if(0)
-			usr << "\blue Magnetic grip modules engaged."
+			usr << "lue Magnetic grip modules engaged."
 
 /obj/item/weapon/powerarmor/grip/magnetic/on_mob_move()
 	if(active)
@@ -145,11 +145,11 @@
 
 	if(active)
 		if(!sudden)
-			user << "\blue Magnetic grip modules deactivated."
+			user << "lue Magnetic grip modules deactivated."
 		parent.slowdown -= toggleslowdown
 		parent.shoes.flags &= ~NOSLIP
 	else
-		user << "\blue Magnetic grip modules activated."
+		user << "lue Magnetic grip modules activated."
 		parent.slowdown += toggleslowdown
 		parent.shoes.flags |= NOSLIP
 
@@ -198,9 +198,9 @@
 	switch(parent.active)
 		if(1)
 			if(!sudden)
-				usr << "\blue Ore collector module disengaged."
+				usr << "lue Ore collector module disengaged."
 		if(0)
-			usr << "\blue Ore collector module engaged."
+			usr << "lue Ore collector module engaged."
 
 /obj/item/weapon/powerarmor/orecollector/Stat()
 	..()
@@ -214,7 +214,7 @@
 		var/obj/structure/ore_box/box = A
 		for(var/obj/item/weapon/ore/O in contents)
 			O.loc = box
-		user << "\blue You empty the ore collector into the box."
+		user << "lue You empty the ore collector into the box."
 		return 1
 
 /obj/item/weapon/powerarmor/orecollector/on_mob_move()

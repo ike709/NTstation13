@@ -2,7 +2,7 @@
 // There should only ever be one (global) instance of nanomanger
 /datum/nanomanager
 	// a list of current open /nanoui UIs, grouped by src_object and ui_key
-	var/open_uis[0]
+	var/list/open_uis = list()
 	// a list of current open /nanoui UIs, not grouped, for use in processing
 	var/list/processing_uis = list()
 
@@ -27,9 +27,8 @@
   */
 /datum/nanomanager/proc/try_update_ui(var/mob/user, src_object, ui_key, var/datum/nanoui/ui, data)
 	if (isnull(ui)) // no ui has been passed, so we'll search for one
-	{
 		ui = get_open_ui(user, src_object, ui_key)
-	}
+	
 	if (!isnull(ui))		
 		// The UI is already open so push the data to it
 		ui.push_data(data)

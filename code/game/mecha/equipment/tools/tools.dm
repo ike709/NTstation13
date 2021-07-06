@@ -206,7 +206,7 @@
 			if(istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(chassis,target) <= 1)
 				var/obj/o = target
 				o.reagents.trans_to(src, 200)
-				occupant_message("\blue Extinguisher refilled")
+				occupant_message("lue Extinguisher refilled")
 				playsound(chassis, 'sound/effects/refill.ogg', 50, 1, -6)
 			else
 				if(src.reagents.total_volume > 0)
@@ -591,7 +591,7 @@
 		if(!action_checks(src))
 			return chassis.dynbulletdamage(Proj)
 		if(prob(chassis.deflect_chance*deflect_coeff))
-			chassis.occupant_message("\blue The armor deflects incoming projectile.")
+			chassis.occupant_message("lue The armor deflects incoming projectile.")
 			chassis.visible_message("The [chassis.name] armor deflects the projectile")
 			chassis.log_append_to_last("Armor saved.")
 		else
@@ -607,7 +607,7 @@
 		if(!action_checks(A))
 			return chassis.dynhitby(A)
 		if(prob(chassis.deflect_chance*deflect_coeff) || istype(A, /mob/living) || istype(A, /obj/item/mecha_parts/mecha_tracking))
-			chassis.occupant_message("\blue The [A] bounces off the armor.")
+			chassis.occupant_message("lue The [A] bounces off the armor.")
 			chassis.visible_message("The [A] bounces off the [chassis] armor")
 			chassis.log_append_to_last("Armor saved.")
 			if(istype(A, /mob/living))
@@ -684,33 +684,33 @@
 
 /datum/global_iterator/mecha_repair_droid
 
-	process(var/obj/item/mecha_parts/mecha_equipment/repair_droid/RD as obj)
-		if(!RD.chassis)
+	process(var/obj/item/mecha_parts/mecha_equipment/repair_droid/rd as obj)
+		if(!rd.chassis)
 			stop()
-			RD.set_ready_state(1)
+			rd.set_ready_state(1)
 			return
-		var/health_boost = RD.health_boost
+		var/health_boost = rd.health_boost
 		var/repaired = 0
-		if(RD.chassis.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
+		if(rd.chassis.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			health_boost *= -2
-		else if(RD.chassis.hasInternalDamage() && prob(15))
-			for(var/int_dam_flag in RD.repairable_damage)
-				if(RD.chassis.hasInternalDamage(int_dam_flag))
-					RD.chassis.clearInternalDamage(int_dam_flag)
+		else if(rd.chassis.hasInternalDamage() && prob(15))
+			for(var/int_dam_flag in rd.repairable_damage)
+				if(rd.chassis.hasInternalDamage(int_dam_flag))
+					rd.chassis.clearInternalDamage(int_dam_flag)
 					repaired = 1
 					break
-		if(health_boost<0 || RD.chassis.health < initial(RD.chassis.health))
-			RD.chassis.health += min(health_boost, initial(RD.chassis.health)-RD.chassis.health)
+		if(health_boost<0 || rd.chassis.health < initial(rd.chassis.health))
+			rd.chassis.health += min(health_boost, initial(rd.chassis.health)-rd.chassis.health)
 			repaired = 1
 		if(repaired)
-			if(RD.chassis.use_power(RD.energy_drain))
-				RD.set_ready_state(0)
+			if(rd.chassis.use_power(rd.energy_drain))
+				rd.set_ready_state(0)
 			else
 				stop()
-				RD.set_ready_state(1)
+				rd.set_ready_state(1)
 				return
 		else
-			RD.set_ready_state(1)
+			rd.set_ready_state(1)
 		return
 
 

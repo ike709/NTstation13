@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-var/const/CALL_SHUTTLE_REASON_LENGTH = 12
+#define CALL_SHUTTLE_REASON_LENGTH 12
 
 // The communications computer
 /obj/machinery/computer/communications
@@ -16,23 +16,12 @@ var/const/CALL_SHUTTLE_REASON_LENGTH = 12
 	var/list/messagetext = list()
 	var/currmsg = 0
 	var/aicurrmsg = 0
-	var/state = STATE_DEFAULT
-	var/aistate = STATE_DEFAULT
+	var/state = 1
+	var/aistate = 1
 	var/message_cooldown = 0
 	var/ai_message_cooldown = 0
 	var/centcom_message_cooldown = 0
 	var/tmp_alertlevel = 0
-	var/const/STATE_DEFAULT = 1
-	var/const/STATE_CALLSHUTTLE = 2
-	var/const/STATE_CANCELSHUTTLE = 3
-	var/const/STATE_MESSAGELIST = 4
-	var/const/STATE_VIEWMESSAGE = 5
-	var/const/STATE_DELMESSAGE = 6
-	var/const/STATE_STATUSDISPLAY = 7
-	var/const/STATE_ALERT_LEVEL = 8
-	var/const/STATE_CONFIRM_LEVEL = 9
-	var/const/STATE_TOGGLE_EMERGENCY = 10
-	var/const/STATE_CREWTRANSFER = 11
 
 	var/status_display_freq = "1435"
 	var/stat_msg1
@@ -53,7 +42,7 @@ var/const/CALL_SHUTTLE_REASON_LENGTH = 12
 	if(..())
 		return
 	if (src.z > 1)
-		usr << "\red <b>Unable to establish a connection</b>: \black You're too far away from the station!"
+		usr << "\red <b>Unable to establish a connection</b>: lack You're too far away from the station!"
 		return
 	usr.set_machine(src)
 
@@ -104,7 +93,7 @@ var/const/CALL_SHUTTLE_REASON_LENGTH = 12
 							if(SEC_LEVEL_BLUE)
 								feedback_inc("alert_comms_blue",1)
 					tmp_alertlevel = 0
-				else:
+				else
 					usr << "You are not authorized to do this."
 					tmp_alertlevel = 0
 				state = STATE_DEFAULT
@@ -327,7 +316,7 @@ var/const/CALL_SHUTTLE_REASON_LENGTH = 12
 	if(..())
 		return
 	if (src.z > 6)
-		user << "\red <b>Unable to establish a connection</b>: \black You're too far away from the station!"
+		user << "\red <b>Unable to establish a connection</b>: lack You're too far away from the station!"
 		return
 
 	user.set_machine(src)

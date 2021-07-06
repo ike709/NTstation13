@@ -65,7 +65,7 @@
 	var/obj/machinery/mineral/stacking_unit_console/CONSOLE
 	var/stk_types = list()
 	var/stk_amt   = list()
-	var/stack_list[0] //Key: Type.  Value: Instance of type.
+	var/stack_list //Key: Type.  Value: Instance of type.
 	var/stack_amt = 50; //ammount to stack before releassing
 	input_dir = EAST
 	output_dir = WEST

@@ -8,7 +8,7 @@
 /////////////////////////////////
 
 /mob/living/carbon/monkey
-	var/list/overlays_standing[M_TOTAL_LAYERS]
+	var/list/overlays_standing = list()
 
 /mob/living/carbon/monkey/regenerate_icons()
 	..()
@@ -138,7 +138,5 @@
 #undef M_MASK_LAYER
 #undef M_BACK_LAYER
 #undef M_HANDCUFF_LAYER
-#undef M_L_HAND_LAYER
-#undef M_R_HAND_LAYER
 #undef M_TOTAL_LAYERS
 

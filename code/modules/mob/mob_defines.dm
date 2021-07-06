@@ -32,16 +32,16 @@
 	var/obj/screen/zone_sel/zone_sel = null
 
 	var/damageoverlaytemp = 0
-	var/tmp/computer_id = null
+	var/computer_id = null
 	var/lastattacker = null
 	var/lastattacked = null
 	var/attack_log = list( )
-	var/tmp/obj/machinery/machine = null
+	var/obj/machinery/machine = null
 	var/other_mobs = null
 	var/memory = ""
 	var/sdisabilities = 0	//Carbon
 	var/disabilities = 0	//Carbon
-	var/tmp/atom/movable/pulling = null
+	var/atom/movable/pulling = null
 	var/next_move = null
 	var/notransform = null	//Carbon
 	var/hand = null
@@ -128,7 +128,7 @@
 	var/move_on_shuttle = 1 // Can move on the shuttle.
 
 //The last mob/living/carbon to push/drag/grab this mob (mostly used by slimes friend recognition)
-	var/tmp/mob/living/carbon/LAssailant = null
+	var/mob/living/carbon/LAssailant = null
 
 
 	var/list/mob_spell_list = list() //construct spells and mime spells. Spells that do not transfer from one mob to another and can not be lost in mindswap.
@@ -144,13 +144,13 @@
 	var/list/resistances = list()
 	var/datum/disease/virus = null
 
-	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/update_icon = 1 //Set to 1 to trigger update_icons() at the next life() call
 
 	var/status_flags = CANSTUN|CANWEAKEN|CANPARALYSE|CANPUSH	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
 
-	var/tmp/area/lastarea = null
+	var/area/lastarea = null
 
 	var/digitalcamo = 0 // Can they be tracked by the AI?
 
@@ -165,4 +165,4 @@
 	var/robot_talk_understand = 0
 	var/alien_talk_understand = 0
 
-	var/tmp/turf/listed_turf = null	//the current turf being examined in the stat panel
+	var/turf/listed_turf = null	//the current turf being examined in the stat panel

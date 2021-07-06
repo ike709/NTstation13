@@ -28,15 +28,15 @@ var
 	OOP_GROUP			- Parentheses
 */
 		OOP_OR      = 							1   //||
-		OOP_AND     = OOP_OR			+ 1   	//&&
-		OOP_BIT     = OOP_AND			+ 1   //&, |
-		OOP_EQUAL   = OOP_BIT			+ 1   //==, !=
-		OOP_COMPARE = OOP_EQUAL		+ 1   //>, <, >=, <=
-		OOP_ADD     = OOP_COMPARE	+ 1 	//+, -
-		OOP_MULTIPLY= OOP_ADD			+ 1   //*, /, %
-		OOP_POW     = OOP_MULTIPLY+ 1		//^
-		OOP_UNARY   = OOP_POW			+ 1   //!
-		OOP_GROUP   = OOP_UNARY		+ 1   //()
+		OOP_AND     = 2//OOP_OR			+ 1   	//&&
+		OOP_BIT     = 3//OOP_AND			+ 1   //&, |
+		OOP_EQUAL   = 4//OOP_BIT			+ 1   //==, !=
+		OOP_COMPARE = 5//OOP_EQUAL		+ 1   //>, <, >=, <=
+		OOP_ADD     = 6//OOP_COMPARE	+ 1 	//+, -
+		OOP_MULTIPLY= 7//OOP_ADD			+ 1   //*, /, %
+		OOP_POW     = 8//OOP_MULTIPLY+ 1		//^
+		OOP_UNARY   = 9//OOP_POW			+ 1   //!
+		OOP_GROUP   = 10//OOP_UNARY		+ 1   //()
 
 /*
 	Class: node
@@ -44,7 +44,7 @@ var
 /node
 	proc
 		ToString()
-			return "[src.type]"
+			return "[src]"
 /*
 	Class: identifier
 */
@@ -76,7 +76,7 @@ var
 
 	New()
 		.=..()
-		if(!src.name) src.name="[src.type]"
+		if(!src.name) src.name="[src]"
 
 	ToString()
 		return "operator: [name]"
@@ -136,4 +136,4 @@ var
 		src.value=value
 
 	ToString()
-		return "ref: [src.value] ([src.value.type])"
+		return "ref: [src.value] ([src.value])"

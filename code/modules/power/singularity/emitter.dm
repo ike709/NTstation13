@@ -148,7 +148,9 @@
 			user << "Turn off the [src] first."
 			return
 		switch(state)
-			if(0 && !isinspace())
+			if(0)
+				if(isinspace())
+					return
 				state = 1
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				user.visible_message("[user.name] secures [src.name] to the floor.", \

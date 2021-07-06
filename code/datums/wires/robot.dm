@@ -3,10 +3,10 @@
 	holder_type = /mob/living/silicon/robot
 	wire_count = 4
 
-var/const/BORG_WIRE_LAWCHECK = 1
-var/const/BORG_WIRE_LOCKED_DOWN = 2
-var/const/BORG_WIRE_AI_CONTROL = 4
-var/const/BORG_WIRE_CAMERA = 8
+#define BORG_WIRE_LAWCHECK 1
+#define BORG_WIRE_LOCKED_DOWN 2
+#define BORG_WIRE_AI_CONTROL 4
+#define BORG_WIRE_CAMERA 8
 
 /datum/wires/robot/GetInteractWindow()
 

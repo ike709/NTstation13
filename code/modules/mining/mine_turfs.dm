@@ -403,7 +403,7 @@
 		playsound(user, 'sound/weapons/Genhit.ogg', 20, 1)
 
 		if(do_after(user,W:digspeed))
-			user << "\blue You finish cutting into the rock."
+			user << "lue You finish cutting into the rock."
 			gets_drilled()
 	else
 		return attack_hand(user)
@@ -529,7 +529,7 @@
 
 		sleep(40)
 		if ((user.loc == T && user.get_active_hand() == W))
-			user << "\blue You dug a hole."
+			user << "lue You dug a hole."
 			gets_dug()
 			return
 
@@ -547,7 +547,7 @@
 
 		sleep(30)
 		if ((user.loc == T && user.get_active_hand() == W))
-			user << "\blue You dug a hole."
+			user << "lue You dug a hole."
 			gets_dug()
 
 	if ((istype(W,/obj/item/weapon/pickaxe/diamonddrill)) || (istype(W,/obj/item/weapon/pickaxe/borgdrill)))
@@ -564,7 +564,7 @@
 
 		sleep(0)
 		if ((user.loc == T && user.get_active_hand() == W))
-			user << "\blue You dug a hole."
+			user << "lue You dug a hole."
 			gets_dug()
 
 	if(istype(W,/obj/item/weapon/storage/bag/ore))

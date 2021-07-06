@@ -20,10 +20,10 @@ client
 			var/atom/A = D
 			title = "[A.name] (\ref[A]) = [A.type]"
 
-			#ifdef VARSICON
+			/*#ifdef VARSICON
 			if (A.icon)
 				body += debug_variable("icon", new/icon(A.icon, A.icon_state, A.dir), 0)
-			#endif
+			#endif*/
 
 		var/icon/sprite
 
@@ -288,8 +288,8 @@ client
 
 		names = sortList(names)
 
-		for (var/V in names)
-			body += debug_variable(V, D.vars[V], 0, D)
+		//for (var/V in names)
+		//	body += debug_variable(V, D.vars[V], 0, D)
 
 		body += "</ol>"
 
@@ -323,82 +323,7 @@ client
 		usr << browse(html, "window=variables\ref[D];size=475x650")
 
 		return
-
-	proc/debug_variable(name, value, level, var/datum/DA = null)
-		var/html = ""
-
-		if(DA)
-			html += "<li style='backgroundColor:white'>(<a href='?_src_=vars;datumedit=\ref[DA];varnameedit=[name]'>E</a>) (<a href='?_src_=vars;datumchange=\ref[DA];varnamechange=[name]'>C</a>) (<a href='?_src_=vars;datummass=\ref[DA];varnamemass=[name]'>M</a>) "
-		else
-			html += "<li>"
-
-		if (isnull(value))
-			html += "[name] = <span class='value'>null</span>"
-
-		else if (istext(value))
-			html += "[name] = <span class='value'>\"[value]\"</span>"
-
-		else if (isicon(value))
-			#ifdef VARSICON
-			var/icon/I = new/icon(value)
-			var/rnd = rand(1,10000)
-			var/rname = "tmp\ref[I][rnd].png"
-			usr << browse_rsc(I, rname)
-			html += "[name] = (<span class='value'>[value]</span>) <img class=icon src=\"[rname]\">"
-			#else
-			html += "[name] = /icon (<span class='value'>[value]</span>)"
-			#endif
-
-/*		else if (istype(value, /image))
-			#ifdef VARSICON
-			var/rnd = rand(1, 10000)
-			var/image/I = value
-
-			src << browse_rsc(I.icon, "tmp\ref[value][rnd].png")
-			html += "[name] = <img src=\"tmp\ref[value][rnd].png\">"
-			#else
-			html += "[name] = /image (<span class='value'>[value]</span>)"
-			#endif
-*/
-		else if (isfile(value))
-			html += "[name] = <span class='value'>'[value]'</span>"
-
-		else if (istype(value, /datum))
-			var/datum/D = value
-			html += "<a href='?_src_=vars;Vars=\ref[value]'>[name] \ref[value]</a> = [D.type]"
-
-		else if (istype(value, /client))
-			var/client/C = value
-			html += "<a href='?_src_=vars;Vars=\ref[value]'>[name] \ref[value]</a> = [C] [C.type]"
-	//
-		else if (istype(value, /list))
-			var/list/L = value
-			html += "[name] = /list ([L.len])"
-
-			if (L.len > 0 && !(name == "underlays" || name == "overlays" || name == "vars" || L.len > 500))
-				// not sure if this is completely right...
-				if(0)   //(L.vars.len > 0)
-					html += "<ol>"
-					html += "</ol>"
-				else
-					html += "<ul>"
-					var/index = 1
-					for (var/entry in L)
-						if(istext(entry))
-							html += debug_variable(entry, L[entry], level + 1)
-						//html += debug_variable("[index]", L[index], level + 1)
-						else
-							html += debug_variable(index, L[index], level + 1)
-						index++
-					html += "</ul>"
-
-		else
-			html += "[name] = <span class='value'>[value]</span>"
-
-		html += "</li>"
-
-		return html
-
+		
 /client/proc/view_var_Topic(href, href_list, hsrc)
 	//This should all be moved over to datum/admins/Topic() or something ~Carn
 	if( (usr.client != src) || !src.holder )
@@ -623,7 +548,7 @@ client
 						usr << "No objects of this type exist"
 						return
 					log_admin("[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted) ")
-					message_admins("\blue [key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted) ")
+					message_admins("lue [key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted) ")
 				if("Type and subtypes")
 					var/i = 0
 					for(var/obj/Obj in world)
@@ -634,7 +559,7 @@ client
 						usr << "No objects of this type exist"
 						return
 					log_admin("[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted) ")
-					message_admins("\blue [key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted) ")
+					message_admins("lue [key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted) ")
 
 		else if(href_list["addreagent"])
 			if(!check_rights(0))	return
@@ -664,7 +589,7 @@ client
 						if(amount)
 							A.reagents.add_reagent(chosen_id, amount)
 							log_admin("[key_name(usr)] has added [amount] units of [chosen] to \the [A]")
-							message_admins("\blue [key_name(usr)] has added [amount] units of [chosen] to \the [A]")
+							message_admins("lue [key_name(usr)] has added [amount] units of [chosen] to \the [A]")
 
 			href_list["datumrefresh"] = href_list["addreagent"]
 
@@ -879,7 +804,7 @@ client
 
 			if(amount != 0)
 				log_admin("[key_name(usr)] dealt [amount] amount of [Text] damage to [L] ")
-				message_admins("\blue [key_name(usr)] dealt [amount] amount of [Text] damage to [L] ")
+				message_admins("lue [key_name(usr)] dealt [amount] amount of [Text] damage to [L] ")
 				href_list["datumrefresh"] = href_list["mobToDamage"]
 
 

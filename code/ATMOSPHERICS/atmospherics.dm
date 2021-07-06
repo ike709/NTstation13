@@ -72,12 +72,12 @@ obj/machinery/atmospherics/attackby(var/obj/item/weapon/W as obj, var/mob/user a
 			add_fingerprint(user)
 			return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		user << "\blue You begin to unfasten \the [src]..."
+		user << "lue You begin to unfasten \the [src]..."
 		add_fingerprint(user)
 		if (do_after(user, 40))
 			user.visible_message( \
 				"[user] unfastens \the [src].", \
-				"\blue You have unfastened \the [src].", \
+				"lue You have unfastened \the [src].", \
 				"You hear ratchet.")
 			var/obj/item/pipe/newpipe = new(loc, make_from=src)
 			transfer_fingerprints_to(newpipe)

@@ -55,7 +55,7 @@
 			if (istype(W, /obj/item/weapon/screwdriver))
 				if (do_after(user, 20))
 					src.open =! src.open
-					user.show_message(text("\blue You [] the service panel.", (src.open ? "open" : "close")))
+					user.show_message(text("lue You [] the service panel.", (src.open ? "open" : "close")))
 				return
 			if ((istype(W, /obj/item/device/multitool)) && (src.open == 1)&& (!src.l_hacking))
 				user.show_message(text("\red Now attempting to reset internal memory, please hold."), 1)

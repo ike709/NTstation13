@@ -5,15 +5,14 @@
 
 var/list/gravity_generators = list() // We will keep track of this by adding new gravity generators to the list, and keying it with the z level.
 
-var/const/POWER_IDLE = 0
-var/const/POWER_UP = 1
-var/const/POWER_DOWN = 2
+#define POWER_IDLE 0
+#define POWER_UP 1
+#define POWER_DOWN 2
 
-var/const/GRAV_NEEDS_SCREWDRIVER = 0
-var/const/GRAV_NEEDS_WELDING = 1
-var/const/GRAV_NEEDS_PLASTEEL = 2
-var/const/GRAV_NEEDS_WRENCH = 3
-
+#define GRAV_NEEDS_SCREWDRIVER 0
+#define GRAV_NEEDS_WELDING 1
+#define GRAV_NEEDS_PLASTEEL 2
+#define GRAV_NEEDS_WRENCH 3
 //
 // Abstract Generator
 //
@@ -110,7 +109,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 	var/breaker = 1
 	var/list/parts = list()
 	var/obj/middle = null
-	var/charging_state = POWER_IDLE
+	var/charging_state = 0
 	var/charge_count = 100
 	var/current_overlay = null
 	var/broken_state = 0

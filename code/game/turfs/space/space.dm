@@ -21,7 +21,7 @@
 		if(L)
 			return
 		var/obj/item/stack/rods/R = C
-		user << "\blue Constructing support lattice ..."
+		user << "lue Constructing support lattice ..."
 		playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 		ReplaceWithLattice()
 		R.use(1)

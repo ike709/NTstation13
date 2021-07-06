@@ -52,7 +52,7 @@
 		return
 
 	message_admins("[key_name_admin(src)] accessed file: [path]")
-	src << run( file(path) )
+//	src << run( file(path) )
 	src << "Attempting to send file, this may take a fair few minutes if the file is very large."
 	return
 
@@ -72,7 +72,7 @@
 		return
 
 	message_admins("[key_name_admin(src)] accessed file: [path]")
-	src << run( file(path) )
+	//src << run( file(path) )
 	src << "Attempting to send file, this may take a fair few minutes if the file is very large."
 	return
 
@@ -86,11 +86,11 @@
 	set desc = "Shows today's server log."
 
 	var/path = "data/logs/[time2text(world.realtime,"YYYY/MM-Month/DD-Day")].log"
-	if( fexists(path) )
+	/*if( fexists(path) )
 		src << run( file(path) )
 	else
 		src << "<font color='red'>Error: view_txt_log(): File not found/Invalid path([path]).</font>"
-		return
+		return*/
 	feedback_add_details("admin_verb","VTL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
@@ -101,11 +101,11 @@
 	set desc = "Shows today's server attack log."
 
 	var/path = "data/logs/[time2text(world.realtime,"YYYY/MM-Month/DD-Day")] Attack.log"
-	if( fexists(path) )
+/*	if( fexists(path) )
 		src << run( file(path) )
 	else
 		src << "<font color='red'>Error: view_atk_log(): File not found/Invalid path([path]).</font>"
 		return
-	usr << run( file(path) )
+	usr << run( file(path) )*/
 	feedback_add_details("admin_verb","SSAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

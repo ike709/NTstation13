@@ -1,7 +1,7 @@
 //ban people from using custom names and appearances. that'll show 'em.
 
 var/appearanceban_runonce	//Updates legacy bans with new info
-var/appearance_keylist[0]	//to store the keys
+var/list/appearance_keylist = list()	//to store the keys
 
 /proc/appearance_fullban(mob/M, reason)
 	if (!M || !M.key) return
@@ -41,6 +41,7 @@ DEBUG
 */
 
 /proc/appearance_loadbanfile()
+	return /*
 	if(config.ban_legacy_system)
 		var/savefile/S=new("data/appearance_full.ban")
 		S["keys[0]"] >> appearance_keylist
@@ -65,11 +66,12 @@ DEBUG
 		while(query.NextRow())
 			var/ckey = query.item[1]
 
-			appearance_keylist.Add("[ckey]")
+			appearance_keylist.Add("[ckey]")*/
 
 /proc/appearance_savebanfile()
-	var/savefile/S=new("data/appearance_full.ban")
-	S["keys[0]"] << appearance_keylist
+	return
+	//var/savefile/S=new("data/appearance_full.ban")
+	//S["keys[0]"] << appearance_keylist
 
 /proc/appearance_unban(mob/M)
 	appearance_remove("[M.ckey]")

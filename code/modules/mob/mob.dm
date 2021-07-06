@@ -32,14 +32,14 @@ var/next_mob_id = 0
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/t = "\blue Coordinates: [x],[y] \n"
+	var/t = "lue Coordinates: [x],[y] \n"
 	t+= "\red Temperature: [environment.temperature] \n"
-	t+= "\blue Nitrogen: [environment.nitrogen] \n"
-	t+= "\blue Oxygen: [environment.oxygen] \n"
-	t+= "\blue Plasma : [environment.toxins] \n"
-	t+= "\blue Carbon Dioxide: [environment.carbon_dioxide] \n"
+	t+= "lue Nitrogen: [environment.nitrogen] \n"
+	t+= "lue Oxygen: [environment.oxygen] \n"
+	t+= "lue Plasma : [environment.toxins] \n"
+	t+= "lue Carbon Dioxide: [environment.carbon_dioxide] \n"
 	for(var/datum/gas/trace_gas in environment.trace_gases)
-		usr << "\blue [trace_gas.type]: [trace_gas.moles] \n"
+		usr << "lue [trace_gas.type]: [trace_gas.moles] \n"
 
 	usr.show_message(t, 1)
 
@@ -328,12 +328,12 @@ var/list/slot_equipment_priority = list( \
 	if (!( abandon_allowed ))
 		return
 	if ((stat != 2 || !( ticker )))
-		usr << "\blue <B>You must be dead to use this!</B>"
+		usr << "lue <B>You must be dead to use this!</B>"
 		return
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
-	usr << "\blue <B>Please roleplay correctly!</B>"
+	usr << "lue <B>Please roleplay correctly!</B>"
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
@@ -391,7 +391,7 @@ var/list/slot_equipment_priority = list( \
 	if(check_rights_for(client,R_ADMIN))
 		is_admin = 1
 	else if(stat != DEAD || istype(src, /mob/new_player))
-		usr << "\blue You must be observing to use this!"
+		usr << "lue You must be observing to use this!"
 		return
 
 	if(is_admin && stat == DEAD)

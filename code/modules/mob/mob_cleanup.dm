@@ -79,7 +79,7 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 	var/passed = 1
 
 	//chances to target this zone
-	var/head_ch
+	/*var/head_ch
 	var/body_ch
 	var/hands_ch
 	var/feet_ch
@@ -102,10 +102,10 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 			head_ch = 100
 			body_ch = 100
 			hands_ch = 25
-			feet_ch = 25
+			feet_ch = 25*/
 
 
-	var/target_zone = pick(head_ch;1,body_ch;2,hands_ch;3,feet_ch;4)//1 - head, 2 - body, 3 - hands, 4- feet
+	var/target_zone = 2//pick(head_ch;1,body_ch;2,hands_ch;3,feet_ch;4)//1 - head, 2 - body, 3 - hands, 4- feet
 
 	if(istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = src

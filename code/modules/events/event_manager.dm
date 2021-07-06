@@ -187,7 +187,7 @@ var/datum/controller/event/events
 				if(20)
 					holiday = "Four-Twenty"
 					for(var/obj/machinery/vending/hydroseeds/weedcontainer in machines)
-						weedcontainer.products.Add(/obj/item/seeds/blazeit = 3)
+						weedcontainer.products.Add(/obj/item/seeds/blazeit)
 					if(YY == 14 && prob(50))	holiday = "Easter"
 				if(22)							holiday = "Earth Day"
 
@@ -198,6 +198,7 @@ var/datum/controller/event/events
 				if(12)							holiday = "Owl and Pussycat Day"	//what a dumb day of observence...but we -do- have costumes already :3
 
 		if(6)	//Jun
+			return
 
 		if(7)	//Jul
 			switch(DD)

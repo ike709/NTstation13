@@ -40,7 +40,7 @@
 	var/next_dest
 	var/next_dest_loc
 	bot_type = CLEAN_BOT
-	bot_filter = RADIO_CLEANBOT
+	bot_filter = "10"
 
 /obj/machinery/bot/cleanbot/New()
 	..()

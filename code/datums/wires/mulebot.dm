@@ -3,15 +3,15 @@
 	holder_type = /obj/machinery/bot/mulebot
 	wire_count = 10
 
-var/const/WIRE_POWER1 = 1			// power connections
-var/const/WIRE_POWER2 = 2
-var/const/WIRE_AVOIDANCE = 4		// mob avoidance
-var/const/WIRE_LOADCHECK = 8		// load checking (non-crate)
-var/const/WIRE_MOTOR1 = 16		// motor wires
-var/const/WIRE_MOTOR2 = 32		//
-var/const/WIRE_REMOTE_RX = 64		// remote recv functions
-var/const/WIRE_REMOTE_TX = 128	// remote trans status
-var/const/WIRE_BEACON_RX = 256	// beacon ping recv
+#define WIRE_POWER1 1			// power connections
+#define WIRE_POWER2 2
+#define WIRE_AVOIDANCE 4		// mob avoidance
+#define WIRE_LOADCHECK 8		// load checking (non-crate)
+#define WIRE_MOTOR1 16		// motor wires
+#define WIRE_MOTOR2 32		//
+#define WIRE_REMOTE_RX 64		// remote recv functions
+#define WIRE_REMOTE_TX 128	// remote trans status
+#define WIRE_BEACON_RX 256	// beacon ping recv
 
 /datum/wires/mulebot/CanUse(var/mob/living/L)
 	var/obj/machinery/bot/mulebot/M = holder
@@ -28,15 +28,15 @@ var/const/WIRE_BEACON_RX = 256	// beacon ping recv
 /datum/wires/mulebot/UpdatePulsed(var/index)
 	switch(index)
 		if(WIRE_POWER1, WIRE_POWER2)
-			holder.visible_message("\blue \icon[holder] The charge light flickers.")
+			holder.visible_message("lue \icon[holder] The charge light flickers.")
 		if(WIRE_AVOIDANCE)
-			holder.visible_message("\blue \icon[holder] The external warning lights flash briefly.")
+			holder.visible_message("lue \icon[holder] The external warning lights flash briefly.")
 		if(WIRE_LOADCHECK)
-			holder.visible_message("\blue \icon[holder] The load platform clunks.")
+			holder.visible_message("lue \icon[holder] The load platform clunks.")
 		if(WIRE_MOTOR1, WIRE_MOTOR2)
-			holder.visible_message("\blue \icon[holder] The drive motor whines briefly.")
+			holder.visible_message("lue \icon[holder] The drive motor whines briefly.")
 		else
-			holder.visible_message("\blue \icon[holder] You hear a radio crackle.")
+			holder.visible_message("lue \icon[holder] You hear a radio crackle.")
 
 // HELPER PROCS
 

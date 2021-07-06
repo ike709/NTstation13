@@ -382,7 +382,7 @@ proc/is_special_character(mob/M) // returns 1 for special characters and 2 for h
 			var/mob/living/silicon/robot/R = M
 			if(R.emagged || R.syndicate) //Count as antags
 				return 1
-			if(R.mind && R.mind.special_role && R.laws && R.laws.zeroth).
+			if(R.mind && R.mind.special_role && R.laws && R.laws.zeroth)
 				if(R.connected_ai)
 					if(is_special_character(R.connected_ai) && R.connected_ai.laws && (R.connected_ai.laws.zeroth_borg == R.laws.zeroth || R.connected_ai.laws.zeroth == R.laws.zeroth))
 						return 0 //AI is the real traitor here, so the borg itself is not a traitor

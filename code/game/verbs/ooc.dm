@@ -96,9 +96,9 @@ var/global/normal_ooc_colour = "#002eb8"
 	set desc ="Check the admin notice if it has been set"
 
 	if(admin_notice)
-		src << "\blue <b>Admin Notice:</b>\n \t [admin_notice]"
+		src << "lue <b>Admin Notice:</b>\n \t [admin_notice]"
 	else
-		src << "\blue There are no admin notices at the moment."
+		src << "lue There are no admin notices at the moment."
 
 /client/verb/motd()
 	set name = "MOTD"
@@ -108,4 +108,4 @@ var/global/normal_ooc_colour = "#002eb8"
 	if(join_motd)
 		src << "<div class=\"motd\">[join_motd]</div>"
 	else
-		src << "\blue The Message of the Day has not been set."
+		src << "lue The Message of the Day has not been set."

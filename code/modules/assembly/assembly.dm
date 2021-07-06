@@ -16,13 +16,12 @@
 	var/list/attached_overlays = null
 	var/obj/item/device/assembly_holder/holder = null
 	var/cooldown = 0//To prevent spam
-	var/wires = WIRE_RECEIVE | WIRE_PULSE
+	var/wires = (1 | 2)
 
-	var/const/WIRE_RECEIVE = 1			//Allows Pulsed(0) to call Activate()
-	var/const/WIRE_PULSE = 2				//Allows Pulse(0) to act on the holder
-	var/const/WIRE_PULSE_SPECIAL = 4		//Allows Pulse(0) to act on the holders special assembly
-	var/const/WIRE_RADIO_RECEIVE = 8		//Allows Pulsed(1) to call Activate()
-	var/const/WIRE_RADIO_PULSE = 16		//Allows Pulse(1) to send a radio message
+#define WIRE_PULSE 1				//Allows Pulse(0) to act on the holder
+#define WIRE_PULSE_SPECIAL 4		//Allows Pulse(0) to act on the holders special assembly
+#define WIRE_RADIO_RECEIVE 8		//Allows Pulsed(1) to call Activate()
+#define WIRE_RADIO_PULSE 16		//Allows Pulse(1) to send a radio message
 
 	proc/activate()									//What the device does when turned on
 		return
@@ -98,7 +97,7 @@
 	attach_assembly(var/obj/item/device/assembly/A, var/mob/user)
 		holder = new/obj/item/device/assembly_holder(get_turf(src))
 		if(holder.attach(A,src,user))
-			user << "\blue You attach \the [A] to \the [src]!"
+			user << "lue You attach \the [A] to \the [src]!"
 			return 1
 		return 0
 
@@ -111,9 +110,9 @@
 				return
 		if(istype(W, /obj/item/weapon/screwdriver))
 			if(toggle_secure())
-				user << "\blue \The [src] is ready!"
+				user << "lue \The [src] is ready!"
 			else
-				user << "\blue \The [src] can now be attached!"
+				user << "lue \The [src] can now be attached!"
 			return
 		..()
 		return

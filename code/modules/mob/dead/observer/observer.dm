@@ -191,7 +191,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(following && following == target)
 			return
 		following = target
-		src << "\blue Now following [target]"
+		src << "lue Now following [target]"
 		spawn(0)
 			var/turf/pos = get_turf(src)
 			while(loc == pos && target && following == target && client)

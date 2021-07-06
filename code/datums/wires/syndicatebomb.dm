@@ -3,11 +3,11 @@
 	holder_type = /obj/machinery/syndicatebomb
 	wire_count = 5
 
-var/const/WIRE_BOOM = 1			// Explodes if pulsed or cut while active, defuses a bomb that isn't active on cut
-var/const/WIRE_UNBOLT = 2		// Unbolts the bomb if cut, hint on pulsed
-var/const/WIRE_DELAY = 4		// Raises the timer on pulse, does nothing on cut
-var/const/WIRE_PROCEED = 8		// Lowers the timer, explodes if cut while the bomb is active
-var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if pulsed while already active, will stop a timer a bomb on cut
+#define WIRE_BOOM 1			// Explodes if pulsed or cut while active, defuses a bomb that isn't active on cut
+#define WIRE_UNBOLT 2		// Unbolts the bomb if cut, hint on pulsed
+#define WIRE_DELAY 4		// Raises the timer on pulse, does nothing on cut
+#define WIRE_PROCEED 8		// Lowers the timer, explodes if cut while the bomb is active
+#define WIRE_ACTIVATE 16	// Will start a bombs timer if pulsed, will hint if pulsed while already active, will stop a timer a bomb on cut
 
 
 /datum/wires/syndicatebomb/CanUse(var/mob/living/L)
@@ -24,10 +24,10 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 				P.loc.visible_message("\red \icon[holder] An alarm sounds! It's go-")
 				P.timer = 0
 		if(WIRE_UNBOLT)
-			P.loc.visible_message("\blue \icon[holder] The bolts spin in place for a moment.")
+			P.loc.visible_message("lue \icon[holder] The bolts spin in place for a moment.")
 		if(WIRE_DELAY)
 			playsound(P.loc, 'sound/machines/chime.ogg', 30, 1)
-			P.loc.visible_message("\blue \icon[holder] The bomb chirps.")
+			P.loc.visible_message("lue \icon[holder] The bomb chirps.")
 			P.timer += 10
 		if(WIRE_PROCEED)
 			playsound(P.loc, 'sound/machines/buzz-sigh.ogg', 30, 1)
@@ -45,7 +45,7 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 				P.active = 1
 				P.icon_state = "[initial(P.icon_state)]-active[P.open_panel ? "-wires" : ""]"
 			else
-				P.loc.visible_message("\blue \icon[holder] The bomb seems to hesitate for a moment.")
+				P.loc.visible_message("lue \icon[holder] The bomb seems to hesitate for a moment.")
 				P.timer += 5
 
 /datum/wires/syndicatebomb/UpdateCut(var/index, var/mended)
@@ -63,7 +63,7 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 		if(WIRE_UNBOLT)
 			if (!mended && P.anchored)
 				playsound(P.loc, 'sound/effects/stealthoff.ogg', 30, 1)
-				P.loc.visible_message("\blue \icon[holder] The bolts lift out of the ground!")
+				P.loc.visible_message("lue \icon[holder] The bolts lift out of the ground!")
 				P.anchored = 0
 		if(WIRE_PROCEED)
 			if(!mended && P.active)
@@ -71,7 +71,7 @@ var/const/WIRE_ACTIVATE = 16	// Will start a bombs timer if pulsed, will hint if
 				P.timer = 0
 		if(WIRE_ACTIVATE)
 			if (!mended && P.active)
-				P.loc.visible_message("\blue \icon[holder] The timer stops! The bomb has been defused!")
+				P.loc.visible_message("lue \icon[holder] The timer stops! The bomb has been defused!")
 				P.icon_state = "[initial(P.icon_state)]-inactive[P.open_panel ? "-wires" : ""]"
 				P.active = 0
 				P.defused = 1

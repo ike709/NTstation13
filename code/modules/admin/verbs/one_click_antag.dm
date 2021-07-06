@@ -310,7 +310,7 @@ client/proc/one_click_antag()
 
 
 /datum/admins/proc/makeAliens()
-	new /datum/round_event/alien_infestation{spawncount=3}()
+	new /datum/round_event/alien_infestation/*{spawncount=3}*/()
 	return 1
 
 /datum/admins/proc/makeSpaceNinja()
@@ -373,7 +373,7 @@ client/proc/one_click_antag()
 				//So they don't forget their code or mission.
 
 
-				new_syndicate_commando << "\blue You are an Elite Syndicate. [!syndicate_leader_selected?"commando":"<B>LEADER</B>"] in the service of the Syndicate. \nYour current mission is: \red<B> [input]</B>"
+				new_syndicate_commando << "lue You are an Elite Syndicate. [!syndicate_leader_selected?"commando":"<B>LEADER</B>"] in the service of the Syndicate. \nYour current mission is: \red<B> [input]</B>"
 
 				numagents--
 		if(numagents >= 6)

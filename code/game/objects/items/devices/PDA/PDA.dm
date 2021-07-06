@@ -286,7 +286,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				dat += "<li><a href='byond://?src=\ref[src];choice=2'><img src=pda_mail.png> Messenger</a></li>"
 				//dat += "<li><a href='byond://?src=\red[src];choice=chatroom'><img src=pda_chatroom.png> Nanotrasen Relay Chat</a></li>"
 
-				if (cartridge)
+				/*if (cartridge)
 					if (cartridge.access_clown)
 						dat += "<li><a href='byond://?src=\ref[src];choice=Honk'><img src=pda_honk.png> Honk Synthesizer</a></li>"
 					if (cartridge.access_manifest)
@@ -324,26 +324,27 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						dat += "<ul>"
 						dat += "<li><a href='byond://?src=\ref[src];choice=47'><img src=pda_crate.png> Supply Records</A></li>"
 						dat += "<li><a href='byond://?src=\ref[src];choice=48'><img src=pda_mule.png> Delivery Bot Control</A></li>"
-						dat += "</ul>"
+						dat += "</ul>"*/
 				dat += "</ul>"
 
 				dat += "<h4>Utilities</h4>"
 				dat += "<ul>"
-				if (cartridge)
+				/*if (cartridge)
 					if (cartridge.access_janitor)
 						dat += "<li><a href='byond://?src=\ref[src];choice=49'><img src=pda_bucket.png> Custodial Locator</a></li>"
 						if(istype(cartridge.radio, /obj/item/radio/integrated/cleanbot))
 							dat += "<li><a href='byond://?src=\ref[src];choice=50'><img src=pda_bucket.png> Cleanbot Access</a></li>"
 					if (istype(cartridge.radio, /obj/item/radio/integrated/signal))
 						dat += "<li><a href='byond://?src=\ref[src];choice=40'><img src=pda_signaler.png> Signaler System</a></li>"
-					if (cartridge.access_reagent_scanner)
-						dat += "<li><a href='byond://?src=\ref[src];choice=Reagent Scan'><img src=pda_reagent.png> [scanmode == 3 ? "Disable" : "Enable"] Reagent Scanner</a></li>"
+					if (cartridge.access_reagent_scanner)*/
+					/*	dat += "<li><a href='byond://?src=\ref[src];choice=Reagent Scan'><img src=pda_reagent.png> [scanmode == 3 ? "Disable" : "Enable"] Reagent Scanner</a></li>"
 					if (cartridge.access_engine)
 						dat += "<li><a href='byond://?src=\ref[src];choice=Halogen Counter'><img src=pda_reagent.png> [scanmode == 4 ? "Disable" : "Enable"] Halogen Counter</a></li>"
 					if (cartridge.access_atmos)
 						dat += "<li><a href='byond://?src=\ref[src];choice=Gas Scan'><img src=pda_reagent.png> [scanmode == 5 ? "Disable" : "Enable"] Gas Scanner</a></li>"
 					if (cartridge.access_remote_door)
 						dat += "<li><a href='byond://?src=\ref[src];choice=Toggle Door'><img src=pda_rdoor.png> Toggle Remote Door</a></li>"
+						*/
 				dat += "<li><a href='byond://?src=\ref[src];choice=3'><img src=pda_atmos.png> Atmospheric Scan</a></li>"
 				dat += "<li><a href='byond://?src=\ref[src];choice=Light'><img src=pda_flashlight.png> [fon ? "Disable" : "Enable"] Flashlight</a></li>"
 				if (pai)
@@ -529,8 +530,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if("Medical Scan")
 				if(scanmode == 1)
 					scanmode = 0
-				else if((!isnull(cartridge)) && (cartridge.access_medical))
-					scanmode = 1
+				//else if((!isnull(cartridge)) && (cartridge.access_medical))
+			//		scanmode = 1
 			if("Reagent Scan")
 				if(scanmode == 3)
 					scanmode = 0
@@ -539,8 +540,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if("Halogen Counter")
 				if(scanmode == 4)
 					scanmode = 0
-				else if((!isnull(cartridge)) && (cartridge.access_engine))
-					scanmode = 4
+		//		else if((!isnull(cartridge)) && (cartridge.access_engine))
+	//				scanmode = 4
 			if("Honk")
 				if ( !(last_honk && world.time < last_honk + 20) )
 					playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
@@ -593,7 +594,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					if(!isnull(P))
 						if (!P.toff && cartridge:honk_charges > 0)
 							cartridge:honk_charges--
-							U.show_message("\blue Virus sent!", 1)
+							U.show_message("lue Virus sent!", 1)
 							P.honkamt = (rand(15,20))
 					else
 						U << "PDA not found."
@@ -606,7 +607,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					if(!isnull(P))
 						if (!P.toff && cartridge:mime_charges > 0)
 							cartridge:mime_charges--
-							U.show_message("\blue Virus sent!", 1)
+							U.show_message("lue Virus sent!", 1)
 							P.silent = 1
 							P.ttone = "silence"
 					else
@@ -636,15 +637,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 							var/difficulty = 0
 
-							if(P.cartridge)
+						/*	if(P.cartridge)
 								difficulty += P.cartridge.access_medical
 								difficulty += P.cartridge.access_security
 								difficulty += P.cartridge.access_engine
 								difficulty += P.cartridge.access_clown
 								difficulty += P.cartridge.access_janitor
 								difficulty += P.cartridge.access_manifest * 2
-							else
-								difficulty += 2
+							else*/
+							difficulty += 2
 
 							if(prob(difficulty * 12) || (P.hidden_uplink))
 								U.show_message("\red An error flashes on your [src].", 1)
@@ -653,7 +654,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 								U << browse(null, "window=pda")
 								explode()
 							else
-								U.show_message("\blue Success!", 1)
+								U.show_message("lue Success!", 1)
 								P.explode()
 					else
 						U << "PDA not found."
@@ -904,11 +905,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				for (var/mob/O in viewers(C, null))
 					O.show_message("\red [user] has analyzed [C]'s radiation levels!", 1)
 
-				user.show_message("\blue Analyzing Results for [C]:")
+				user.show_message("lue Analyzing Results for [C]:")
 				if(C.radiation)
-					user.show_message("\green Radiation Level: \black [C.radiation]")
+					user.show_message("\green Radiation Level: lack [C.radiation]")
 				else
-					user.show_message("\blue No radiation detected.")
+					user.show_message("lue No radiation detected.")
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return
@@ -918,13 +919,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					user << "\blue [reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."
+					user << "lue [reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."
 					for (var/re in A.reagents.reagent_list)
-						user << "\blue \t [re]"
+						user << "lue \t [re]"
 				else
-					user << "\blue No active chemical agents found in [A]."
+					user << "lue No active chemical agents found in [A]."
 			else
-				user << "\blue No significant chemical agents found in [A]."
+				user << "lue No significant chemical agents found in [A]."
 
 		if(5)
 			if (istype(A, /obj/item/weapon/tank))
@@ -945,7 +946,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	if (!scanmode && istype(A, /obj/item/weapon/paper) && owner)
 		note = A:info
-		user << "\blue Paper scanned." //concept of scanning paper copyright brainoblivion 2009
+		user << "lue Paper scanned." //concept of scanning paper copyright brainoblivion 2009
 
 
 /obj/item/device/pda/proc/explode() //This needs tuning.

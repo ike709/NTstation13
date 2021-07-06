@@ -6,7 +6,7 @@
 	Represents a unary operator in the AST. Unary operators take a single operand (referred to as x below) and return a value.
 */
 /node/expression/operator/unary
-	precedence=OOP_UNARY
+	precedence=2
 
 /*
 	Class: LogicalNot
@@ -44,7 +44,7 @@
 */
 //
 	group
-		precedence=OOP_GROUP
+		precedence=3
 
 	New(node/expression/exp)
 		src.exp=exp

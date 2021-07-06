@@ -171,7 +171,7 @@
 	if(answer == "Yes")
 		card.removePersonality()
 		for (var/mob/M in viewers(loc))
-			M.show_message("\blue [src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"", 3, "\blue [src] bleeps electronically.", 2)
+			M.show_message("lue [src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"", 3, "lue [src] bleeps electronically.", 2)
 		death(0)
 	else
 		src << "Aborting suicide attempt."

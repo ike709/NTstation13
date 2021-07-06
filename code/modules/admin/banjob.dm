@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-var/jobban_runonce			// Updates legacy bans with new info
-var/jobban_keylist[0]		//to store the keys & ranks
+var/list/jobban_runonce = list()			// Updates legacy bans with new info
+var/list/jobban_keylist = list()		//to store the keys & ranks
 
 /proc/jobban_fullban(mob/M, rank, reason)
 	if (!M || !M.key) return
@@ -49,6 +49,7 @@ DEBUG
 */
 
 /proc/jobban_loadbanfile()
+	return /*
 	if(config.ban_legacy_system)
 		var/savefile/S=new("data/job_full.ban")
 		S["keys[0]"] >> jobban_keylist
@@ -84,11 +85,12 @@ DEBUG
 			var/ckey = query1.item[1]
 			var/job = query1.item[2]
 
-			jobban_keylist.Add("[ckey] - [job]")
+			jobban_keylist.Add("[ckey] - [job]")*/
 
 /proc/jobban_savebanfile()
+	return /*
 	var/savefile/S=new("data/job_full.ban")
-	S["keys[0]"] << jobban_keylist
+	S["keys[0]"] << jobban_keylist*/
 
 /proc/jobban_unban(mob/M, rank)
 	jobban_remove("[M.ckey] - [rank]")

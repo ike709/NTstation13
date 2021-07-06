@@ -16,11 +16,11 @@
 		if(!active)
 			active = 1
 			work()
-			usr << "\blue You activate the GPS"
+			usr << "lue You activate the GPS"
 		else
 			active = 0
 			icon_state = "pinoff"
-			usr << "\blue You deactivate the GPS"
+			usr << "lue You deactivate the GPS"
 
 	proc/work()
 		while(active)

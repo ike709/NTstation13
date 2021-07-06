@@ -213,9 +213,9 @@ dmm_suite{
 				else if(isnum(A.vars[V])||ispath(A.vars[V])){
 					attributes_text += {"[V] = [A.vars[V]]"}
 					}
-				else if(isicon(A.vars[V])||isfile(A.vars[V])){
+			/*	else if(isicon(A.vars[V])||isfile(A.vars[V])){
 					attributes_text += {"[V] = '[A.vars[V]]'"}
-					}
+					}*/
 				else{
 					continue
 					}

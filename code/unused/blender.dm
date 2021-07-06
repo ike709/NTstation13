@@ -96,7 +96,7 @@ the blender or the processor: Processor items are solid objects and Blender resu
 		return
 	playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
 	src.processing = 1
-	usr << "\blue You turn on the blender."
+	usr << "lue You turn on the blender."
 	use_power(250)
 	for(var/obj/O in src.contents)
 		if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans))	 //  Mass balance law

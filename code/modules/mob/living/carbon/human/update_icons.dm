@@ -81,7 +81,7 @@ Please contact me on #coderbus IRC. ~Carnie x
 #define TOTAL_LAYERS			21		//KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
 //////////////////////////////////
 /mob/living/carbon/human
-	var/list/overlays_standing[TOTAL_LAYERS]
+	var/list/overlays_standing = list()
 
 
 /mob/living/carbon/human/proc/apply_overlay(cache_index)

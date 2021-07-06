@@ -84,12 +84,12 @@
 			var/list/call_list = query_tree["call"]
 			var/list/args_list = query_tree["args"]
 
-			for(var/datum/d in objs)
+			/*for(var/datum/d in objs)
 				for(var/v in call_list)
 					// To stop any procs which sleep from executing slowly.
 					if(d)
 						if(hascall(d, v))
-							spawn() call(d, v)(arglist(args_list)) // Spawn in case the function sleeps.
+							spawn() call(d, v)(arglist(args_list)) */ // Spawn in case the function sleeps.
 
 		if("delete")
 			for(var/datum/d in objs)
@@ -397,7 +397,7 @@
 
 			word = "'"
 
-			for(i++, i <= len, i++)
+			for(i, i <= len, i++)
 				char = copytext(query_text, i, i + 1)
 
 				if(char == "'")
@@ -425,7 +425,7 @@
 
 			word = "\""
 
-			for(i++, i <= len, i++)
+			for(i, i <= len, i++)
 				char = copytext(query_text, i, i + 1)
 
 				if(char == "\"")

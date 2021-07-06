@@ -26,10 +26,10 @@
 	if(istype(W,/obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/CC = W
 		if(CC.amount < 5)
-			user << "\b There is not enough wire in this coil. You need 5 lengths."
+			user << "There is not enough wire in this coil. You need 5 lengths."
 			return
 		CC.use(5)
-		user << "\blue You attach wire to the [name]."
+		user << "lue You attach wire to the [name]."
 		var/obj/item/stack/light_w/new_tile = new(user.loc)
 		new_tile.add_fingerprint(user)
 		src.use(1)

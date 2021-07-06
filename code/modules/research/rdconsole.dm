@@ -243,11 +243,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			return
 		user.drop_item()
 		D.loc = src
-		user << "\blue You add the disk to the machine!"
+		user << "lue You add the disk to the machine!"
 	else if(istype(D, /obj/item/weapon/card/emag) && !emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		user << "\blue You you disable the security protocols"
+		user << "lue You you disable the security protocols"
 	else
 		..()
 	src.updateUsrDialog()
@@ -488,7 +488,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
 		var/desired_num_sheets = text2num(href_list["lathe_ejectsheet_amt"])
-		var/res_amount, type
+		var/res_amount
+		var/type
 		switch(href_list["lathe_ejectsheet"])
 			if("metal")
 				type = /obj/item/stack/sheet/metal
@@ -524,7 +525,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				qdel(sheet)
 	else if(href_list["imprinter_ejectsheet"] && linked_imprinter) //Causes the protolathe to eject a sheet of material
 		var/desired_num_sheets = text2num(href_list["imprinter_ejectsheet_amt"])
-		var/res_amount, type
+		var/res_amount
+		var/type
 		switch(href_list["imprinter_ejectsheet"])
 			if("glass")
 				type = /obj/item/stack/sheet/glass
@@ -589,9 +591,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	files.RefreshResearch()
 	switch(screen) //A quick check to make sure you get the right screen when a device is disconnected.
 		if(2 to 2.9)
-			if(screen == 2.3)
-				;
-			else if(linked_destroy == null)
+			//if(screen == 2.3)
+				
+			/*else */if(linked_destroy == null)
 				screen = 2.0
 			else if(linked_destroy.loaded_item == null)
 				screen = 2.1

@@ -237,7 +237,8 @@
 		if(losebreath>0) //Suffocating so do not take a breath
 			losebreath--
 			if (prob(10)) //Gasp per 10 ticks? Sounds about right.
-				spawn emote("gasp")
+				spawn(0)
+					emote("gasp")
 			if(istype(loc, /obj/))
 				var/obj/location_as_object = loc
 				location_as_object.handle_internal_lifeform(src, 0)
@@ -775,7 +776,7 @@
 		//The fucking FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 		if(has_organic_effect(/datum/organic_effect/fat))
 			if(overeatduration < 100)
-				src << "\blue You feel fit again!"
+				src << "lue You feel fit again!"
 				remove_organic_effect(/datum/organic_effect/fat)
 				update_inv_w_uniform(0)
 				update_inv_wear_suit()
@@ -850,7 +851,8 @@
 					if(prob(3))
 						fake_attack(src)
 					if(!handling_hal)
-						spawn handle_hallucinations() //The not boring kind!
+						spawn(0)
+							handle_hallucinations() //The not boring kind!
 
 				if(hallucination<=2)
 					hallucination = 0

@@ -2,8 +2,8 @@
 	wire_count = 2
 	holder_type = /obj/item/device/taperecorder
 
-var/const/WIRE_PLAY = 1
-var/const/WIRE_RECORD = 2
+#define WIRE_PLAY 1
+#define WIRE_RECORD 2
 
 
 /datum/wires/taperecorder/UpdatePulsed(var/index)

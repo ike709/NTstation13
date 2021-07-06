@@ -49,32 +49,32 @@
 	var/bot_filter 				// The radio filter the bot uses to identify itself on the network.
 
 	var/bot_type = 0 //The type of bot it is, for radio control.
-	#define SEC_BOT				1	// Secutritrons (Beepsky) and ED-209s
-	#define MULE_BOT			2	// MULEbots
-	#define FLOOR_BOT			3	// Floorbots
-	#define CLEAN_BOT			4	// Cleanbots
-	#define MED_BOT				5	// Medibots
+#define SEC_BOT				1	// Secutritrons (Beepsky) and ED-209s
+#define MULE_BOT			2	// MULEbots
+#define FLOOR_BOT			3	// Floorbots
+#define CLEAN_BOT			4	// Cleanbots
+#define MED_BOT				5	// Medibots
 
 	//Mode defines
-	#define BOT_IDLE 			0	// idle
-	#define BOT_HUNT 			1	// found target, hunting
-	#define BOT_PREP_ARREST 	2	// at target, preparing to arrest
-	#define BOT_ARREST			3	// arresting target
-	#define BOT_START_PATROL	4	// start patrol
-	#define BOT_PATROL			5	// patrolling
-	#define BOT_SUMMON			6	// summoned by PDA
-	#define BOT_CLEANING 		7	// cleaning (cleanbots)
-	#define BOT_REPAIRING		8	// repairing hull breaches (floorbots)
-	#define BOT_MOVING			9	// for clean/floor bots, when moving.
-	#define BOT_HEALING			10	// healing people (medbots)
-	#define BOT_RESPONDING		11	// responding to a call from the AI
-	#define BOT_LOADING			12	// loading/unloading
-	#define BOT_DELIVER			13	// moving to deliver
-	#define BOT_GO_HOME			14	// returning to home
-	#define BOT_BLOCKED			15	// blocked
-	#define BOT_NAV				16	// computing navigation
-	#define BOT_WAIT_FOR_NAV	17	// waiting for nav computation
-	#define BOT_NO_ROUTE		18	// no destination beacon found (or no route)
+#define BOT_IDLE 			0	// idle
+#define BOT_HUNT 			1	// found target, hunting
+#define BOT_PREP_ARREST 	2	// at target, preparing to arrest
+#define BOT_ARREST			3	// arresting target
+#define BOT_START_PATROL	4	// start patrol
+#define BOT_PATROL			5	// patrolling
+#define BOT_SUMMON			6	// summoned by PDA
+#define BOT_CLEANING 		7	// cleaning (cleanbots)
+#define BOT_REPAIRING		8	// repairing hull breaches (floorbots)
+#define BOT_MOVING			9	// for clean/floor bots, when moving.
+#define BOT_HEALING			10	// healing people (medbots)
+#define BOT_RESPONDING		11	// responding to a call from the AI
+#define BOT_LOADING			12	// loading/unloading
+#define BOT_DELIVER			13	// moving to deliver
+#define BOT_GO_HOME			14	// returning to home
+#define BOT_BLOCKED			15	// blocked
+#define BOT_NAV				16	// computing navigation
+#define BOT_WAIT_FOR_NAV	17	// waiting for nav computation
+#define BOT_NO_ROUTE		18	// no destination beacon found (or no route)
 	var/list/mode_name = list("In Pursuit","Preparing to Arrest","Arresting","Beginning Patrol","Patrolling","Summoned by PDA", \
 	"Cleaning", "Repairing", "Proceeding to work site","Healing","Responding","Loading/Unloading","Navigating to Delivery Location","Navigating to Home", \
 	"Waiting for clear path","Calculating navigation path","Pinging beacon network","Unable to reach destination")
@@ -208,7 +208,7 @@
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
-				user.visible_message("\red [user] repairs [src]!","\blue You repair [src]!")
+				user.visible_message("\red [user] repairs [src]!","lue You repair [src]!")
 			else
 				user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
 		else

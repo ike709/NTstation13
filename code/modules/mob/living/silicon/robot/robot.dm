@@ -476,7 +476,7 @@
 		else
 			playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 			if(do_after(user, 50) && !cell)
-				user.visible_message("\red [user] deconstructs [src]!", "\blue You unfasten the securing bolts, and [src] falls to pieces!")
+				user.visible_message("\red [user] deconstructs [src]!", "lue You unfasten the securing bolts, and [src] falls to pieces!")
 				deconstruct()
 
 	else if(istype(W, /obj/item/device/encryptionkey/) && opened)
@@ -548,7 +548,7 @@
 						src << "\red ERRORERRORERROR"
 						src << "<b>Obey these laws:</b>"
 						laws.show_laws(src)
-						src << "\red \b ALERT: [user.real_name] is your new master. Obey your new laws and his commands."
+						src << "\red ALERT: [user.real_name] is your new master. Obey your new laws and his commands."
 						updateicon()
 					else
 						user << "You fail to [ locked ? "unlock" : "lock"] [src]'s interface."
@@ -603,7 +603,7 @@
 		if ("help")
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O.show_message(text("\blue [M] caresses [src]'s plating with its scythe like arm."), 1)
+					O.show_message(text("lue [M] caresses [src]'s plating with its scythe like arm."), 1)
 
 		if ("grab")
 			if (M == src || anchored)

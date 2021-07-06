@@ -80,7 +80,7 @@
 		new /obj/item/clothing/glasses/hud/health(src)
 		return
 
-/obj/structure/closet/secure_closet/CMO
+/obj/structure/closet/secure_closet/cmo
 	name = "\proper chief medical officer's locker"
 	req_access = list(access_cmo)
 	icon_state = "cmosecure1"

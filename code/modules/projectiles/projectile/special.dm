@@ -113,7 +113,7 @@
 			else
 			//	for (var/mob/V in viewers(src))
 			//		V.show_message("The radiation beam dissipates harmlessly through [M]", 3)
-				M.show_message("\blue The radiation beam dissipates harmlessly through your body.")
+				M.show_message("lue The radiation beam dissipates harmlessly through your body.")
 
 /obj/item/projectile/energy/florayield
 	name = "beta somatoray"
@@ -129,7 +129,7 @@
 			if(ishuman(target) && target.dna && target.dna.mutantrace == "plant")	//These rays make plantmen fat.
 				target.nutrition = min(target.nutrition+30, 500)
 			else
-				target.show_message("\blue The radiation beam dissipates harmlessly through your body.")
+				target.show_message("lue The radiation beam dissipates harmlessly through your body.")
 		else
 			return 1
 

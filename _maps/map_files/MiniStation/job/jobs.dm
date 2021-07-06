@@ -8,7 +8,7 @@
 	..()
 	supervisors = "the captain and the head of personnel"
 
-/datum/job/assistant // Here so assistant appears on the top of the select job list.
+//datum/job/assistant // Here so assistant appears on the top of the select job list.
 
 // Command
 

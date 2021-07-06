@@ -17,7 +17,7 @@
 	//  the specific order matters to get a usable icon_state, it is
 	//  copied here so that, in the unlikely case that alldirs is changed,
 	//  this continues to work.
-	var/global/list/tube_dir_list = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+	var/list/tube_dir_list = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
 
 // When destroyed by explosions, properly handle contents.

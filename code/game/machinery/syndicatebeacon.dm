@@ -115,7 +115,7 @@
 
 /obj/item/device/sbeacondrop/attack_self(mob/user as mob)
 	if(user)
-		user << "\blue Locked In"
+		user << "lue Locked In"
 		new droptype( user.loc )
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
 		qdel(src)
@@ -135,7 +135,7 @@
 
 	anchored = 0
 	density = 1
-	layer = MOB_LAYER - 0.1 //so people can't hide it and it's REALLY OBVIOUS
+	layer = MOB_LAYER //so people can't hide it and it's REALLY OBVIOUS
 	stat = 0
 
 	var/active = 0 //It doesn't use up power, so use_power wouldn't really suit it
@@ -145,14 +145,14 @@
 
 	proc/Activate(mob/user = null)
 		if(!checkWirePower())
-			if(user) user << "\blue The connected wire doesn't have enough current."
+			if(user) user << "lue The connected wire doesn't have enough current."
 			return
 		for(var/obj/machinery/singularity/singulo in world)
 			if(singulo.z == z)
 				singulo.target = src
 		icon_state = "[icontype]1"
 		active = 1
-		if(user) user << "\blue You activate the beacon."
+		if(user) user << "lue You activate the beacon."
 
 
 	proc/Deactivate(mob/user = null)
@@ -161,7 +161,7 @@
 				singulo.target = null
 		icon_state = "[icontype]0"
 		active = 0
-		if(user) user << "\blue You deactivate the beacon."
+		if(user) user << "lue You deactivate the beacon."
 
 
 	attack_ai(mob/user as mob)
@@ -185,7 +185,7 @@
 			if(stat & SCREWED)
 				stat &= ~SCREWED
 				anchored = 0
-				user << "\blue You unscrew the beacon from the floor."
+				user << "lue You unscrew the beacon from the floor."
 				attached = null
 				return
 			else
@@ -197,7 +197,7 @@
 					return
 				stat |= SCREWED
 				anchored = 1
-				user << "\blue You screw the beacon to the floor and attach the cable."
+				user << "lue You screw the beacon to the floor and attach the cable."
 				return
 		..()
 		return

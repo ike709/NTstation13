@@ -150,7 +150,7 @@ var/list/possible_uplinker_IDs = list("Alfa","Bravo","Charlie","Delta","Echo","F
 	var/danger
 	danger = player_list.len
 	while(!IsMultiple(++danger,10))//Just round up to the nearest multiple of ten.
-	scaleTC(danger)
+		scaleTC(danger)
 
 /obj/machinery/computer/telecrystals/boss/proc/scaleTC(var/amt)//Its own proc, since it'll probably need a lot of tweaks for balance, use a fancier algorhithm, etc.
 	storedcrystals += amt * NUKESCALINGMODIFIER

@@ -36,11 +36,11 @@
 			if(!istype(C))
 				return
 
-			var/dat = "\blue Analyzing Results for [C]:\n"
-			dat += "\blue \t Overall Status: [C.stat > 1 ? "dead" : "[C.health]% healthy"]\n"
-			dat += "\blue \t Damage Specifics: [C.getOxyLoss() > 50 ? "\red" : "\blue"][C.getOxyLoss()]-[C.getToxLoss() > 50 ? "\red" : "\blue"][C.getToxLoss()]-[C.getFireLoss() > 50 ? "\red" : "\blue"][C.getFireLoss()]-[C.getBruteLoss() > 50 ? "\red" : "\blue"][C.getBruteLoss()]\n"
-			dat += "\blue \t Key: Suffocation/Toxin/Burns/Brute\n"
-			dat += "\blue \t Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)"
+			var/dat = "lue Analyzing Results for [C]:\n"
+			dat += "lue \t Overall Status: [C.stat > 1 ? "dead" : "[C.health]% healthy"]\n"
+			dat += "lue \t Damage Specifics: [C.getOxyLoss() > 50 ? "\red" : "lue"][C.getOxyLoss()]-[C.getToxLoss() > 50 ? "\red" : "lue"][C.getToxLoss()]-[C.getFireLoss() > 50 ? "\red" : "lue"][C.getFireLoss()]-[C.getBruteLoss() > 50 ? "\red" : "lue"][C.getBruteLoss()]\n"
+			dat += "lue \t Key: Suffocation/Toxin/Burns/Brute\n"
+			dat += "lue \t Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)"
 			if(C.virus)
 				dat += "\red \n<b>Warning Virus Detected.</b>\nName: [C.virus.name].\nType: [C.virus.spread].\nStage: [C.virus.stage]/[C.virus.max_stages].\nPossible Cure: [C.virus.cure]"
 
@@ -59,21 +59,21 @@
 			if(istype(A,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = A
 				if (!istype(H.dna, /datum/dna) || !isnull(H.gloves))
-					dat += "\blue Unable to scan [A]'s fingerprints.\n"
+					dat += "lue Unable to scan [A]'s fingerprints.\n"
 				else
-					dat += "\blue [H]'s Fingerprints: [md5(H.dna.uni_identity)]\n"
+					dat += "lue [H]'s Fingerprints: [md5(H.dna.uni_identity)]\n"
 				if ( !(H.blood_DNA) )
-					dat += "\blue No blood found on [H]\n"
+					dat += "lue No blood found on [H]\n"
 				else
-					dat += "\blue Blood type: [H.blood_type]\nDNA: [H.blood_DNA]\n"
+					dat += "lue Blood type: [H.blood_type]\nDNA: [H.blood_DNA]\n"
 
 			if (!A.fingerprints)
-				dat += "\blue Unable to locate any fingerprints on [A]!\n"
+				dat += "lue Unable to locate any fingerprints on [A]!\n"
 			else
 				var/list/L = params2list(A:fingerprints)
-				dat += "\blue Isolated [L.len] fingerprints.\n"
+				dat += "lue Isolated [L.len] fingerprints.\n"
 				for(var/i in L)
-					dat += "\blue \t [i]\n"
+					dat += "lue \t [i]\n"
 
 			return dat
 
@@ -90,12 +90,12 @@
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					dat += "\blue [reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found.\n"
+					dat += "lue [reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found.\n"
 					for (var/datum/reagent/re in A.reagents.reagent_list)
-						dat += "\blue \t [re] - [re.volume]\n"
+						dat += "lue \t [re] - [re.volume]\n"
 				else
-					dat = "\blue No active chemical agents found in [A]."
+					dat = "lue No active chemical agents found in [A]."
 			else
-				dat = "\blue No significant chemical agents found in [A]."
+				dat = "lue No significant chemical agents found in [A]."
 
 			return dat

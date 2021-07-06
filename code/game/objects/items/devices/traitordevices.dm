@@ -51,7 +51,7 @@ effective or pretty fucking useless.
 				M << "\red <b>You feel a sudden, electric jolt travel through your head.</b>"
 
 	playsound(src.loc, 'sound/misc/interference.ogg', 50, 1)
-	user << "\blue You trigger [src]."
+	user << "lue You trigger [src]."
 	times_used += 1
 	if(times_used >= max_uses)
 		icon_state = "battererburnt"

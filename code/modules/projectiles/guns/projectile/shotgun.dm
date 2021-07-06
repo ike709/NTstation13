@@ -100,7 +100,7 @@
 	var/choice = input(M,"What do you want to change the color to?","Refurnish Gun") in options
 
 	if(src && choice && !M.stat && in_range(M,src))
-		icon_state = options[choice] + (sawn_off ? "-sawn" :)
+		icon_state = options[choice] + (sawn_off ? "-sawn" : "")
 		M << "Your gun is now refurnished with [choice]. Say hello to your new friend."
 		return 1
 

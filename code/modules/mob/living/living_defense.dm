@@ -61,7 +61,7 @@ proc/vol_by_throwforce_and_or_w_class(var/obj/item/I)
 
 		else if(!I.throwhitsound && I.throwforce > 0)
 			playsound(loc, 'sound/weapons/genhit.ogg', volume, 1, -1)
-		if(!I.throwforce).
+		if(!I.throwforce)
 			playsound(loc, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 
 		visible_message("<span class='danger'>[src] has been hit by [I].</span>", \

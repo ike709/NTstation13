@@ -63,7 +63,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 	usr.say("[input]")
 	for(var/datum/mind/H in ticker.mode.cult)
 		if (H.current)
-			H.current << "\red \b [input]"
+			H.current << "\red [input]"
 	return
 	#undef CHECK_STATUS
 
@@ -494,7 +494,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 			return ..()
 		if(iscultist(M))
 			if(M.reagents && M.reagents.has_reagent("holywater")) //allows cultists to be rescued from the clutches of ordained religion
-				user << "\blue You remove the taint from [M]."
+				user << "lue You remove the taint from [M]."
 				var/holy2unholy = M.reagents.get_reagent_amount("holywater")
 				M.reagents.del_reagent("holywater")
 				M.reagents.add_reagent("unholywater",holy2unholy)
@@ -538,7 +538,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 						usr.whisper("[input]")
 						for(var/datum/mind/H in ticker.mode.cult)
 							if (H.current)
-								H.current << "\red \b [input]"
+								H.current << "\red [input]"
 						return
 					if("Notes")
 						if(usr.get_active_hand() != src)

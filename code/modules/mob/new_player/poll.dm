@@ -402,7 +402,7 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
 		insert_query.Execute()
 
-		usr << "\blue Vote successful."
+		usr << "lue Vote successful."
 		usr << browse(null,"window=playerpoll")
 
 
@@ -460,7 +460,7 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_textreply (id ,datetime ,pollid ,ckey ,ip ,replytext ,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
 		insert_query.Execute()
 
-		usr << "\blue Feedback logging successful."
+		usr << "lue Feedback logging successful."
 		usr << browse(null,"window=playerpoll")
 
 
@@ -522,5 +522,5 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO erro_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
 		insert_query.Execute()
 
-		usr << "\blue Vote successful."
+		usr << "lue Vote successful."
 		usr << browse(null,"window=playerpoll")

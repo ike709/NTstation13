@@ -6,7 +6,7 @@
 	m_amt = 400
 	g_amt = 120
 	origin_tech = "magnets=1"
-	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
+	wires = 1
 
 	secured = 1
 
@@ -14,7 +14,7 @@
 	var/frequency = 1457
 	var/delay = 0
 	var/datum/wires/connected = null
-	var/tmp/datum/radio_frequency/radio_connection
+	var/datum/radio_frequency/radio_connection
 
 	New()
 		..()

@@ -9,6 +9,7 @@ datum/admins/proc/notes_show(var/ckey)
 
 
 datum/admins/proc/notes_gethtml(var/ckey)
+	return /*
 	var/savefile/notesfile = new(NOTESFILE)
 	if(!notesfile)	return "<font color='red'>Error: Cannot access [NOTESFILE]</font>"
 	if(ckey)
@@ -25,14 +26,14 @@ datum/admins/proc/notes_gethtml(var/ckey)
 		notesfile.cd = "/"
 		for(var/dir in notesfile.dir)
 			. += "<a href='?_src_=holder;notes=show;ckey=[dir]'>[dir]</a><br>"
-	return
+	return*/
 
 
 //handles adding notes to the end of a ckey's buffer
 //originally had seperate entries such as var/by to record who left the note and when
 //but the current bansystem is a heap of dung.
 /proc/notes_add(var/ckey, var/note, var/lognote = 0)
-	if(!ckey)
+	return /*if(!ckey)
 		ckey = ckey(input(usr,"Who would you like to add notes for?","Enter a ckey",null) as text|null)
 		if(!ckey)	return
 
@@ -50,11 +51,11 @@ datum/admins/proc/notes_gethtml(var/ckey)
 		message_admins("[key_name(usr)] added note '[note]' to [ckey]")
 		log_admin("[key_name(usr)] added note '[note]' to [ckey]")
 
-	return
+	return*/
 
 //handles removing entries from the buffer, or removing the entire directory if no start_index is given
 /proc/notes_remove(var/ckey, var/start_index, var/end_index)
-	var/savefile/notesfile = new(NOTESFILE)
+	return /*var/savefile/notesfile = new(NOTESFILE)
 	var/admin_msg
 	if(!notesfile)	return
 
@@ -90,6 +91,6 @@ datum/admins/proc/notes_gethtml(var/ckey)
 			notesfile.cd = "/"
 			notesfile.dir.Remove(ckey)
 			message_admins("[ckey] has no notes and was removed from the notes list.")
-	return
+	return*/
 
 #undef NOTESFILE

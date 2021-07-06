@@ -4,7 +4,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "deliverycloset"
 	density = 1
-	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+	//mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	var/obj/wrapped = null
 	var/sortTag = 0
 
@@ -29,7 +29,7 @@
 
 		if(sortTag != O.currTag)
 			var/tag = uppertext(TAGGERLOCATIONS[O.currTag])
-			user << "\blue *[tag]*"
+			user << "lue *[tag]*"
 			sortTag = O.currTag
 			playsound(loc, 'sound/machines/twobeep.ogg', 100, 1)
 
@@ -75,7 +75,7 @@
 
 			if(sortTag != O.currTag)
 				var/tag = uppertext(TAGGERLOCATIONS[O.currTag])
-				user << "\blue *[tag]*"
+				user << "lue *[tag]*"
 				sortTag = O.currTag
 				playsound(loc, 'sound/machines/twobeep.ogg', 100, 1)
 

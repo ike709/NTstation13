@@ -31,7 +31,7 @@
 		if(!newbrain.brainmob)
 			user << "\red You aren't sure where this brain came from, but you're pretty sure it's a useless brain."
 			return
-		visible_message("\blue [user] sticks \a [newbrain] into \the [src]")
+		visible_message("lue [user] sticks \a [newbrain] into \the [src]")
 
 		brainmob = newbrain.brainmob
 		newbrain.brainmob = null
@@ -60,7 +60,7 @@
 	if((istype(O,/obj/item/weapon/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
 		if(allowed(user))
 			locked = !locked
-			user << "\blue You [locked ? "lock" : "unlock"] the brain holder."
+			user << "lue You [locked ? "lock" : "unlock"] the brain holder."
 		else
 			user << "\red Access denied."
 		return
@@ -75,7 +75,7 @@
 	else if(locked)
 		user << "\red You upend the MMI, but the brain is clamped into place."
 	else
-		user << "\blue You upend the MMI, spilling the brain onto the floor."
+		user << "lue You upend the MMI, spilling the brain onto the floor."
 
 		brainmob.container = null //Reset brainmob mmi var.
 		brainmob.loc = brain //Throw mob into brain.
@@ -131,7 +131,7 @@
 		brainmob << "Can't do that while incapacitated or dead."
 
 	radio.broadcasting = radio.broadcasting==1 ? 0 : 1
-	brainmob << "\blue Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting."
+	brainmob << "lue Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting."
 
 /obj/item/device/mmi/radio_enabled/verb/Toggle_Listening()
 	set name = "Toggle Listening"
@@ -144,7 +144,7 @@
 		brainmob << "Can't do that while incapacitated or dead."
 
 	radio.listening = radio.listening==1 ? 0 : 1
-	brainmob << "\blue Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast."
+	brainmob << "lue Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast."
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

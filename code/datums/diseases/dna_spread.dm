@@ -62,5 +62,5 @@
 			affected_mob.dna.struc_enzymes = original_dna["SE"]
 			affected_mob.real_name = original_dna["name"]
 
-			affected_mob << "\blue You feel more like yourself."
+			affected_mob << "lue You feel more like yourself."
 	..()

@@ -199,7 +199,7 @@
 					status += "numb"
 				if(status == "")
 					status = "OK"
-				src << "\t [status == "OK" ? "\blue" : "\red"] My [org.getDisplayName()] is [status]."
+				src << "\t [status == "OK" ? "lue" : "\red"] My [org.getDisplayName()] is [status]."
 			if(staminaloss)
 				if(staminaloss > 30)
 					src << "<span class='info'>You're completely exhausted.</span>"
@@ -286,7 +286,7 @@
 
 	if(istype(item, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = item
-		item = G.throw() //throw the person instead of the grab
+		item = G.throw_thing() //throw the person instead of the grab
 		qdel(G)			//We delete the grab, as it needs to stay around until it's returned.
 		if(ismob(item))
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors

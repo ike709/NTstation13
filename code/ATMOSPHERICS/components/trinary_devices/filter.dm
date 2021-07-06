@@ -5,7 +5,7 @@ obj/machinery/atmospherics/trinary/filter
 
 	name = "gas filter"
 
-	req_access = list(access_atmospherics)
+	req_access = list(101)
 
 	can_unwrench = 1
 

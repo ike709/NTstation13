@@ -93,14 +93,14 @@
 	else
 		if(damtype == "brute")
 			for(var/target_type in src.destroyable_obj)
-				if(istype(target, target_type) && hascall(target, "attackby"))
+				if(istype(target, target_type)/* && hascall(target, "attackby")*/)
 					src.occupant_message("You hit [target].")
 					src.visible_message("<font color='red'><b>[src.name] hits [target]</b></font>")
 					if(!istype(target, /turf/simulated/wall))
 						target:attackby(src,src.occupant)
 					else if(prob(5))
 						target:dismantle_wall(1)
-						src.occupant_message("\blue You smash through the wall.")
+						src.occupant_message("lue You smash through the wall.")
 						src.visible_message("<b>[src.name] smashes through the wall</b>")
 						playsound(src, 'sound/effects/meteorimpact.ogg', 100, 1)
 					melee_can_hit = 0
@@ -238,32 +238,33 @@
 	return
 */
 /obj/mecha/combat/moved_inside(var/mob/living/carbon/human/H as mob)
-	if(..())
+	return 1
+	/*if(..())
 		if(H.client)
 			H.client.mouse_pointer_icon = file("icons/mecha/mecha_mouse.dmi")
 		return 1
 	else
-		return 0
+		return 0*/
 
 /obj/mecha/combat/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
-	if(..())
+	return 1 /*if(..())
 		if(occupant.client)
 			occupant.client.mouse_pointer_icon = file("icons/mecha/mecha_mouse.dmi")
 		return 1
 	else
-		return 0
+		return 0*/
 
 
 /obj/mecha/combat/go_out()
-	if(src.occupant && src.occupant.client)
-		src.occupant.client.mouse_pointer_icon = initial(src.occupant.client.mouse_pointer_icon)
+	//if(src.occupant && src.occupant.client)
+	//	src.occupant.client.mouse_pointer_icon = initial(src.occupant.client.mouse_pointer_icon)
 	..()
 	return
 
 /obj/mecha/combat/Topic(href,href_list)
 	..()
 	var/datum/topic_input/filter = new (href,href_list)
-	if(filter.get("close"))
+	if(filter.get_thing("close"))
 		am = null
 		return
 	/*

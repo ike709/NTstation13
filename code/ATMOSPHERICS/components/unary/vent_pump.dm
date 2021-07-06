@@ -281,7 +281,7 @@
 		if(istype(W, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/WT = W
 			if (WT.remove_fuel(0,user))
-				user << "\blue Now welding the vent."
+				user << "lue Now welding the vent."
 				if(do_after(user, 20))
 					if(!src || !WT.isOn()) return
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -294,9 +294,9 @@
 						welded = 0
 						update_icon()
 				else
-					user << "\blue The welding tool needs to be on to start this task."
+					user << "lue The welding tool needs to be on to start this task."
 			else
-				user << "\blue You need more welding fuel to complete this task."
+				user << "lue You need more welding fuel to complete this task."
 				return 1
 		else
 			return ..()

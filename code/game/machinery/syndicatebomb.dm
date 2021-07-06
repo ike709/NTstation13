@@ -6,7 +6,7 @@
 
 	anchored = 0
 	density = 0
-	layer = MOB_LAYER - 0.1 //so people can't hide it and it's REALLY OBVIOUS
+	layer = MOB_LAYER //so people can't hide it and it's REALLY OBVIOUS
 	unacidable = 1
 
 	var/datum/wires/syndicatebomb/wires = null
@@ -14,8 +14,11 @@
 	var/open_panel = 0 	//are the wires exposed?
 	var/active = 0		//is the bomb counting down?
 	var/defused = 0		//is the bomb capable of exploding?
-	var/obj/item/weapon/bombcore/payload = /obj/item/weapon/bombcore/
+	var/obj/item/weapon/bombcore/payload// = /obj/item/weapon/bombcore/
 	var/beepsound = 'sound/items/timer.ogg'
+
+/obj/machinery/syndicatebomb/New()
+	payload = new /obj/item/weapon/bombcore
 
 /obj/machinery/syndicatebomb/process()
 	if(active && !defused && (timer > 0)) 	//Tick Tock
@@ -121,11 +124,11 @@
 	newtime = Clamp(newtime, 60, 60000)
 	if(in_range(src, user) && isliving(user)) //No running off and setting bombs from across the station
 		timer = newtime
-		src.loc.visible_message("\blue \icon[src] timer set for [timer] seconds.")
+		src.loc.visible_message("lue \icon[src] timer set for [timer] seconds.")
 	if(alert(user,"Would you like to start the countdown now?",,"Yes","No") == "Yes" && in_range(src, user) && isliving(user))
 		if(defused || active)
 			if(defused)
-				src.loc.visible_message("\blue \icon[src] Device error: User intervention required")
+				src.loc.visible_message("lue \icon[src] Device error: User intervention required")
 			return
 		else
 			src.loc.visible_message("\red \icon[src] [timer] seconds until detonation, please clear the area.")
@@ -226,7 +229,7 @@
 	if(istype(holder))
 		attempts++
 		defusals++
-		holder.loc.visible_message("\blue \icon[holder] Alert: Bomb has been defused. Your score is now [defusals] for [attempts]! Resetting wires...")
+		holder.loc.visible_message("lue \icon[holder] Alert: Bomb has been defused. Your score is now [defusals] for [attempts]! Resetting wires...")
 		reset()
 
 /obj/item/weapon/bombcore/badmin

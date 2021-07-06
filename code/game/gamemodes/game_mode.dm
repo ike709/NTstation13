@@ -336,7 +336,7 @@
 //Reports player logouts//
 //////////////////////////
 proc/display_roundstart_logout_report()
-	var/msg = "\blue <b>Roundstart logout report\n\n"
+	var/msg = "lue <b>Roundstart logout report\n\n"
 	for(var/mob/living/L in mob_list)
 
 		if(L.ckey)

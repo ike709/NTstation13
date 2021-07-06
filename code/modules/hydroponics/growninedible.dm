@@ -147,7 +147,7 @@
 	force = round((5+potency/5), 1)
 
 /obj/item/weapon/grown/deathnettle // -- Skie
-	desc = "The \red glowing \black nettle incites \red<B> rage</B>\black in you just from looking at it!"
+	desc = "The \red glowing lack nettle incites \red<B> rage</B>lack in you just from looking at it!"
 	icon = 'icons/obj/weapons.dmi'
 	name = "deathnettle"
 	icon_state = "deathnettle"

@@ -21,7 +21,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 	var/broadcasting = 0
 	var/listening = 1
 	var/freerange = 0 // 0 - Sanitize frequencies, 1 - Full range
-	var/tmp/list/channels = list() //see communications.dm for full list. First channes is a "default" for :h
+	var/list/channels = list() //see communications.dm for full list. First channes is a "default" for :h
 	var/subspace_transmission = 0
 	var/syndie = 0//Holder to see if it's a syndicate encrpyed radio
 	var/maxf = 1499
@@ -130,10 +130,8 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 
 
 /obj/item/device/radio/proc/text_sec_channel(var/chan_name, var/chan_stat)
-	var/list = !!(chan_stat&FREQ_LISTENING)!=0
-	return {"
-			<B>[chan_name]</B>: <A href='byond://?src=\ref[src];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
-			"}
+	//var/list = !!(chan_stat&FREQ_LISTENING)!=0
+	return //"<B>[chan_name]</B>: <A href='byond://?src=\ref[src];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>"
 
 /obj/item/device/radio/Topic(href, href_list)
 	//..()
@@ -480,7 +478,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 			//var/part_b = "</span><b> \icon[src]\[[format_frequency(frequency)]\]</b> <span class='message'>"
 			var/freq_text
 			switch(display_freq)
-				if(SYND_FREQ)
+				if(1213)
 					freq_text = "#unkn"
 				if(COMM_FREQ)
 					freq_text = "Command"
@@ -506,7 +504,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 			var/part_b = "</span><b> \[[freq_text]\]</b> <span class='message'>"
 			var/part_c = "</span></span>"
 
-			if (display_freq==SYND_FREQ)
+			if (display_freq==1213)
 				part_a = "<span class='syndradio'><span class='name'>"
 			else if (display_freq==COMM_FREQ)
 				part_a = "<span class='comradio'><span class='name'>"
@@ -633,7 +631,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in level))
 			return -1
-	if(freq == SYND_FREQ)
+	if(freq == 1213)
 		if(!(src.syndie))//Checks to see if it's allowed on that frequency, based on the encryption keys
 			return -1
 	if (!on)
@@ -666,9 +664,9 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 	..()
 	if ((in_range(src, usr) || loc == usr))
 		if (b_stat)
-			usr.show_message("\blue \the [src] can be attached and modified!")
+			usr.show_message("lue \the [src] can be attached and modified!")
 		else
-			usr.show_message("\blue \the [src] can not be modified or attached!")
+			usr.show_message("lue \the [src] can not be modified or attached!")
 	return
 
 /obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -679,9 +677,9 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
 		if (b_stat)
-			user.show_message("\blue The radio can now be attached and modified!")
+			user.show_message("lue The radio can now be attached and modified!")
 		else
-			user.show_message("\blue The radio can no longer be modified or attached!")
+			user.show_message("lue The radio can no longer be modified or attached!")
 		updateDialog()
 			//Foreach goto(83)
 		add_fingerprint(user)
@@ -718,7 +716,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 	keyslot = new /obj/item/device/encryptionkey/syndicate
 /obj/item/device/radio/borg/syndicate/New()
 	..()
-	set_frequency(SYND_FREQ)
+	set_frequency(1213)
 
 /obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()

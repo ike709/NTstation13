@@ -38,7 +38,7 @@
 		name = "[name] (ID [id])"
 
 	attack_hand(var/mob/user as mob)
-		usr << "\blue You can't directly interact with this machine. Use the area atmos computer."
+		usr << "lue You can't directly interact with this machine. Use the area atmos computer."
 
 	update_icon()
 		src.overlays = 0
@@ -51,12 +51,12 @@
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
 			if(on)
-				user << "\blue Turn it off first!"
+				user << "lue Turn it off first!"
 				return
 
 			anchored = !anchored
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "\blue You [anchored ? "wrench" : "unwrench"] \the [src]."
+			user << "lue You [anchored ? "wrench" : "unwrench"] \the [src]."
 
 			return
 
@@ -67,7 +67,7 @@
 
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
-			user << "\blue The bolts are too tight for you to unscrew!"
+			user << "lue The bolts are too tight for you to unscrew!"
 			return
 
 		..()

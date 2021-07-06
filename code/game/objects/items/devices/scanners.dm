@@ -131,7 +131,7 @@ MASS SPECTROMETER
 
 	// Damage descriptions
 
-	user.show_message(text("<span class='notice'>[] | [] | [] | []</span>", oxy_loss > 50 ? "\red Severe oxygen deprivation detected\blue" : "Subject bloodstream oxygen level normal", tox_loss > 50 ? "\red Dangerous amount of toxins detected\blue" : "Subject bloodstream toxin level minimal", fire_loss > 50 ? "\red Severe burn damage detected\blue" : "Subject burn injury status O.K", brute_loss > 50 ? "\red Severe anatomical damage detected\blue" : "Subject brute-force injury status O.K"), 1)
+	user.show_message(text("<span class='notice'>[] | [] | [] | []</span>", oxy_loss > 50 ? "\red Severe oxygen deprivation detectedlue" : "Subject bloodstream oxygen level normal", tox_loss > 50 ? "\red Dangerous amount of toxins detectedlue" : "Subject bloodstream toxin level minimal", fire_loss > 50 ? "\red Severe burn damage detectedlue" : "Subject burn injury status O.K", brute_loss > 50 ? "\red Severe anatomical damage detectedlue" : "Subject brute-force injury status O.K"), 1)
 
 	if(M.getStaminaLoss())
 		user.show_message(text("<span class='info'>Subject appears to be suffering from fatigue.</span>"), 1)
@@ -193,9 +193,9 @@ MASS SPECTROMETER
 	var/pressure = environment.return_pressure()
 	var/total_moles = environment.total_moles()
 
-	user.show_message("\blue <B>Results:</B>", 1)
+	user.show_message("lue <B>Results:</B>", 1)
 	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		user.show_message("\blue Pressure: [round(pressure,0.1)] kPa", 1)
+		user.show_message("lue Pressure: [round(pressure,0.1)] kPa", 1)
 	else
 		user.show_message("\red Pressure: [round(pressure,0.1)] kPa", 1)
 	if(total_moles)
@@ -206,19 +206,19 @@ MASS SPECTROMETER
 
 		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
 		if(abs(n2_concentration - N2STANDARD) < 20)
-			user.show_message("\blue Nitrogen: [round(n2_concentration*100)]%", 1)
+			user.show_message("lue Nitrogen: [round(n2_concentration*100)]%", 1)
 		else
 			user.show_message("\red Nitrogen: [round(n2_concentration*100)]%", 1)
 
 		if(abs(o2_concentration - O2STANDARD) < 2)
-			user.show_message("\blue Oxygen: [round(o2_concentration*100)]%", 1)
+			user.show_message("lue Oxygen: [round(o2_concentration*100)]%", 1)
 		else
 			user.show_message("\red Oxygen: [round(o2_concentration*100)]%", 1)
 
 		if(co2_concentration > 0.01)
 			user.show_message("\red CO2: [round(co2_concentration*100)]%", 1)
 		else
-			user.show_message("\blue CO2: [round(co2_concentration*100)]%", 1)
+			user.show_message("lue CO2: [round(co2_concentration*100)]%", 1)
 
 		if(plasma_concentration > 0.01)
 			user.show_message("\red Plasma: [round(plasma_concentration*100)]%", 1)
@@ -226,7 +226,7 @@ MASS SPECTROMETER
 		if(unknown_concentration > 0.01)
 			user.show_message("\red Unknown: [round(unknown_concentration*100)]%", 1)
 
-		user.show_message("\blue Temperature: [round(environment.temperature-T0C)]&deg;C", 1)
+		user.show_message("lue Temperature: [round(environment.temperature-T0C)]&deg;C", 1)
 
 	src.add_fingerprint(user)
 	return

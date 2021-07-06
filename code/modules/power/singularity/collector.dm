@@ -47,12 +47,12 @@ var/global/list/rad_collectors = list()
 		else
 			user << "\red The controls are locked!"
 			return
-..()
+	..()
 
 
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/multitool))
-		user << "\blue The [W.name] detects that [last_power]W were recently produced."
+		user << "lue The [W.name] detects that [last_power]W were recently produced."
 		return 1
 	else if(istype(W, /obj/item/device/analyzer) && P)
 		atmosanalyzer_scan(P.air_contents, user)
@@ -73,7 +73,7 @@ var/global/list/rad_collectors = list()
 			return 1
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(P)
-			user << "\blue Remove the plasma tank first."
+			user << "lue Remove the plasma tank first."
 			return 1
 		if(!anchored && !isinspace())
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)

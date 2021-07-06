@@ -27,7 +27,7 @@
 							if(met.Victim == M && met != src)
 								src << "<i>The [met.name] is already feeding on this subject...</i>"
 								return
-						src << "\blue <i>I have latched onto the subject and begun feeding...</i>"
+						src << "lue <i>I have latched onto the subject and begun feeding...</i>"
 						M << "\red <b>The [src.name] has latched onto your head!</b>"
 						Feedon(M)
 

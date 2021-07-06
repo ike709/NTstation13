@@ -1307,7 +1307,7 @@ datum/chemical_reaction/pestkiller
 			playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 			for(var/mob/living/M in range (get_turf(holder.my_atom), 7))
 				M.bodytemperature -= 240
-				M << "\blue You feel a chill!"
+				M << "lue You feel a chill!"
 
 //Orange
 /datum/chemical_reaction/slimecasp

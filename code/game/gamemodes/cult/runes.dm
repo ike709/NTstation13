@@ -203,16 +203,16 @@ var/list/sacrificed = list()
 				"\red You hear a heartbeat.")
 				user.bhunger += drain
 				src = user
-				spawn()
+				/*spawn()
 					for (,user.bhunger>0,user.bhunger--)
 						sleep(50)
-						user.take_overall_damage(3, 0)
+						user.take_overall_damage(3, 0)*/
 				return
 			user.heal_organ_damage(drain%5, 0)
 			drain-=drain%5
-			for (,drain>0,drain-=5)
+			/*for (,drain>0,drain-=5)
 				sleep(2)
-				user.heal_organ_damage(5, 0)
+				user.heal_organ_damage(5, 0)*/
 			return
 
 
@@ -265,18 +265,18 @@ var/list/sacrificed = list()
 
 
 			is_sacrifice_target = 0
-			find_sacrifice:
-				for(var/obj/effect/rune/R in world)
-					if(R.word1==wordblood && R.word2==wordjoin && R.word3==wordhell)
-						for(var/mob/living/carbon/human/N in R.loc)
-							if(gamemode_is("cult"))
-								var/datum/game_mode/cult/Cult = ticker.mode
-								if(N.mind && N.mind == Cult.sacrifice_target)
-									is_sacrifice_target = 1
-							else
-								if(N.stat!= DEAD)
-									body_to_sacrifice = N
-									break find_sacrifice
+			//find_sacrifice:
+			for(var/obj/effect/rune/R in world)
+				if(R.word1==wordblood && R.word2==wordjoin && R.word3==wordhell)
+					for(var/mob/living/carbon/human/N in R.loc)
+						if(gamemode_is("cult"))
+							var/datum/game_mode/cult/Cult = ticker.mode
+							if(N.mind && N.mind == Cult.sacrifice_target)
+								is_sacrifice_target = 1
+						else
+							if(N.stat!= DEAD)
+								body_to_sacrifice = N
+								break
 
 			if(!body_to_sacrifice)
 				if (is_sacrifice_target)
@@ -522,10 +522,10 @@ var/list/sacrificed = list()
 			user.visible_message("\red [user] keels over dead, his blood glowing blue as it escapes his body and dissipates into thin air.", \
 			"\red In the last moment of your humble life, you feel an immense pain as fabric of reality mends... with your blood.", \
 			"\red You hear faint rustle.")
-			for(,user.stat==2)
+			/*for(,user.stat==2)
 				sleep(600)
 				if (!user)
-					return
+					return*/
 			runedec-=10
 			return
 
@@ -553,7 +553,7 @@ var/list/sacrificed = list()
 				usr.whisper("[input]")
 			for(var/datum/mind/H in ticker.mode.cult)
 				if (H.current)
-					H.current << "\red \b [input]"
+					H.current << "\red [input]"
 			return 1
 
 /////////////////////////////////////////FIFTEENTH RUNE

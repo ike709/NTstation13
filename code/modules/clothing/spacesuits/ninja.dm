@@ -20,9 +20,9 @@
 	var/mob/living/carbon/affecting = null//The wearer.
 	var/obj/item/weapon/stock_parts/cell/cell//Starts out with a high-capacity cell using New().
 	var/datum/effect/effect/system/spark_spread/spark_system//To create sparks.
-	var/reagent_list[] = list("tricordrazine","dexalinp","spaceacillin","anti_toxin","nutriment","radium","hyronalin")//The reagents ids which are added to the suit at New().
-	var/stored_research[]//For stealing station research.
-	var/obj/item/weapon/disk/tech_disk/t_disk//To copy design onto disk.
+	var/list/reagent_list = list("tricordrazine","dexalinp","spaceacillin","anti_toxin","nutriment","radium","hyronalin")//The reagents ids which are added to the suit at New().
+	var/list/stored_research = list()//For stealing station research.
+	var/obj/item/weapon/disk/tech_disk/t_disk //To copy design onto disk.
 
 		//Other articles of ninja gear worn together, used to easily reference them after initializing.
 	var/obj/item/clothing/head/helmet/space/space_ninja/n_hood
@@ -52,8 +52,8 @@
 	var/a_boost = 3.0//Number of adrenaline boosters.
 
 		//Onboard AI related variables.
-	var/mob/living/silicon/ai/AI//If there is an AI inside the suit.
-	var/obj/item/device/paicard/pai//A slot for a pAI device
-	var/obj/effect/overlay/hologram//Is the AI hologram on or off? Visible only to the wearer of the suit. This works by attaching an image to a blank overlay.
+	var/mob/living/silicon/ai/ai //If there is an AI inside the suit.
+	var/obj/item/device/paicard/pai //A slot for a pAI device
+	var/obj/effect/overlay/hologram //Is the AI hologram on or off? Visible only to the wearer of the suit. This works by attaching an image to a blank overlay.
 	var/flush = 0//If an AI purge is in progress.
 	var/s_control = 1//If user in control of the suit.

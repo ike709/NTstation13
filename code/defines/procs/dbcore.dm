@@ -53,7 +53,7 @@ DBConnection/New(dbi_handler,username,password_handler,cursor_handler)
 	src.user = username
 	src.password = password_handler
 	src.default_cursor = cursor_handler
-	_db_con = _dm_db_new_con()
+	//_db_con = _dm_db_new_con()
 
 DBConnection/proc/Connect(dbi_handler=src.dbi,user_handler=src.user,password_handler=src.password,cursor_handler)
 	if(!config.sql_enabled)
@@ -61,18 +61,18 @@ DBConnection/proc/Connect(dbi_handler=src.dbi,user_handler=src.user,password_han
 	if(!src) return 0
 	cursor_handler = src.default_cursor
 	if(!cursor_handler) cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con,dbi_handler,user_handler,password_handler,cursor_handler,null)
+	return //_dm_db_connect(_db_con,dbi_handler,user_handler,password_handler,cursor_handler,null)
 
-DBConnection/proc/Disconnect() return _dm_db_close(_db_con)
+DBConnection/proc/Disconnect() return// _dm_db_close(_db_con)
 
 DBConnection/proc/IsConnected()
 	if(!config.sql_enabled) return 0
-	var/success = _dm_db_is_connected(_db_con)
+	var/success = FALSE//_dm_db_is_connected(_db_con)
 	return success
 
-DBConnection/proc/Quote(str) return _dm_db_quote(_db_con,str)
+DBConnection/proc/Quote(str) return// _dm_db_quote(_db_con,str)
 
-DBConnection/proc/ErrorMsg() return _dm_db_error_msg(_db_con)
+DBConnection/proc/ErrorMsg() return// _dm_db_error_msg(_db_con)
 DBConnection/proc/SelectDB(database_name,dbi)
 	if(IsConnected()) Disconnect()
 	//return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[DB_SERVER]:[DB_PORT]"]",user,password)
@@ -84,7 +84,7 @@ DBQuery/New(sql_query,DBConnection/connection_handler,cursor_handler)
 	if(sql_query) src.sql = sql_query
 	if(connection_handler) src.db_connection = connection_handler
 	if(cursor_handler) src.default_cursor = cursor_handler
-	_db_query = _dm_db_new_query()
+	//_db_query = _dm_db_new_query()
 	return ..()
 
 
@@ -93,7 +93,7 @@ DBQuery
 	var/default_cursor
 	var/list/columns //list of DB Columns populated by Columns()
 	var/list/conversions
-	var/list/item[0]  //list of data values populated by NextRow()
+	var/list/item = list()  //list of data values populated by NextRow()
 
 	var/DBConnection/db_connection
 	var/_db_query
@@ -102,19 +102,19 @@ DBQuery/proc/Connect(DBConnection/connection_handler) src.db_connection = connec
 
 DBQuery/proc/Execute(sql_query=src.sql,cursor_handler=default_cursor)
 	Close()
-	return _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
+	return// _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
 
-DBQuery/proc/NextRow() return _dm_db_next_row(_db_query,item,conversions)
+DBQuery/proc/NextRow() return// _dm_db_next_row(_db_query,item,conversions)
 
-DBQuery/proc/RowsAffected() return _dm_db_rows_affected(_db_query)
+DBQuery/proc/RowsAffected() return// _dm_db_rows_affected(_db_query)
 
-DBQuery/proc/RowCount() return _dm_db_row_count(_db_query)
+DBQuery/proc/RowCount() return// _dm_db_row_count(_db_query)
 
-DBQuery/proc/ErrorMsg() return _dm_db_error_msg(_db_query)
+DBQuery/proc/ErrorMsg() return// _dm_db_error_msg(_db_query)
 
 DBQuery/proc/Columns()
 	if(!columns)
-		columns = _dm_db_columns(_db_query,/DBColumn)
+		columns = null// _dm_db_columns(_db_query,/DBColumn)
 	return columns
 
 DBQuery/proc/GetRowData()
@@ -132,7 +132,7 @@ DBQuery/proc/Close()
 	item.len = 0
 	columns = null
 	conversions = null
-	return _dm_db_close(_db_query)
+	return// _dm_db_close(_db_query)
 
 DBQuery/proc/Quote(str)
 	return db_connection.Quote(str)

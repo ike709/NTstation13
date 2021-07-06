@@ -102,7 +102,7 @@
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(src.reagents)
 		for(var/mob/O in viewers(user, null))
-			O.show_message(text("\blue <B>The contents of the [src] splashes all over [target]!</B>"), 1)
+			O.show_message(text("lue <B>The contents of the [src] splashes all over [target]!</B>"), 1)
 		src.reagents.reaction(target, TOUCH)
 
 	//Finally, smash the bottle. This kills (del) the bottle.
@@ -124,7 +124,7 @@
 	item_state = "beer"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("stabbed", "slashed", "attacked")
-	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
+	var/icon/broken_outline //= icon('icons/obj/drinks.dmi', "broken")
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/gin
 	name = "Griffeater Gin"

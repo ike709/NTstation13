@@ -300,7 +300,8 @@
 		var/target_y = targloc.y
 		var/target_z = targloc.z
 		targloc = null
-		spawn	for(var/i=1 to min(projectiles, projectiles_per_shot))
+		//spawn(0)
+		for(var/i=1 to min(projectiles, projectiles_per_shot))
 			if(!chassis) break
 			var/turf/curloc = get_turf(chassis)
 			var/dx = round(gaussian(0,deviation),1)

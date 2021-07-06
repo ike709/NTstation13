@@ -348,8 +348,8 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/isAllPowerCut()
 	var/retval=0
-	if(src.isWireCut(AIRLOCK_WIRE_MAIN_POWER1) || src.isWireCut(AIRLOCK_WIRE_MAIN_POWER2))
-		if(src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER1) || src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER2))
+	if(src.isWireCut(2) || src.isWireCut(3))
+		if(src.isWireCut(2) || src.isWireCut(3))
 			retval=1
 	return retval
 

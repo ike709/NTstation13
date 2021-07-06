@@ -1,5 +1,5 @@
 /proc/isobject(x)
-	return (istype(x, /datum) || istype(x, /list) || istype(x, /savefile) || istype(x, /client) || (x==world))
+	return (istype(x, /datum) || istype(x, /list) /*|| istype(x, /savefile) */|| istype(x, /client) || (x==world))
 
 /n_Interpreter
 	proc
@@ -39,7 +39,7 @@
 		EvalOperator(node/expression/operator/exp)
 			if(istype(exp, /node/expression/operator/binary))
 				var/node/expression/operator/binary/bin=exp
-				switch(bin.type)
+				switch(bin)
 					if(/node/expression/operator/binary/Equal)
 						return Equal(Eval(bin.exp), Eval(bin.exp2))
 					if(/node/expression/operator/binary/NotEqual)
@@ -79,7 +79,7 @@
 					else
 						RaiseError(new/runtimeError/UnknownInstruction())
 			else
-				switch(exp.type)
+				switch(exp)
 					if(/node/expression/operator/unary/Minus)
 						return Minus(Eval(exp.exp))
 					if(/node/expression/operator/unary/LogicalNot)

@@ -31,10 +31,11 @@ world
 
 mob/Login()
 	..()
+	return
 
-	var/list/weights = list()
-	var/list/servers = list()
-	for(var/x in global.servers)
+	//var/list/weights = list()
+	//var/list/servers = list()
+	/*for(var/x in global.servers)
 
 		world << "[x] [servernames[ global.servers.Find(x) ]]"
 
@@ -56,9 +57,9 @@ mob/Login()
 	var/serverlink
 	for(var/datum/server/S in servers)
 		if(S.weight == lowest)
-			serverlink = S.link
+			serverlink = S.link*/
 
-	src << link(serverlink)
+	//src << link(serverlink)
 
 proc/extract(var/data, var/type = PLAYERS)
 

@@ -46,15 +46,15 @@ What are the archived variables for?
 	var/list/datum/gas/trace_gases = list()
 
 
-	var/tmp/oxygen_archived
-	var/tmp/carbon_dioxide_archived
-	var/tmp/nitrogen_archived
-	var/tmp/toxins_archived
+	var/oxygen_archived
+	var/carbon_dioxide_archived
+	var/nitrogen_archived
+	var/toxins_archived
 
-	var/tmp/temperature_archived
+	var/temperature_archived
 
-	var/tmp/graphic_archived
-	var/tmp/fuel_burnt = 0
+	var/graphic_archived
+	var/fuel_burnt = 0
 
 	//PV=nRT - related procedures
 	proc/heat_capacity()

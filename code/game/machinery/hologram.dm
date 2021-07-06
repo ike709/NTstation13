@@ -27,29 +27,15 @@ Possible to do for anyone motivated enough:
 // HOLOPAD MODE
 // 0 = RANGE BASED
 // 1 = AREA BASED
-var/const/HOLOPAD_MODE = 0
+#define HOLOPAD_MODE 0
 
 /obj/machinery/hologram/holopad
 	name = "\improper AI holopad"
 	desc = "It's a floor-mounted device for projecting holographic images. It is activated remotely."
 	icon_state = "holopad0"
-	var/mob/living/silicon/ai/master//Which AI, if any, is controlling the object? Only one AI may control a hologram at any time.
+	var/mob/living/silicon/ai/master //Which AI, if any, is controlling the object? Only one AI may control a hologram at any time.
 	var/last_request = 0 //to prevent request spam. ~Carn
 	var/holo_range = 5 // Change to change how far the AI can move away from the holopad before deactivating.
-
-/obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
-	if(!istype(user))
-		return
-	if(alert(user,"Would you like to request an AI's presence?",,"Yes","No") == "Yes")
-		if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
-			last_request = world.time
-			user << "<span class='notice'>You request an AI's presence.</span>"
-			var/area/area = get_area(src)
-			for(var/mob/living/silicon/ai/AI in living_mob_list)
-				if(!AI.client)	continue
-				AI << "<span class='info'>Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>.</span>"
-		else
-			user << "<span class='notice'>A request for AI presence was already sent recently.</span>"
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if (!istype(user))
@@ -71,9 +57,9 @@ var/const/HOLOPAD_MODE = 0
 			create_holo(user)//Create one.
 			src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
 		else
-			user << "\red ERROR: \black Image feed in progress."
+			user << "\red ERROR: lack Image feed in progress."
 	else
-		user << "\red ERROR: \black Unable to project hologram."
+		user << "\red ERROR: lack Unable to project hologram."
 	return
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.

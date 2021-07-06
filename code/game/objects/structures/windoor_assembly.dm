@@ -99,7 +99,7 @@ obj/structure/windoor_assembly/Destroy()
 
 				if(do_after(user, 40))
 					if(!src) return
-					user << "\blue You've secured the windoor assembly!"
+					user << "lue You've secured the windoor assembly!"
 					src.anchored = 1
 					if(src.secure)
 						src.name = "secure anchored windoor assembly"
@@ -113,7 +113,7 @@ obj/structure/windoor_assembly/Destroy()
 
 				if(do_after(user, 40))
 					if(!src) return
-					user << "\blue You've unsecured the windoor assembly!"
+					user << "lue You've unsecured the windoor assembly!"
 					src.anchored = 0
 					if(src.secure)
 						src.name = "secure windoor assembly"
@@ -126,13 +126,13 @@ obj/structure/windoor_assembly/Destroy()
 				if(P.amount < 2)
 					user << "\red You need more plasteel to do this."
 					return
-				user << "\blue You start to reinforce the windoor with plasteel."
+				user << "lue You start to reinforce the windoor with plasteel."
 
 				if(do_after(user,40))
 					if(!src) return
 
 					P.use(2)
-					user << "\blue You reinforce the windoor."
+					user << "lue You reinforce the windoor."
 					src.secure = "secure_"
 					if(src.anchored)
 						src.name = "secure anchored windoor assembly"
@@ -147,7 +147,7 @@ obj/structure/windoor_assembly/Destroy()
 					if(!src) return
 					var/obj/item/stack/cable_coil/CC = W
 					CC.use(1)
-					user << "\blue You wire the windoor!"
+					user << "lue You wire the windoor!"
 					src.state = "02"
 					if(src.secure)
 						src.name = "secure wired windoor assembly"
@@ -166,7 +166,7 @@ obj/structure/windoor_assembly/Destroy()
 				if(do_after(user, 40))
 					if(!src) return
 
-					user << "\blue You cut the windoor wires.!"
+					user << "lue You cut the windoor wires.!"
 					new/obj/item/stack/cable_coil(get_turf(user), 1)
 					src.state = "01"
 					if(src.secure)
@@ -184,7 +184,7 @@ obj/structure/windoor_assembly/Destroy()
 
 					user.drop_item()
 					W.loc = src
-					user << "\blue You've installed the airlock electronics!"
+					user << "lue You've installed the airlock electronics!"
 					src.name = "near finished windoor assembly"
 					src.electronics = W
 				else
@@ -200,7 +200,7 @@ obj/structure/windoor_assembly/Destroy()
 
 				if(do_after(user, 40))
 					if(!src) return
-					user << "\blue You've removed the airlock electronics!"
+					user << "lue You've removed the airlock electronics!"
 					src.name = "wired windoor assembly"
 					var/obj/item/weapon/airlock_electronics/ae
 					if (!electronics) //This shouldnt happen, but if it does, lets not crash and runtime.
@@ -225,7 +225,7 @@ obj/structure/windoor_assembly/Destroy()
 					if(!src) return
 
 					density = 1 //Shouldn't matter but just incase
-					user << "\blue You finish the windoor!"
+					user << "lue You finish the windoor!"
 
 					if(secure)
 						var/obj/machinery/door/window/brigdoor/windoor = new /obj/machinery/door/window/brigdoor(src.loc)

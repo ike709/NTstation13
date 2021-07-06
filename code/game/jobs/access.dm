@@ -1,84 +1,84 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/var/const/access_security = 1 // Security equipment
-/var/const/access_brig = 2 // Brig timers and permabrig
-/var/const/access_armory = 3
-/var/const/access_forensics_lockers= 4
-/var/const/access_medical = 5
-/var/const/access_morgue = 6
-/var/const/access_tox = 7
-/var/const/access_tox_storage = 8
-/var/const/access_genetics = 9
-/var/const/access_engine = 10
-/var/const/access_engine_equip= 11
-/var/const/access_maint_tunnels = 12
-/var/const/access_external_airlocks = 13
-/var/const/access_emergency_storage = 14
-/var/const/access_change_ids = 15
-/var/const/access_ai_upload = 16
-/var/const/access_teleporter = 17
-/var/const/access_eva = 18
-/var/const/access_heads = 19
-/var/const/access_captain = 20
-/var/const/access_all_personal_lockers = 21
-/var/const/access_chapel_office = 22
-/var/const/access_tech_storage = 23
-/var/const/access_atmospherics = 24
-/var/const/access_bar = 25
-/var/const/access_janitor = 26
-/var/const/access_crematorium = 27
-/var/const/access_kitchen = 28
-/var/const/access_robotics = 29
-/var/const/access_rd = 30
-/var/const/access_cargo = 31
-/var/const/access_construction = 32
-/var/const/access_chemistry = 33
-/var/const/access_cargo_bot = 34
-/var/const/access_hydroponics = 35
-/var/const/access_manufacturing = 36
-/var/const/access_library = 37
-/var/const/access_lawyer = 38
-/var/const/access_virology = 39
-/var/const/access_cmo = 40
-/var/const/access_qm = 41
-/var/const/access_court = 42
-/var/const/access_surgery = 45
-/var/const/access_theatre = 46
-/var/const/access_research = 47
-/var/const/access_mining = 48
-/var/const/access_mining_office = 49 //not in use
-/var/const/access_mailsorting = 50
-/var/const/access_mint = 51
-/var/const/access_mint_vault = 52
-/var/const/access_heads_vault = 53
-/var/const/access_mining_station = 54
-/var/const/access_xenobiology = 55
-/var/const/access_ce = 56
-/var/const/access_hop = 57
-/var/const/access_hos = 58
-/var/const/access_RC_announce = 59 //Request console announcements
-/var/const/access_keycard_auth = 60 //Used for events which require at least two people to confirm them
-/var/const/access_tcomsat = 61 // has access to the entire telecomms satellite / machinery
-/var/const/access_gateway = 62
-/var/const/access_sec_doors = 63 // Security front doors
-/var/const/access_mineral_storeroom = 64
-/var/const/access_minisat = 65
-/var/const/access_weapons = 66 //Weapon authorization for secbots
+#define access_security 1 // Security equipment
+#define access_brig 2 // Brig timers and permabrig
+#define access_armory 3
+#define access_forensics_lockers 4
+#define access_medical 5
+#define access_morgue 6
+#define access_tox 7
+#define access_tox_storage 8
+#define access_genetics 9
+#define access_engine 10
+#define access_engine_equip 11
+#define access_maint_tunnels 12
+#define access_external_airlocks 13
+#define access_emergency_storage 14
+#define access_change_ids 15
+#define access_ai_upload 16
+#define access_teleporter 17
+#define access_eva 18
+#define access_heads 19
+#define access_captain 20
+#define access_all_personal_lockers 21
+#define access_chapel_office 22
+#define access_tech_storage 23
+#define access_atmospherics 24
+#define access_bar 25
+#define access_janitor 26
+#define access_crematorium 27
+#define access_kitchen 28
+#define access_robotics 29
+#define access_rd 30
+#define access_cargo 31
+#define access_construction 32
+#define access_chemistry 33
+#define access_cargo_bot 34
+#define access_hydroponics 35
+#define access_manufacturing 36
+#define access_library 37
+#define access_lawyer 38
+#define access_virology 39
+#define access_cmo 40
+#define access_qm 41
+#define access_court 42
+#define access_surgery 45
+#define access_theatre 46
+#define access_research 47
+#define access_mining 48
+#define access_mining_office 49 //not in use
+#define access_mailsorting 50
+#define access_mint 51
+#define access_mint_vault 52
+#define access_heads_vault 53
+#define access_mining_station 54
+#define access_xenobiology 55
+#define access_ce 56
+#define access_hop 57
+#define access_hos 58
+#define access_RC_announce 59 //Request console announcements
+#define access_keycard_auth 60 //Used for events which require at least two people to confirm them
+#define access_tcomsat 61 // has access to the entire telecomms satellite / machinery
+#define access_gateway 62
+#define access_sec_doors 63 // Security front doors
+#define access_mineral_storeroom 64
+#define access_minisat 65
+#define access_weapons 66 //Weapon authorization for secbots
 
 	//BEGIN CENTCOM ACCESS
 	/*Should leave plenty of room if we need to add more access levels.
-/var/const/Mostly for admin fun times.*/
-/var/const/access_cent_general = 101//Minimum access.
-/var/const/access_cent_thunder = 102//Thunderdome.
-/var/const/access_cent_specops = 103//Special Ops.
-/var/const/access_cent_medsci = 104//Medical/Research
-/var/const/access_cent_living = 105//Living quarters.
-/var/const/access_cent_engineering = 106//Engineering (formally 'teleporter')
-/var/const/access_cent_secret = 107//Agents(spies, assassins, secrets, etc) (formally 'storage')
-/var/const/access_cent_captain = 109//Captain's office/ID comp/AI.
+#define Mostly for admin fun times.*/
+#define access_cent_general 101//Minimum access.
+#define access_cent_thunder 102//Thunderdome.
+#define access_cent_specops 103//Special Ops.
+#define access_cent_medsci 104//Medical/Research
+#define access_cent_living 105//Living quarters.
+#define access_cent_engineering 106//Engineering (formally 'teleporter')
+#define access_cent_secret 107//Agents(spies, assassins, secrets, etc) (formally 'storage')
+#define access_cent_captain 109//Captain's office/ID comp/AI.
 
 	//The Syndicate
-/var/const/access_syndicate = 150//General Syndicate Access
+#define access_syndicate 150//General Syndicate Access
 
 /obj/var/list/req_access = null
 /obj/var/req_access_txt = "0"
@@ -156,10 +156,10 @@
 
 /obj/proc/check_access_list(var/list/L)
 	if(!src.req_access  && !src.req_one_access)	return 1
-	if(!istype(src.req_access, /list))	return 1
+	if(!islist(src.req_access))	return 1
 	if(!src.req_access.len && (!src.req_one_access || !src.req_one_access.len))	return 1
 	if(!L)	return 0
-	if(!istype(L, /list))	return 0
+	if(!islist(L))	return 0
 	for(var/req in src.req_access)
 		if(!(req in L)) //doesn't have this access
 			return 0

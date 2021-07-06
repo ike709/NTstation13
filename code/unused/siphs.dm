@@ -490,26 +490,26 @@
 			if (src.c_status)
 				src.anchored = 0
 				src.c_status = 0
-				user.show_message("\blue You have disconnected the siphon.")
+				user.show_message("lue You have disconnected the siphon.")
 				if(con)
 					con.connected = null
 			else
 				if (con && !con.connected)
 					src.anchored = 1
 					src.c_status = 3
-					user.show_message("\blue You have connected the siphon.")
+					user.show_message("lue You have connected the siphon.")
 					con.connected = src
 				else
-					user.show_message("\blue There is nothing here to connect to the siphon.")
+					user.show_message("lue There is nothing here to connect to the siphon.")
 
 
 		else
 			if (istype(W, /obj/item/weapon/wrench))
 				src.alterable = !( src.alterable )
 				if (src.alterable)
-					user << "\blue You unlock the interface!"
+					user << "lue You unlock the interface!"
 				else
-					user << "\blue You lock the interface!"
+					user << "lue You lock the interface!"
 	return
 
 

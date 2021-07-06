@@ -97,12 +97,12 @@
 
 	if (M == usr)
 		M.visible_message(\
-			"\blue [M.name] buckles in!",\
+			"lue [M.name] buckles in!",\
 			"You buckle yourself to [src].",\
 			"You hear metal clanking")
 	else
 		M.visible_message(\
-			"\blue [M.name] is buckled in to [src] by [user.name]!",\
+			"lue [M.name] is buckled in to [src] by [user.name]!",\
 			"You are buckled in to [src] by [user.name].",\
 			"You hear metal clanking")
 	M.buckled = src

@@ -200,7 +200,7 @@ proc/wabbajack(mob/living/M)
 					var/mob/living/carbon/human/H = new_mob
 					ready_dna(H)
 					if(H.dna)
-						H.dna.mutantrace = pick("lizard","golem","slime","plant","fly","shadow","adamantine","skeleton",8;"")
+						H.dna.mutantrace = pick("lizard","golem","slime","plant","fly","shadow","adamantine","skeleton","")
 						H.update_body()
 				else
 					return

@@ -46,9 +46,9 @@
 			survivors++
 
 	if(survivors)
-		world << "\blue <B>The following survived the meteor storm</B>:[text]"
+		world << "lue <B>The following survived the meteor storm</B>:[text]"
 	else
-		world << "\blue <B>Nobody survived the meteor storm!</B>"
+		world << "lue <B>Nobody survived the meteor storm!</B>"
 
 	feedback_set_details("round_end_result","end - evacuation")
 	feedback_set("round_end_result",survivors)

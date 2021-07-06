@@ -288,7 +288,7 @@ lines 294-301 in living/say.dm (speech buffer)
 		user.drop_item()
 		if(health < maxHealth)
 			adjustBruteLoss(-10)
-		user << "\blue [src] eagerly devours the cracker."
+		user << "lue [src] eagerly devours the cracker."
 	..()
 	return
 
@@ -452,7 +452,7 @@ lines 294-301 in living/say.dm (speech buffer)
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.loc = src
-					visible_message("[src] grabs [held_item]!", "\blue You grab [held_item]!", "You hear the sounds of wings flapping furiously.")
+					visible_message("[src] grabs [held_item]!", "lue You grab [held_item]!", "You hear the sounds of wings flapping furiously.")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
@@ -639,7 +639,7 @@ lines 294-301 in living/say.dm (speech buffer)
 
 			held_item = I
 			I.loc = src
-			visible_message("[src] grabs [held_item]!", "\blue You grab [held_item]!", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs [held_item]!", "lue You grab [held_item]!", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	src << "\red There is nothing of interest to take."
@@ -670,7 +670,7 @@ lines 294-301 in living/say.dm (speech buffer)
 			C.unEquip(stolen_item)
 			held_item = stolen_item
 			stolen_item.loc = src
-			visible_message("[src] grabs [held_item] out of [C]'s hand!", "\blue You snag [held_item] out of [C]'s hand!", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs [held_item] out of [C]'s hand!", "lue You snag [held_item] out of [C]'s hand!", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	src << "\red There is nothing of interest to take."

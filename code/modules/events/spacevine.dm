@@ -482,25 +482,3 @@
 		if (src.growth < 20) src.Life()
 
 */
-
-/obj/effect/spacevine/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			Destroy()
-			return
-		if(2.0)
-			if (prob(90))
-				Destroy()
-				return
-		if(3.0)
-			if (prob(50))
-				Destroy()
-				return
-	return
-
-/obj/effect/spacevine/temperature_expose(null, temp, volume)
-	var/override = 0
-	for(var/datum/spacevine_mutation/SM in mutations)
-		override += SM.process_temperature(src, temp, volume)
-	if(!override)
-		Destroy()

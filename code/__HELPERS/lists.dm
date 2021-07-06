@@ -40,10 +40,10 @@ proc/listgetindex(list/L, index)
 			return L[index]
 	return
 
-proc/islist(list/L)
+/*proc/islist(list/L)
 	if(istype(L))
 		return 1
-	return 0
+	return 0*/
 
 //Return either pick(list) or null if list is not of type /list or is empty
 proc/safepick(list/L)
@@ -64,16 +64,16 @@ proc/isemptylist(list/L)
 	return 0
 
 //Empties the list by setting the length to 0. Hopefully the elements get garbage collected
-proc/clearlist(list/list)
-	if(istype(list))
-		list.len = 0
+proc/clearlist(list/L)
+	if(istype(L))
+		L.len = 0
 	return
 
 //Removes any null entries from the list
-proc/listclearnulls(list/list)
-	if(istype(list))
-		while(null in list)
-			list -= null
+proc/listclearnulls(list/L)
+	if(istype(L))
+		while(null in L)
+			L -= null
 	return
 
 /*

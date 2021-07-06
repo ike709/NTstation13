@@ -620,7 +620,7 @@ var/global/datum/tension/tension_master
 	/*
 		if (emergency_shuttle.direction == 1 && emergency_shuttle.online == 1)
 			emergency_shuttle.recall()
-			world << "\blue <B>Alert: The shuttle is going back!</B>"
+			world << "lue <B>Alert: The shuttle is going back!</B>"
 
 		var/syndicate_commando_number = syndicate_commandos_possible //for selecting a leader
 
@@ -672,7 +672,7 @@ var/global/datum/tension/tension_master
 					//So they don't forget their code or mission.
 
 
-					new_syndicate_commando << "\blue You are an Elite Syndicate. [!syndicate_leader_selected?"commando":"<B>LEADER</B>"] in the service of the Syndicate. \nYour current mission is: \red<B> [input]</B>"
+					new_syndicate_commando << "lue You are an Elite Syndicate. [!syndicate_leader_selected?"commando":"<B>LEADER</B>"] in the service of the Syndicate. \nYour current mission is: \red<B> [input]</B>"
 
 					numagents--
 

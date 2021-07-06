@@ -171,7 +171,6 @@ proc/AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdist,minn
 
 	//then run the main loop
 	while(!open.IsEmpty() && !path)
-	{
 			//get the lower f node on the open list
 		cur = open.Dequeue() //get the lower f turf in the open list
 		closed.Add(cur.source) //and tell we've processed it
@@ -218,7 +217,7 @@ proc/AStar(start,end,adjacent,dist,maxnodes,maxnodedepth = 30,mintargetdist,minn
 					T.PNode.calc_f()
 					open.ReSort(T.PNode)//reorder the changed element in the list
 
-	}
+	
 
 	//cleaning after us
 	for(var/PathNode/PN in open.L)

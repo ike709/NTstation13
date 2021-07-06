@@ -8,7 +8,7 @@ client/verb/tcssave()
 
 			if(Machine.SelectedServer)
 				var/obj/machinery/telecomms/server/Server = Machine.SelectedServer
-				var/tcscode=winget(src, "tcscode", "text")
+				var/tcscode//=winget(src, "tcscode", "text")
 				Server.setcode( tcscode ) // this actually saves the code from input to the server
 				src << output(null, "tcserror") // clear the errors
 			else
@@ -32,7 +32,7 @@ client/verb/tcscompile()
 
 			if(Machine.SelectedServer)
 				var/obj/machinery/telecomms/server/Server = Machine.SelectedServer
-				Server.setcode( winget(src, "tcscode", "text") ) // save code first
+				//Server.setcode( winget(src, "tcscode", "text") ) // save code first
 
 				spawn(0)
 					// Output all the compile-time errors
@@ -120,7 +120,7 @@ client/verb/exittcs()
 		if(telecomms_check(mob))
 			var/obj/machinery/computer/telecomms/traffic/Machine = mob.machine
 			if(Machine.editingcode == mob)
-				Machine.storedcode = "[winget(mob, "tcscode", "text")]"
+			//	Machine.storedcode = "[winget(mob, "tcscode", "text")]"
 				Machine.editingcode = null
 			else
 				if(mob in Machine.viewingcode)

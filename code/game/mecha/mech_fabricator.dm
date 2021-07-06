@@ -549,7 +549,8 @@
 		return interact(user)
 
 /obj/machinery/mecha_part_fabricator/interact(mob/user as mob)
-	var/dat, left_part
+	var/dat
+	var/left_part
 	if (..())
 		return
 	if(!operation_allowed(user))
@@ -660,7 +661,7 @@
 		remove_from_queue(filter.getNum("remove_from_queue"))
 		return update_queue_on_page()
 	if(href_list["partset_to_queue"])
-		add_part_set_to_queue(filter.get("partset_to_queue"))
+		add_part_set_to_queue(filter.get_thing("partset_to_queue"))
 		return update_queue_on_page()
 	if(href_list["process_queue"])
 		spawn(-1)

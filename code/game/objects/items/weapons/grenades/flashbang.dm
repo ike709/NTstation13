@@ -84,13 +84,13 @@
 /obj/item/weapon/grenade/flashbang/clusterbang/prime()
 	update_mob()
 	var/numspawned = rand(4,8)
-	var/again = 0
+	//_dm_db_closevar/again = 0
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
-			again++
+			//again++
 			numspawned --
 
-	for(,numspawned > 0, numspawned--)
+	/*for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)//Launches flashbangs
 			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
@@ -98,7 +98,7 @@
 	for(,again > 0, again--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/clusterbang/segment(src.loc)//Creates a 'segment' that launches a few more flashbangs
-			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)*/
 	qdel(src)
 
 /obj/item/weapon/grenade/flashbang/clusterbang/segment
@@ -125,10 +125,10 @@
 		if(prob(35))
 			numspawned --
 
-	for(,numspawned > 0, numspawned--)
+	/*for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/weapon/grenade/flashbang/cluster(src.loc)
-			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+			playsound(src.loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)*/
 	qdel(src)
 
 /obj/item/weapon/grenade/flashbang/cluster/New()//Same concept as the segments, so that all of the parts don't become reliant on the clusterbang

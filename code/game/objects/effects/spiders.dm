@@ -147,7 +147,7 @@
 							return
 
 						if(prob(50))
-							src.visible_message("\blue You hear something squeezing through the ventilation ducts.",2)
+							src.visible_message("lue You hear something squeezing through the ventilation ducts.",2)
 						sleep(travel_time)
 
 						if(!exit_vent || exit_vent.welded)
@@ -169,7 +169,7 @@
 			var/target_atom = pick(nearby)
 			walk_to(src, target_atom)
 			if(prob(40))
-				src.visible_message("\blue \The [src] skitters[pick(" away"," around","")].")
+				src.visible_message("lue \The [src] skitters[pick(" away"," around","")].")
 	else if(prob(10))
 		//ventcrawl!
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))

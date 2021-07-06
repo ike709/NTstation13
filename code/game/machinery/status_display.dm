@@ -113,7 +113,7 @@
 				var/line2
 				if(supply_shuttle.moving)
 					line2 = get_supply_shuttle_timer()
-					if(lentext(line2) > CHARS_PER_LINE)
+					if(length(line2) > CHARS_PER_LINE)
 						line2 = "Error"
 				else
 					if(supply_shuttle.at_station)
@@ -295,7 +295,7 @@
 		overlays += image('icons/obj/status_display.dmi', icon_state=picture_state)
 
 #undef CHARS_PER_LINE
-#undef FOND_SIZE
+#undef FONT_SIZE
 #undef FONT_COLOR
 #undef FONT_STYLE
 #undef SCROLL_SPEED

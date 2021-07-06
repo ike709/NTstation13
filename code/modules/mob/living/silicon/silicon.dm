@@ -12,8 +12,8 @@
 	var/list/alarm_types_show = list("Motion" = 0, "Fire" = 0, "Atmosphere" = 0, "Power" = 0, "Camera" = 0)
 	var/list/alarm_types_clear = list("Motion" = 0, "Fire" = 0, "Atmosphere" = 0, "Power" = 0, "Camera" = 0)
 
-	var/lawcheck[1]
-	var/ioncheck[1]
+	var/list/lawcheck = list()
+	var/list/ioncheck = list()
 
 	var/sensor_mode = 0 //Determines the current HUD.
 	#define 	SEC_HUD 1 //Security HUD mode
@@ -239,12 +239,12 @@
 
 /mob/living/silicon/proc/checklaws() //Gives you a link-driven interface for deciding what laws the statelaws() proc will share with the crew. --NeoFite
 
-	var/list = "<b>Which laws do you want to include when stating them for the crew?</b><br><br>"
+	var/list/L = list("<b>Which laws do you want to include when stating them for the crew?</b><br><br>")
 
 	if (src.laws.zeroth)
 		if (!src.lawcheck[1])
 			src.lawcheck[1] = "No" //Given Law 0's usual nature, it defaults to NOT getting reported. --NeoFite
-		list += {"<A href='byond://?src=\ref[src];lawc=0'>[src.lawcheck[1]] 0:</A> [src.laws.zeroth]<BR>"}
+		L += {"<A href='byond://?src=\ref[src];lawc=0'>[src.lawcheck[1]] 0:</A> [src.laws.zeroth]<BR>"}
 
 	for (var/index = 1, index <= src.laws.ion.len, index++)
 		var/law = src.laws.ion[index]
@@ -252,7 +252,7 @@
 		if (length(law) > 0)
 			if (!src.ioncheck[index])
 				src.ioncheck[index] = "Yes"
-			list += {"<A href='byond://?src=\ref[src];lawi=[index]'>[src.ioncheck[index]] [ionnum()]:</A> [law]<BR>"}
+			//L += "<A href='byond://?src=\ref[src];lawi=[index]'>[src.ioncheck[index]] [ionnum()]:</A> [law]<BR>"
 			src.ioncheck.len += 1
 
 	var/number = 1
@@ -264,7 +264,7 @@
 
 			if (!src.lawcheck[number+1])
 				src.lawcheck[number+1] = "Yes"
-			list += {"<A href='byond://?src=\ref[src];lawc=[number]'>[src.lawcheck[number+1]] [number]:</A> [law]<BR>"}
+			//list += {"<A href='byond://?src=\ref[src];lawc=[number]'>[src.lawcheck[number+1]] [number]:</A> [law]<BR>"}
 			number++
 
 	for (var/index = 1, index <= src.laws.supplied.len, index++)
@@ -273,11 +273,11 @@
 			src.lawcheck.len += 1
 			if (!src.lawcheck[number+1])
 				src.lawcheck[number+1] = "Yes"
-			list += {"<A href='byond://?src=\ref[src];lawc=[number]'>[src.lawcheck[number+1]] [number]:</A> [law]<BR>"}
+			//list += {"<A href='byond://?src=\ref[src];lawc=[number]'>[src.lawcheck[number+1]] [number]:</A> [law]<BR>"}
 			number++
-	list += {"<br><br><A href='byond://?src=\ref[src];laws=1'>State Laws</A>"}
+	//list += {"<br><br><A href='byond://?src=\ref[src];laws=1'>State Laws</A>"}
 
-	usr << browse(list, "window=laws")
+	usr << browse(L, "window=laws")
 
 /mob/living/silicon/Bump(atom/movable/AM as mob|obj, yes)  //Allows the AI to bump into mobs if it's itself pushed
         if ((!( yes ) || now_pushing))

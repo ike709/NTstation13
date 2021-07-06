@@ -111,7 +111,7 @@ datum/light_source
 			return sqrtTable[owner.trueLuminosity] - dist
 
 atom
-	var/tmp/datum/light_source/light
+	var/datum/light_source/light
 	var/trueLuminosity = 0  // Typically 'luminosity' squared.  The builtin luminosity must remain linear.
 	                        // We may read it, but NEVER set it directly.
 
@@ -227,8 +227,8 @@ turf/proc/build_lighting_area(var/tag, var/level)
 	for(var/V in Area.vars)
 		switch(V)
 			if("contents","lighting_overlay","overlays")	continue
-			else
-				if(issaved(Area.vars[V])) A.vars[V] = Area.vars[V]
+			//else
+			//	if(issaved(Area.vars[V])) A.vars[V] = Area.vars[V]
 
 	A.tag = tag
 	A.lighting_subarea = 1

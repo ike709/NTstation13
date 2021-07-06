@@ -632,9 +632,9 @@ obj/machinery/computer/pandemic/proc/replicator_cooldown(var/waittime)
 				var/datum/disease/advance/A = archive_diseases[D.GetDiseaseID()]
 				if(A)
 					D = new A.type(0, A)
-			else if(type)
+			/*else if(type)
 				if(type in diseases) // Make sure this is a disease
-					D = new type(0, null)
+					D = new type(0, null)*/
 			if(!D)
 				return
 			replicator_cooldown(50)

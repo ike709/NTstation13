@@ -49,14 +49,13 @@
 			if(!T) return
 			if(istype(T, /node/expression))
 				return T
-			switch(T.type)
+			switch(T)
 				if(/token/word)
 					return new/node/expression/value/variable(T.value)
 				if(/token/accessor)
-					var
-						token/accessor/A=T
-						node/expression/value/variable/E//=new(A.member)
-						stack/S=new()
+					var/token/accessor/A=T
+					var/node/expression/value/variable/E//=new(A.member)
+					var/stack/S=new()
 					while(istype(A.object, /token/accessor))
 						S.Push(A)
 						A=A.object
@@ -91,11 +90,11 @@
 	- <GetBinaryOperator()>
 	- <GetUnaryOperator()>
 */
-		GetOperator(O, type=/node/expression/operator, L[])
+		GetOperator(O, type=/node/expression/operator, L = list())
 			if(istype(O, type)) return O		//O is already the desired type
 			if(istype(O, /token)) O=O:value //sets O to text
 			if(istext(O))										//sets O to path
-				if(L.Find(O)) O=L[O]
+				if(L[O]) O=L[O]
 				else return null
 			if(ispath(O))O=new O						//catches path from last check
 			else return null								//Unknown type
@@ -154,7 +153,7 @@
 	Parameters:
 	end - A list of values to compare the current token to.
 */
-		EndOfExpression(end[])
+		EndOfExpression(list/end = list())
 			if(!curToken)
 				return 1
 			if(istype(curToken, /token/symbol) && end.Find(curToken.value))
@@ -181,13 +180,12 @@
 	- <ParseParamExpression()>
 */
 		ParseExpression(list/end=list(/token/end), list/ErrChars=list("{", "}"), check_functions = 0)
-			var/stack
-				opr=new
-				val=new
+			var/stack/opr = new
+			var/stack/val = new
 			src.expecting=VALUE
 			var/loop = 0
-			for()
-				loop++
+			for(loop, loop < 800, loop++)
+				//loop++
 				if(loop > 800)
 					errors+=new/scriptError("Too many nested tokens.")
 					return
@@ -295,8 +293,8 @@
 			NextToken() //skip open parenthesis, already found
 			var/loops = 0
 
-			for()
-				loops++
+			for(loops, loops < 800, loops++)
+				//loops++
 				if(loops>=800)
 					errors += new/scriptError("Too many nested expressions.")
 					break

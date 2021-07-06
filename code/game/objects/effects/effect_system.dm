@@ -959,14 +959,14 @@ steam.start() -- spawns the effect
 
 	attack_hand(var/mob/user)
 		if (user.has_organic_effect(/datum/organic_effect/hulk) || (prob(75 - metal*25)))
-			user << "\blue You smash through the metal foam wall."
+			user << "lue You smash through the metal foam wall."
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
 
 			qdel(src)
 		else
-			user << "\blue You hit the metal foam but bounce off it."
+			user << "lue You hit the metal foam but bounce off it."
 		return
 
 
@@ -983,13 +983,13 @@ steam.start() -- spawns the effect
 			return
 
 		if(prob(I.force*20 - metal*25))
-			user << "\blue You smash through the foamed metal with \the [I]."
+			user << "lue You smash through the foamed metal with \the [I]."
 			for(var/mob/O in oviewers(user))
 				if ((O.client && !( O.blinded )))
 					O << "\red [user] smashes through the foamed metal."
 			qdel(src)
 		else
-			user << "\blue You hit the metal foam to no effect."
+			user << "lue You hit the metal foam to no effect."
 
 	CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 		if(air_group) return 0

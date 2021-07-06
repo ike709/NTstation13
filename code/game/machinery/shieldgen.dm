@@ -8,7 +8,7 @@
 		anchored = 1
 		unacidable = 1
 		var/const/max_health = 200
-		var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
+		var/health = 200 //The shield can only take so much beating (prevents perma-prisons)
 
 /obj/machinery/shield/New()
 	src.dir = pick(1,2,3,4)
@@ -46,7 +46,7 @@
 
 
 	if (src.health <= 0)
-		visible_message("\blue The [src] dissapates")
+		visible_message("lue The [src] dissapates")
 		qdel(src)
 		return
 
@@ -58,7 +58,7 @@
 	health -= Proj.damage
 	..()
 	if(health <=0)
-		visible_message("\blue The [src] dissapates")
+		visible_message("lue The [src] dissapates")
 		qdel(src)
 		return
 	opacity = 1
@@ -107,7 +107,7 @@
 
 	//Handle the destruction of the shield
 	if (src.health <= 0)
-		visible_message("\blue The [src] dissapates")
+		visible_message("lue The [src] dissapates")
 		qdel(src)
 		return
 
@@ -131,7 +131,7 @@
 		pressure_resistance = 2*ONE_ATMOSPHERE
 		req_access = list(access_engine)
 		var/const/max_health = 100
-		var/health = max_health
+		var/health = 100
 		var/active = 0
 		var/malfunction = 0 //Malfunction causes parts of the shield to slowly dissapate
 		var/list/deployed_shields = list()
@@ -217,14 +217,14 @@
 		return
 
 	if (src.active)
-		user.visible_message("\blue \icon[src] [user] deactivated the shield generator.", \
-			"\blue \icon[src] You deactivate the shield generator.", \
+		user.visible_message("lue \icon[src] [user] deactivated the shield generator.", \
+			"lue \icon[src] You deactivate the shield generator.", \
 			"You hear heavy droning fade out.")
 		src.shields_down()
 	else
 		if(anchored)
-			user.visible_message("\blue \icon[src] [user] activated the shield generator.", \
-				"\blue \icon[src] You activate the shield generator.", \
+			user.visible_message("lue \icon[src] [user] activated the shield generator.", \
+				"lue \icon[src] You activate the shield generator.", \
 				"You hear heavy droning.")
 			src.shields_up()
 		else
@@ -239,22 +239,22 @@
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		if(is_open)
-			user << "\blue You close the panel."
+			user << "lue You close the panel."
 			is_open = 0
 		else
-			user << "\blue You open the panel and expose the wiring."
+			user << "lue You open the panel and expose the wiring."
 			is_open = 1
 
 	else if(istype(W, /obj/item/stack/cable_coil) && malfunction && is_open)
 		var/obj/item/stack/cable_coil/coil = W
-		user << "\blue You begin to replace the wires."
+		user << "lue You begin to replace the wires."
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
 		if(do_after(user, 30))
 			if(!src || !coil) return
 			coil.use(1)
 			health = max_health
 			malfunction = 0
-			user << "\blue You repair the [src]!"
+			user << "lue You repair the [src]!"
 			update_icon()
 
 	else if(istype(W, /obj/item/weapon/wrench))

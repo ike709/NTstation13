@@ -36,21 +36,21 @@ var/list/department_radio_keys = list(
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right hand",	"#ê" = "right hand",	".ê" = "right hand",
-	  ":ä" = "left hand",	"#ä" = "left hand",		".ä" = "left hand",
-	  ":ø" = "intercom",	"#ø" = "intercom",		".ø" = "intercom",
-	  ":ð" = "department",	"#ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		"#ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		"#ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		"#ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	"#ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	"#û" = "Security",		".û" = "Security",
-	  ":ö" = "whisper",		"#ö" = "whisper",		".ö" = "whisper",
-	  ":è" = "binary",		"#è" = "binary",		".è" = "binary",
-	  ":ô" = "alientalk",	"#ô" = "alientalk",		".ô" = "alientalk",
-	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
-	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
-	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling"
+	  ":ï¿½" = "right hand",	"#ï¿½" = "right hand",	".ï¿½" = "right hand",
+	  ":ï¿½" = "left hand",	"#ï¿½" = "left hand",		".ï¿½" = "left hand",
+	  ":ï¿½" = "intercom",	"#ï¿½" = "intercom",		".ï¿½" = "intercom",
+	  ":ï¿½" = "department",	"#ï¿½" = "department",	".ï¿½" = "department",
+	  ":ï¿½" = "Command",		"#ï¿½" = "Command",		".ï¿½" = "Command",
+	  ":ï¿½" = "Science",		"#ï¿½" = "Science",		".ï¿½" = "Science",
+	  ":ï¿½" = "Medical",		"#ï¿½" = "Medical",		".ï¿½" = "Medical",
+	  ":ï¿½" = "Engineering",	"#ï¿½" = "Engineering",	".ï¿½" = "Engineering",
+	  ":ï¿½" = "Security",	"#ï¿½" = "Security",		".ï¿½" = "Security",
+	  ":ï¿½" = "whisper",		"#ï¿½" = "whisper",		".ï¿½" = "whisper",
+	  ":ï¿½" = "binary",		"#ï¿½" = "binary",		".ï¿½" = "binary",
+	  ":ï¿½" = "alientalk",	"#ï¿½" = "alientalk",		".ï¿½" = "alientalk",
+	  ":ï¿½" = "Syndicate",	"#ï¿½" = "Syndicate",		".ï¿½" = "Syndicate",
+	  ":ï¿½" = "Supply",		"#ï¿½" = "Supply",		".ï¿½" = "Supply",
+	  ":ï¿½" = "changeling",	"#ï¿½" = "changeling",	".ï¿½" = "changeling"
 )
 
 /mob/living/proc/binarycheck()
@@ -160,18 +160,22 @@ var/list/department_radio_keys = list(
 
 	switch (message_mode)
 		if ("headset")
-			if (src:ears)
-				src:ears.talk_into(src, message)
-				used_radios += src:ears
+			if (ishuman(src))
+				var/mob/living/carbon/human/H = src
+				if(H.ears)
+					H.ears.talk_into(src, message)
+				used_radios += H.ears
 
 			message_range = 1
 			italics = 1
 
 
 		if ("secure headset")
-			if (src:ears)
-				src:ears.talk_into(src, message, 1)
-				used_radios += src:ears
+			if (ishuman(src))
+				var/mob/living/carbon/human/H = src
+				if(H.ears)
+					H.ears.talk_into(src, message, 1)
+				used_radios += H.ears
 
 			message_range = 1
 			italics = 1
@@ -218,16 +222,20 @@ var/list/department_radio_keys = list(
 			return
 
 		if ("department")
-			if (src:ears)
-				src:ears.talk_into(src, message, message_mode)
-				used_radios += src:ears
+			if (ishuman(src))
+				var/mob/living/carbon/human/H = src
+				if(H.ears)
+					H.ears.talk_into(src, message, message_mode)
+				used_radios += H.ears
 			message_range = 1
 			italics = 1
 
 		if ("pAI")
-			if (src:radio)
-				src:radio.talk_into(src, message)
-				used_radios += src:radio
+			if (ispAI(src))
+				var/mob/living/silicon/pai/P = src
+				if(P.radio)
+					P.radio.talk_into(src, message)
+				used_radios += P.radio
 			message_range = 1
 			italics = 1
 
@@ -252,10 +260,10 @@ var/list/department_radio_keys = list(
 					if(A.radio)
 						A.radio.talk_into(src, message, message_mode)
 						used_radios += A.radio
-				else
-					if (src:ears)
+				//else
+					/*if (src:ears)
 						src:ears.talk_into(src, message, message_mode)
-						used_radios += src:ears
+						used_radios += src:ears*/
 				message_range = 1
 				italics = 1
 /////SPECIAL HEADSETS END
@@ -328,12 +336,12 @@ var/list/department_radio_keys = list(
 	var/list/heard_a = list() // understood us
 	var/list/heard_b = list() // didn't understand us
 
-	for (var/M in listening)
+	/*for (var/M in listening)
 		if(hascall(M,"say_understands"))
 			if (M:say_understands(src))
 				heard_a += M
 			else
-				heard_b += M
+				heard_b += M*/
 
 	var/rendered = null
 	if (length(heard_a))
@@ -344,7 +352,7 @@ var/list/department_radio_keys = list(
 
 		rendered = "<span class='game say'><span class='name'>[GetVoice()]</span>[alt_name] <span class='message'>[message_a]</span></span>"
 
-		for (var/M in heard_a)
+	/*	for (var/M in heard_a)
 			if(hascall(M,"show_message"))
 				var/deaf_message = ""
 				var/deaf_type = 1
@@ -353,7 +361,7 @@ var/list/department_radio_keys = list(
 				else
 					deaf_message = "<span class='notice'>You cannot hear yourself!</span>"
 					deaf_type = 2 // Since you should be able to hear yourself without looking
-				M:show_message(rendered, 2, deaf_message, deaf_type)
+				M:show_message(rendered, 2, deaf_message, deaf_type)*/
 
 	if (length(heard_b))
 		var/message_b
@@ -370,9 +378,9 @@ var/list/department_radio_keys = list(
 		rendered = "<span class='game say'><span class='name'>[voice_name]</span> <span class='message'>[message_b]</span></span>"
 
 
-		for (var/M in heard_b)
+		/*for (var/M in heard_b)
 			if(hascall(M,"show_message"))
-				M:show_message(rendered, 2)
+				M:show_message(rendered, 2)*/
 
 	//speech bubble
 	var/list/speech_bubble_recipients = list()

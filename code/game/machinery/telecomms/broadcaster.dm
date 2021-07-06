@@ -143,7 +143,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		var/datum/radio_frequency/connection = signal.data["connection"]
 
-		if(connection.frequency == SYND_FREQ) // if syndicate broadcast, just
+		if(connection.frequency == 1213) // if syndicate broadcast, just
 			Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
@@ -257,11 +257,11 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	else if(data == 3)
 
-		var/datum/radio_frequency/syndicateconnection = radio_controller.return_frequency(SYND_FREQ)
+		var/datum/radio_frequency/syndicateconnection = radio_controller.return_frequency(1213)
 
 		for (var/obj/item/device/radio/R in syndicateconnection.devices["[RADIO_CHAT]"])
 
-			if(R.receive_range(SYND_FREQ, level) > -1)
+			if(R.receive_range(1213, level) > -1)
 				radios += R
 
 	// --- Broadcast to ALL radio devices ---
@@ -336,7 +336,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		// --- Set the name of the channel ---
 		switch(display_freq)
 
-			if(SYND_FREQ)
+			if(1213)
 				freq_text = "#unkn"
 			if(COMM_FREQ)
 				freq_text = "Command"
@@ -370,7 +370,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message'>"
 		var/part_c = "</span></span>"
 
-		if (display_freq==SYND_FREQ)
+		if (display_freq==1213)
 			part_a = "<span class='syndradio'><span class='name'>"
 		else if (display_freq==COMM_FREQ)
 			part_a = "<span class='comradio'><span class='name'>"
@@ -571,12 +571,12 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// --- Broadcast to syndicate radio! ---
 
 	else if(data == 3)
-		var/datum/radio_frequency/syndicateconnection = radio_controller.return_frequency(SYND_FREQ)
+		var/datum/radio_frequency/syndicateconnection = radio_controller.return_frequency(1213)
 
 		for (var/obj/item/device/radio/R in syndicateconnection.devices["[RADIO_CHAT]"])
 			var/turf/position = get_turf(R)
 			if(position && position.z == level)
-				receive |= R.send_hear(SYND_FREQ)
+				receive |= R.send_hear(1213)
 
 
 	// --- Broadcast to ALL radio devices ---
@@ -635,7 +635,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		// --- Set the name of the channel ---
 		switch(display_freq)
 
-			if(SYND_FREQ)
+			if(1213)
 				freq_text = "#unkn"
 			if(COMM_FREQ)
 				freq_text = "Command"
@@ -673,7 +673,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b = "</span><b> \icon[radio]\[[freq_text]\][part_b_extra]</b> <span class='message'>"
 		var/part_c = "</span></span>"
 
-		if (display_freq==SYND_FREQ)
+		if (display_freq==1213)
 			part_a = "<span class='syndradio'><span class='name'>"
 		else if (display_freq==COMM_FREQ)
 			part_a = "<span class='comradio'><span class='name'>"

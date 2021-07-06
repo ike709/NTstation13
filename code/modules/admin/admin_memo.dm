@@ -14,6 +14,7 @@
 
 //write a message
 /client/proc/admin_memo_write()
+	return/*
 	var/savefile/F = new(MEMOFILE)
 	if(F)
 		var/memo = input(src,"Type your memo\n(Leaving it blank will delete your current memo):","Write Memo",null) as null|message
@@ -27,19 +28,20 @@
 		if( findtext(memo,"<script",1,0) )
 			return
 		F[ckey] << "[key] on [time2text(world.realtime,"(DDD) DD MMM hh:mm")]<br>[memo]"
-		message_admins("[key] set an admin memo:<br>[memo]")
+		message_admins("[key] set an admin memo:<br>[memo]")*/
 
 //show all memos
 /client/proc/admin_memo_show()
+	return/*
 	if(ENABLE_MEMOS)
 		var/savefile/F = new(MEMOFILE)
 		if(F)
 			for(var/ckey in F.dir)
-				src << "<center><span class='motd'><b>Admin Memo</b><i> by [F[ckey]]</i></span></center>"
+				src << "<center><span class='motd'><b>Admin Memo</b><i> by [F[ckey]]</i></span></center>"*/
 
 //delete your own or somebody else's memo
 /client/proc/admin_memo_delete()
-	var/savefile/F = new(MEMOFILE)
+	return /*var/savefile/F = new(MEMOFILE)
 	if(F)
 		var/ckey
 		if(check_rights(R_SERVER,0))	//high ranking admins can delete other admin's memos
@@ -48,7 +50,7 @@
 			ckey = src.ckey
 		if(ckey)
 			F.dir.Remove(ckey)
-			src << "<b>Removed Memo created by [ckey].</b>"
+			src << "<b>Removed Memo created by [ckey].</b>"*/
 
 #undef MEMOFILE
 #undef ENABLE_MEMOS

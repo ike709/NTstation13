@@ -2,8 +2,8 @@
 
 proc/Intoxicated(phrase)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -31,7 +31,7 @@ proc/NewStutter(phrase,stunned)
 	var/list/unstuttered_words = split_phrase.Copy()
 	var/i = rand(1,3)
 	if(stunned) i = split_phrase.len
-	for(,i > 0,i--) //Pick a few words to stutter on.
+	for(i,i > 0,i--) //Pick a few words to stutter on.
 
 		if (!unstuttered_words.len)
 			break
@@ -66,9 +66,8 @@ proc/Ellipsis(original_msg, chance = 50, keep_words)
 	if(chance <= 0) return "..."
 	if(chance >= 100) return original_msg
 
-	var/list
-		words = text2list(original_msg," ")
-		new_words = list()
+	var/list/words = text2list(original_msg," ")
+	var/list/new_words = list()
 
 	var/new_msg = ""
 

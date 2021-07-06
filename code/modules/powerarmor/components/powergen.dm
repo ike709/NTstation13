@@ -60,7 +60,7 @@
 	if(istype(item, /obj/item/stack/sheet/mineral/plasma))
 		var/obj/item/stack/S = item
 		if(fuel < maxfuel)
-			user << "\blue You feed some plasma into the armor's generator."
+			user << "lue You feed some plasma into the armor's generator."
 			fuel += 25
 			S.use(1)
 		else
@@ -69,7 +69,7 @@
 
 	if(istype(item, /obj/item/weapon/ore/plasma))
 		if(fuel < maxfuel)
-			user << "\blue You feed plasma ore into the armor's generator."
+			user << "lue You feed plasma ore into the armor's generator."
 			fuel += 15
 			//raw plasma has impurities, so it doesn't provide as much fuel. --NEO
 			del(item)

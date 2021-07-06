@@ -89,7 +89,7 @@
 		return
 
 	verbs -= /obj/item/clothing/suit/powered/proc/poweron
-	user << "\blue Suit interlocks engaged."
+	user << "lue Suit interlocks engaged."
 	if(helmrequired)
 		helm = user.head
 		helm.flags |= NODROP
@@ -110,12 +110,12 @@
 		sleep(40)
 
 	if(subsystems.len)
-		user << "\blue Engaging subsystems..."
+		user << "lue Engaging subsystems..."
 		for(var/obj/item/weapon/powerarmor/I in subsystems)
 			sleep(20)
 			I.toggle()
 
-	user << "\blue All systems online."
+	user << "lue All systems online."
 	active = 1
 	processing_objects.Add(src)
 
@@ -135,7 +135,7 @@
 
 	if(subsystems.len)
 		if(!sudden)
-			user << "\blue Disengaging subsystems..."
+			user << "lue Disengaging subsystems..."
 		for(var/obj/item/weapon/powerarmor/I in subsystems)
 			sleep(delay/2)
 			I.toggle(sudden)
@@ -146,7 +146,7 @@
 		user.SetLuminosity(user.luminosity - helm.brightness_on)
 
 	if(!sudden)
-		usr << "\blue Suit interlocks disengaged."
+		usr << "lue Suit interlocks disengaged."
 		if(helm)
 			helm.flags &= ~NODROP
 			helm = null
@@ -165,7 +165,7 @@
 		"<span class='warning'>Your armor loses power!</span>",
 		"<span class='notice'>You hear a click!</span>")
 	else
-		user << "\blue All systems disengaged."
+		user << "lue All systems disengaged."
 
 	active = 0
 
@@ -225,7 +225,7 @@
 			return
 
 	else if(istype(W, /obj/item/weapon/stock_parts/cell))
-		user << "\blue You insert power cell into [src]."
+		user << "lue You insert power cell into [src]."
 		user.unEquip(W)
 		powercell = W
 		powercell.loc = src

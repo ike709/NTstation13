@@ -19,8 +19,8 @@
 	verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
 	//initialise organs
-	organs = newlist(/obj/item/organ/limb/chest, /obj/item/organ/limb/head, /obj/item/organ/limb/l_arm,
-					 /obj/item/organ/limb/r_arm, /obj/item/organ/limb/r_leg, /obj/item/organ/limb/l_leg)
+	organs = list(new /obj/item/organ/limb/chest, new /obj/item/organ/limb/head, new /obj/item/organ/limb/l_arm,
+					 new /obj/item/organ/limb/r_arm, new /obj/item/organ/limb/r_leg, new /obj/item/organ/limb/l_leg)
 	for(var/obj/item/organ/limb/O in organs)
 		O.owner = src
 	internal_organs += new /obj/item/organ/appendix

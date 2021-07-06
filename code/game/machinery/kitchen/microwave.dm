@@ -73,24 +73,24 @@
 	if(src.broken > 0)
 		if(src.broken == 2 && istype(O, /obj/item/weapon/wirecutters)) // If it's broken and they're using a screwdriver
 			user.visible_message( \
-				"\blue [user] starts to fix part of the microwave.", \
-				"\blue You start to fix part of the microwave." \
+				"lue [user] starts to fix part of the microwave.", \
+				"lue You start to fix part of the microwave." \
 			)
 			if (do_after(user,20))
 				user.visible_message( \
-					"\blue [user] fixes part of the microwave.", \
-					"\blue You have fixed part of the microwave." \
+					"lue [user] fixes part of the microwave.", \
+					"lue You have fixed part of the microwave." \
 				)
 				src.broken = 1 // Fix it a bit
 		else if(src.broken == 1 && istype(O, /obj/item/weapon/weldingtool)) // If it's broken and they're doing the wrench
 			user.visible_message( \
-				"\blue [user] starts to fix part of the microwave.", \
-				"\blue You start to fix part of the microwave." \
+				"lue [user] starts to fix part of the microwave.", \
+				"lue You start to fix part of the microwave." \
 			)
 			if (do_after(user,20))
 				user.visible_message( \
-					"\blue [user] fixes the microwave.", \
-					"\blue You have fixed the microwave." \
+					"lue [user] fixes the microwave.", \
+					"lue You have fixed the microwave." \
 				)
 				src.icon_state = "mw"
 				src.broken = 0 // Fix it!
@@ -106,8 +106,8 @@
 			clean_spray.reagents.remove_reagent("cleaner",clean_spray.amount_per_transfer_from_this,1)
 			playsound(loc, 'sound/effects/spray3.ogg', 50, 1, -6)
 			user.visible_message( \
-				"\blue [user]  has cleaned  the microwave.", \
-				"\blue You have cleaned the microwave." \
+				"lue [user]  has cleaned  the microwave.", \
+				"lue You have cleaned the microwave." \
 			)
 			src.dirty = 0 // It's clean!
 			src.broken = 0 // just to be sure
@@ -121,13 +121,13 @@
 
 	else if(istype(O, /obj/item/weapon/soap/)) // If they're trying to clean it then let them
 		user.visible_message( \
-			"\blue [user] starts to clean the microwave.", \
-			"\blue You start to clean the microwave." \
+			"lue [user] starts to clean the microwave.", \
+			"lue You start to clean the microwave." \
 		)
 		if (do_after(user,20))
 			user.visible_message( \
-				"\blue [user]  has cleaned  the microwave.", \
-				"\blue You have cleaned the microwave." \
+				"lue [user]  has cleaned  the microwave.", \
+				"lue You have cleaned the microwave." \
 			)
 			src.dirty = 0 // It's clean!
 			src.broken = 0 // just to be sure
@@ -144,8 +144,8 @@
 			new O.type (src)
 			O:use(1)
 			user.visible_message( \
-				"\blue [user] has added one of [O] to \the [src].", \
-				"\blue You add one of [O] to \the [src].")
+				"lue [user] has added one of [O] to \the [src].", \
+				"lue You add one of [O] to \the [src].")
 		else
 		//	user.unEquip(O)	//This just causes problems so far as I can tell. -Pete
 			if(!user.drop_item())
@@ -153,8 +153,8 @@
 				return 0
 			O.loc = src
 			user.visible_message( \
-				"\blue [user] has added \the [O] to \the [src].", \
-				"\blue You add \the [O] to \the [src].")
+				"lue [user] has added \the [O] to \the [src].", \
+				"lue You add \the [O] to \the [src].")
 	else if(istype(O,/obj/item/weapon/reagent_containers/glass) || \
 	        istype(O,/obj/item/weapon/reagent_containers/food/drinks) || \
 	        istype(O,/obj/item/weapon/reagent_containers/food/condiment) \
@@ -333,7 +333,7 @@
 	return 0
 
 /obj/machinery/microwave/proc/start()
-	src.visible_message("\blue The microwave turns on.", "\blue You hear a microwave.")
+	src.visible_message("lue The microwave turns on.", "lue You hear a microwave.")
 	src.operating = 1
 	src.icon_state = "mw1"
 	src.updateUsrDialog()
@@ -355,7 +355,7 @@
 	if (src.reagents.total_volume)
 		src.dirty++
 	src.reagents.clear_reagents()
-	usr << "\blue You dispose of the microwave contents."
+	usr << "lue You dispose of the microwave contents."
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/muck_start()

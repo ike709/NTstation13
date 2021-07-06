@@ -131,13 +131,13 @@
 		mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] Recording started."
 		var/used = mytape.used_capacity	//to stop runtimes when you eject the tape
 		var/max = mytape.max_capacity
-		for(used, used < max)
+		for(used, used < max, used++)
 			if(recording == 0)
 				break
 			if(!wires.get_record())
 				break
 			mytape.used_capacity++
-			used++
+			//used++
 			sleep(10)
 		recording = 0
 		update_icon()

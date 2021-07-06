@@ -7,7 +7,7 @@
 		href_list = thref_list.Copy()
 		return
 
-	proc/get(i)
+	proc/get_thing(i)
 		return listgetindex(href_list,i)
 
 	proc/getAndLocate(i)

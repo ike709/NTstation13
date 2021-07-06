@@ -262,7 +262,7 @@
 			AdjustWeakened(-3)
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O.show_message(text("\blue [M.name] nuzzles [] trying to wake it up!", src), 1)
+					O.show_message(text("lue [M.name] nuzzles [] trying to wake it up!", src), 1)
 
 		else
 			if (health > 0)

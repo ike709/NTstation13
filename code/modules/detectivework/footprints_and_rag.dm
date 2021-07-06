@@ -11,8 +11,8 @@
 
 /proc/blood_incompatible(donor,receiver)
 
-	var/donor_antigen = copytext(donor,1,lentext(donor))
-	var/receiver_antigen = copytext(receiver,1,lentext(receiver))
+	var/donor_antigen = copytext(donor,1,length(donor))
+	var/receiver_antigen = copytext(receiver,1,length(receiver))
 	var/donor_rh = findtext("+",donor)
 	var/receiver_rh = findtext("+",receiver)
 

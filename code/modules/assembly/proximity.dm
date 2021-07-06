@@ -18,7 +18,7 @@
 
 	describe()
 		if(timing)
-			return "\blue The proximity sensor is arming."
+			return "lue The proximity sensor is arming."
 		return "The proximity sensor is [scanning?"armed":"disarmed"]."
 
 	activate()

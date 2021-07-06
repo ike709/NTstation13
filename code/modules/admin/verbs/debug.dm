@@ -52,7 +52,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 						target = input("Enter target:","Target",usr.loc) as area|turf in world
 					if("Client")
 						var/list/keys = list()
-						for(var/client/C)
+						for(var/client/C in world)
 							keys += C
 						target = input("Please, select a player!", "Selection", null, null) as null|anything in keys
 					else
@@ -100,7 +100,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 					lst[i] = input("Pick file:","File") as file
 
 				if("icon")
-					lst[i] = input("Pick icon:","Icon") as icon
+					lst[i] = input("Pick icon:","Icon") as anything// icon
 
 				if("client")
 					var/list/keys = list()
@@ -116,9 +116,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			if(!target)
 				usr << "<font color='red'>Error: callproc(): owner of proc no longer exists.</font>"
 				return
-			if(!hascall(target,procname))
+			/*if(!hascall(target,procname))
 				usr << "<font color='red'>Error: callproc(): target has no such call [procname].</font>"
-				return
+				return*/
 			log_admin("[key_name(src)] called [target]'s [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 			returnval = call(target,procname)(arglist(lst)) // Pass the lst as an argument list to the proc
 		else
@@ -244,7 +244,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M:Alienize()
 			feedback_add_details("admin_verb","MKAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		log_admin("[key_name(usr)] made [key_name(M)] into an alien.")
-		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into an alien.", 1)
+		message_admins("lue [key_name_admin(usr)] made [key_name(M)] into an alien.", 1)
 	else
 		alert("Invalid mob")
 
@@ -261,7 +261,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M:slimeize()
 			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		log_admin("[key_name(usr)] made [key_name(M)] into a slime.")
-		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into a slime.", 1)
+		message_admins("lue [key_name_admin(usr)] made [key_name(M)] into a slime.", 1)
 	else
 		alert("Invalid mob")
 
@@ -487,7 +487,7 @@ var/global/list/g_fancy_list_of_safe_types = null
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(src)] has granted [M.key] full access.")
-	message_admins("\blue [key_name_admin(usr)] has granted [M.key] full access.", 1)
+	message_admins("lue [key_name_admin(usr)] has granted [M.key] full access.", 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
 	set category = "Admin"
@@ -500,7 +500,7 @@ var/global/list/g_fancy_list_of_safe_types = null
 		else
 			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
 			ghost.ckey = M.ckey
-	message_admins("\blue [key_name_admin(usr)] assumed direct control of [M].", 1)
+	message_admins("lue [key_name_admin(usr)] assumed direct control of [M].", 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
@@ -1065,7 +1065,7 @@ var/global/list/g_fancy_list_of_safe_types = null
 	M.regenerate_icons()
 
 	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].")
-	message_admins("\blue [key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..", 1)
+	message_admins("lue [key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..", 1)
 	return
 
 /client/proc/startSinglo()

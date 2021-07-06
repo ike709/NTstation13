@@ -155,7 +155,7 @@
 			if(src.locked)
 				usr << "\red The cabinet won't budge!"
 			else if(src.smashed)
-				usr << "\blue The protective glass is broken!"
+				usr << "lue The protective glass is broken!"
 			return
 
 		localopened = !localopened
@@ -172,11 +172,11 @@
 			if(fireaxe)
 				usr.put_in_hands(fireaxe)
 				fireaxe = null
-				usr << "\blue You take the Fire axe from the [name]."
+				usr << "lue You take the Fire axe from the [name]."
 			else
-				usr << "\blue The [src.name] is empty."
+				usr << "lue The [src.name] is empty."
 		else
-			usr << "\blue The [src.name] is closed."
+			usr << "lue The [src.name] is closed."
 		update_icon()
 
 	attack_paw(mob/user as mob)

@@ -1,14 +1,14 @@
 #define SOUND_CHANNEL_ADMIN 777
 var/sound/admin_sound
 
-/client/proc/play_sound(S as sound)
+/client/proc/play_sound(S)
 	set category = "Fun"
 	set name = "Play Global Sound"
 	if(!check_rights(R_SOUNDS))	return
 
 	admin_sound = sound(S, repeat = 0, wait = 1, channel = SOUND_CHANNEL_ADMIN)
 	admin_sound.priority = 250
-	admin_sound.status = SOUND_UPDATE|SOUND_STREAM
+	//admin_sound.status = SOUND_UPDATE|SOUND_STREAM
 
 	log_admin("[key_name(src)] played sound [S]")
 	message_admins("[key_name_admin(src)] played sound [S]", 1)
@@ -26,7 +26,7 @@ var/sound/admin_sound
 	feedback_add_details("admin_verb","PGS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/client/proc/play_local_sound(S as sound)
+/client/proc/play_local_sound(S)
 	set category = "Fun"
 	set name = "Play Local Sound"
 	if(!check_rights(R_SOUNDS))	return

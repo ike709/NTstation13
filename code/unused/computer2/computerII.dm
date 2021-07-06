@@ -293,12 +293,12 @@
 			var/obj/computer2frame/A = new /obj/computer2frame( src.loc )
 			A.created_icon_state = src.base_icon_state
 			if (src.stat & BROKEN)
-				user << "\blue The broken glass falls out."
+				user << "lue The broken glass falls out."
 				new /obj/item/weapon/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "\blue You disconnect the monitor."
+				user << "lue You disconnect the monitor."
 				A.state = 4
 				A.icon_state = "4"
 

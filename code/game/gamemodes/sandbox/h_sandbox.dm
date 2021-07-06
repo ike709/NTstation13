@@ -4,6 +4,7 @@ var/hsboxspawn = 1
 
 mob
 	var/datum/hSB/sandbox = null
+	var/list/open_uis = list()
 	proc
 		CanBuild()
 			if(master_mode == "sandbox")
@@ -27,12 +28,7 @@ datum/hSB
 	var/canisterinfo = null
 	var/hsbinfo = null
 	//items that shouldn't spawn on the floor because they would bug or act weird
-	var/global/list/spawn_forbidden = list(
-		/obj/item/weapon/grab, /obj/item/tk_grab, /obj/item/weapon/implant, // not implanter, the actual thing that is inside you
-		/obj/item/assembly,/obj/item/device/onetankbomb, /obj/item/radio, /obj/item/device/pda/ai,
-		/obj/item/device/uplink/hidden, /obj/item/smallDelivery, /obj/item/missile,/obj/item/projectile,
-		/obj/item/borg/sight,/obj/item/borg/stun,/obj/item/weapon/robot_module)
-
+	
 	proc
 		update()
 			var/global/list/hrefs = list(
@@ -110,6 +106,11 @@ datum/hSB
 			return
 
 		if(href_list["hsb"])
+			var/list/spawn_forbidden = list(
+		/obj/item/weapon/grab, /obj/item/tk_grab, /obj/item/weapon/implant, // not implanter, the actual thing that is inside you
+		/obj/item/assembly,/obj/item/device/onetankbomb, /obj/item/radio, /obj/item/device/pda/ai,
+		/obj/item/device/uplink/hidden, /obj/item/smallDelivery, /obj/item/missile,/obj/item/projectile,
+		/obj/item/borg/sight,/obj/item/borg/stun,/obj/item/weapon/robot_module)
 			switch(href_list["hsb"])
 				//
 				// Admin: toggle spawning
@@ -117,11 +118,11 @@ datum/hSB
 				if("hsbtobj")
 					if(!admin) return
 					if(hsboxspawn)
-						world << "<b>\red Sandbox:  \black[usr.key] has disabled object spawning!</b>"
+						world << "<b>\red Sandbox:  lack[usr.key] has disabled object spawning!</b>"
 						hsboxspawn = 0
 						return
 					else
-						world << "<b>\blue Sandbox:  \black[usr.key] has enabled object spawning!</b>"
+						world << "<b>lue Sandbox:  lack[usr.key] has enabled object spawning!</b>"
 						hsboxspawn = 1
 						return
 				//
@@ -130,10 +131,10 @@ datum/hSB
 				if("hsbtac")
 					if(!admin) return
 					if(config.sandbox_autoclose)
-						world << "<b>\blue Sandbox:  \black [usr.key] has removed the object spawn limiter.</b>"
+						world << "<b>lue Sandbox:  lack [usr.key] has removed the object spawn limiter.</b>"
 						config.sandbox_autoclose = 0
 					else
-						world << "<b>\red Sandbox:  \black [usr.key] has added a limiter to object spawning.  The window will now auto-close after use.</b>"
+						world << "<b>\red Sandbox:  lack [usr.key] has added a limiter to object spawning.  The window will now auto-close after use.</b>"
 						config.sandbox_autoclose = 1
 					return
 				//
@@ -175,7 +176,7 @@ datum/hSB
 						P.internals.icon_state = "internal1"
 
 				if("hsbscrubber") // This is beyond its normal capability but this is sandbox and you spawned one, I assume you need it
-					var/obj/hsb = new/obj/machinery/portable_atmospherics/scrubber{volume_rate=50*ONE_ATMOSPHERE;on=1}(usr.loc)
+					var/obj/hsb = new/obj/machinery/portable_atmospherics/scrubber/*{volume_rate=50*ONE_ATMOSPHERE;on=1}*/(usr.loc)
 					hsb.update_icon() // hackish but it wasn't meant to be spawned I guess?
 
 				//
@@ -183,19 +184,19 @@ datum/hSB
 				//
 
 				if("hsbrglass")
-					new/obj/item/stack/sheet/rglass{amount=50}(usr.loc)
+					new/obj/item/stack/sheet/rglass/*{amount=50*/(usr.loc)
 
 				if("hsbmetal")
-					new/obj/item/stack/sheet/metal{amount=50}(usr.loc)
+					new/obj/item/stack/sheet/metal/*{amount=50}*/(usr.loc)
 
 				if("hsbplasteel")
-					new/obj/item/stack/sheet/plasteel{amount=50}(usr.loc)
+					new/obj/item/stack/sheet/plasteel/*{amount=50}*/(usr.loc)
 
 				if("hsbglass")
-					new/obj/item/stack/sheet/glass{amount=50}(usr.loc)
+					new/obj/item/stack/sheet/glass/*{amount=50}*/(usr.loc)
 
 				if("hsbwood")
-					new/obj/item/stack/sheet/mineral/wood{amount=50}(usr.loc)
+					new/obj/item/stack/sheet/mineral/wood/*{amount=50}*/(usr.loc)
 
 				//
 				// All access ID
@@ -214,7 +215,7 @@ datum/hSB
 				if("hsbrcd")
 					if(!hsboxspawn) return
 
-					new/obj/item/weapon/rcd{matter=30;canRwall=1}(usr.loc)
+					new/obj/item/weapon/rcd/*{matter=30;canRwall=1}*/(usr.loc)
 
 				//
 				// New sandbox airlock maker

@@ -287,7 +287,7 @@
 			if (health > 0)
 				for(var/mob/O in viewers(src, null))
 					if ((O.client && !( O.blinded )))
-						O.show_message("\blue [M] [response_help] [src].")
+						O.show_message("lue [M] [response_help] [src].")
 
 		if("grab")
 			if (M == src || anchored)
@@ -323,7 +323,7 @@
 
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O.show_message(text("\blue [M] caresses [src] with its scythe like arm."), 1)
+					O.show_message(text("lue [M] caresses [src] with its scythe like arm."), 1)
 		if ("grab")
 			if(M == src || anchored)
 				return
@@ -353,7 +353,7 @@
 
 	switch(L.a_intent)
 		if("help")
-			visible_message("\blue [L] rubs it's head against [src]")
+			visible_message("lue [L] rubs it's head against [src]")
 
 
 		else
@@ -402,16 +402,16 @@
 							qdel(MED)
 						for(var/mob/M in viewers(src, null))
 							if ((M.client && !( M.blinded )))
-								M.show_message("\blue [user] applies [MED] on [src]")
+								M.show_message("lue [user] applies [MED] on [src]")
 						return
 					else
-						user << "\blue [MED] won't help at all."
+						user << "lue [MED] won't help at all."
 						return
 			else
-				user << "\blue [src] is at full health."
+				user << "lue [src] is at full health."
 				return
 		else
-			user << "\blue [src] is dead, medical items won't bring it back to life."
+			user << "lue [src] is dead, medical items won't bring it back to life."
 			return
 	else if(meat_type.len && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		harvest(O)

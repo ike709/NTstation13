@@ -142,7 +142,7 @@
 	pr_give_air = new /datum/global_iterator/mecha_tank_give_air(list(src))
 	pr_internal_damage = new /datum/global_iterator/mecha_internal_damage(list(src),0)
 
-/obj/mecha/proc/do_after(delay as num)
+/obj/mecha/do_after(delay as num)
 	sleep(delay)
 	if(src)
 		return 1
@@ -445,8 +445,8 @@
 		src.log_append_to_last("Armor saved.")
 		playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
 		user << "\green Your claws had no effect!"
-		src.occupant_message("\blue The [user]'s claws are stopped by the armor.")
-		visible_message("\blue The [user] rebounds off [src.name]'s armor!")
+		src.occupant_message("lue The [user]'s claws are stopped by the armor.")
+		visible_message("lue The [user] rebounds off [src.name]'s armor!")
 	return
 
 
@@ -464,8 +464,8 @@
 		else
 			src.log_append_to_last("Armor saved.")
 			playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
-			src.occupant_message("\blue The [user]'s attack is stopped by the armor.")
-			visible_message("\blue The [user] rebounds off [src.name]'s armor!")
+			src.occupant_message("lue The [user]'s attack is stopped by the armor.")
+			visible_message("lue The [user] rebounds off [src.name]'s armor!")
 			add_logs(user, src, "attacked", admin=0)
 	return
 
@@ -483,7 +483,7 @@
 		src.visible_message("The [A] fastens firmly to [src].")
 		return
 	if(prob(src.deflect_chance) || istype(A, /mob))
-		src.occupant_message("\blue The [A] bounces off the armor.")
+		src.occupant_message("lue The [A] bounces off the armor.")
 		src.visible_message("The [A] bounces off the [src.name] armor")
 		src.log_append_to_last("Armor saved.")
 		if(istype(A, /mob/living))
@@ -505,7 +505,7 @@
 
 /obj/mecha/proc/dynbulletdamage(var/obj/item/projectile/Proj)
 	if(prob(src.deflect_chance))
-		src.occupant_message("\blue The armor deflects incoming projectile.")
+		src.occupant_message("lue The armor deflects incoming projectile.")
 		src.visible_message("The [src.name] armor deflects the projectile")
 		src.log_append_to_last("Armor saved.")
 		return
@@ -604,10 +604,10 @@
 		src.log_append_to_last("Armor saved.")
 		playsound(src.loc, 'sound/effects/blobattack.ogg', 50, 1, -1)
 		user << "\green Your attack had no effect!"
-		src.occupant_message("\blue The [user]'s attack is stopped by the armor.")
+		src.occupant_message("lue The [user]'s attack is stopped by the armor.")
 		for (var/mob/V in viewers(src))
 			if(V.client && !(V.blinded))
-				V.show_message("\blue The [user] rebounds off the [src.name] armor!", 1)
+				V.show_message("lue The [user] rebounds off the [src.name] armor!", 1)
 	return
 */
 
@@ -745,7 +745,7 @@
 		if (WT.remove_fuel(0,user))
 			if (hasInternalDamage(MECHA_INT_TANK_BREACH))
 				clearInternalDamage(MECHA_INT_TANK_BREACH)
-				user << "\blue You repair the damaged gas tank."
+				user << "lue You repair the damaged gas tank."
 		else
 			return
 		if(src.health<initial(src.health))
@@ -775,11 +775,11 @@
 		if(prob(src.deflect_chance))
 			user << "\red The [W] bounces off [src.name] armor."
 			src.log_append_to_last("Armor saved.")
-/*
+
 			for (var/mob/V in viewers(src))
 				if(V.client && !(V.blinded))
 					V.show_message("The [W] bounces off [src.name] armor.", 1)
-*/
+
 		else
 			src.occupant_message("<font color='red'><b>[user] hits [src] with [W].</b></font>")
 			user.visible_message("<font color='red'><b>[user] hits [src] with [W].</b></font>", "<font color='red'><b>You hit [src] with [W].</b></font>")
@@ -880,7 +880,7 @@
 	var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 	if(possible_port)
 		if(connect(possible_port))
-			src.occupant_message("\blue [name] connects to the port.")
+			src.occupant_message("lue [name] connects to the port.")
 			src.verbs += /obj/mecha/verb/disconnect_from_port
 			src.verbs -= /obj/mecha/verb/connect_to_port
 			return
@@ -901,7 +901,7 @@
 	if(usr != src.occupant)	return
 
 	if(disconnect())
-		src.occupant_message("\blue [name] disconnects from the port.")
+		src.occupant_message("lue [name] disconnects from the port.")
 		src.verbs -= /obj/mecha/verb/disconnect_from_port
 		src.verbs += /obj/mecha/verb/connect_to_port
 	else
@@ -948,12 +948,12 @@
 		return
 	src.log_message("[usr] tries to move in.")
 	if (src.occupant)
-		usr << "\blue <B>The [src.name] is already occupied!</B>"
+		usr << "lue <B>The [src.name] is already occupied!</B>"
 		src.log_append_to_last("Permission denied.")
 		return
 /*
 	if (usr.abiotic())
-		usr << "\blue <B>Subject cannot have abiotic items on.</B>"
+		usr << "lue <B>Subject cannot have abiotic items on.</B>"
 		return
 */
 	var/passed
@@ -974,7 +974,7 @@
 			return
 //	usr << "You start climbing into [src.name]"
 
-	visible_message("\blue [usr] starts to climb into [src.name]")
+	visible_message("lue [usr] starts to climb into [src.name]")
 
 	if(enter_after(40,usr))
 		if(!src.occupant)
@@ -1033,7 +1033,7 @@
 	//Added a message here since people assume their first click failed or something./N
 //	user << "Installing MMI, please stand by."
 
-	visible_message("\blue [usr] starts to insert an MMI into [src.name]")
+	visible_message("lue [usr] starts to insert an MMI into [src.name]")
 
 	if(enter_after(40,user))
 		if(!occupant)
@@ -1766,10 +1766,10 @@ var/year_integer = text2num(year) // = 2013???
 			if(mecha.internal_tank)
 				var/datum/gas_mixture/int_tank_air = mecha.internal_tank.return_air()
 				var/datum/gas_mixture/leaked_gas = int_tank_air.remove_ratio(0.10)
-				if(mecha.loc && hascall(mecha.loc,"assume_air"))
+				/*if(mecha.loc && hascall(mecha.loc,"assume_air"))
 					mecha.loc.assume_air(leaked_gas)
 				else
-					del(leaked_gas)
+					del(leaked_gas)*/
 		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			if(mecha.get_charge())
 				mecha.spark_system.start()

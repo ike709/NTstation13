@@ -1,11 +1,11 @@
 
 /obj/effect/datacore
 	name = "datacore"
-	var/medical[] = list()
-	var/general[] = list()
-	var/security[] = list()
+	var/list/medical = list()
+	var/list/general = list()
+	var/list/security = list()
 	//This list tracks characters spawned in the world and cannot be modified in-game. Currently referenced by respawn_character().
-	var/locked[] = list()
+	var/list/locked = list()
 
 /datum/data
 	var/name = "data"
@@ -15,7 +15,7 @@
 	var/list/fields = list()
 
 /obj/effect/datacore/proc/manifest(var/nosleep = 0)
-	spawn()
+	spawn(0)
 		if(!nosleep)
 			sleep(40)
 		for(var/mob/living/carbon/human/H in player_list)
@@ -93,44 +93,44 @@
 			misc[name] = rank
 	if(heads.len > 0)
 		dat += "<tr><th colspan=3>Heads</th></tr>"
-		for(name in heads)
+		for(var/name in heads)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[heads[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	if(sec.len > 0)
 		dat += "<tr><th colspan=3>Security</th></tr>"
-		for(name in sec)
+		for(var/name in sec)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[sec[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	if(eng.len > 0)
 		dat += "<tr><th colspan=3>Engineering</th></tr>"
-		for(name in eng)
+		for(var/name in eng)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[eng[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	if(med.len > 0)
 		dat += "<tr><th colspan=3>Medical</th></tr>"
-		for(name in med)
+		for(var/name in med)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[med[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	if(sci.len > 0)
 		dat += "<tr><th colspan=3>Science</th></tr>"
-		for(name in sci)
+		for(var/name in sci)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[sci[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	if(civ.len > 0)
 		dat += "<tr><th colspan=3>Civilian</th></tr>"
-		for(name in civ)
+		for(var/name in civ)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[civ[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 	// in case somebody is insane and added them to the manifest, why not
 	if(bot.len > 0)
 		dat += "<tr><th colspan=3>Silicon</th></tr>"
-		for(name in bot)
-			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[bot[name]]</td><td>[isactive[name]]</td></tr>"
+		for(var/nam in bot)
+			dat += "<tr[even ? " class='alt'" : ""]><td>[nam]</td><td>[bot[nam]]</td><td>[isactive[nam]]</td></tr>"
 			even = !even
 	// misc guys
 	if(misc.len > 0)
 		dat += "<tr><th colspan=3>Miscellaneous</th></tr>"
-		for(name in misc)
+		for(var/name in misc)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[misc[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 

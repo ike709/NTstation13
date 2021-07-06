@@ -126,7 +126,7 @@ datum/preferences
 
 		switch(current_tab)
 			if (0) // Character Settings#
-				if(path)
+				/*if(path)
 					var/savefile/S = new /savefile(path)
 					if(S)
 						dat += "<center>"
@@ -137,7 +137,7 @@ datum/preferences
 							if(!name)	name = "Character[i]"
 							//if(i!=1) dat += " | "
 							dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
-						dat += "</center>"
+						dat += "</center>"*/
 
 				dat += "<center><h2>Occupation Choices</h2>"
 				dat += "<a href='?_src_=prefs;preference=job;task=menu'>Set Occupation Preferences</a><br></center>"

@@ -1,4 +1,4 @@
-/////AUGMENTATION\\\\\
+
 //See code/modules/surgery/organs/organ.dm for the parent "limb"
 
 

@@ -633,7 +633,7 @@ datum/mind
 				if("autoobjectives")
 					ticker.mode.forge_revolutionary_objectives(src)
 					ticker.mode.greet_revolutionary(src,0)
-					usr << "\blue The objectives for revolution have been generated and shown to [key]"
+					usr << "lue The objectives for revolution have been generated and shown to [key]"
 
 				if("flash")
 					if (!ticker.mode.equip_revolutionary(current))
@@ -721,7 +721,7 @@ datum/mind
 					ticker.mode.name_wizard(current)
 				if("autoobjectives")
 					ticker.mode.forge_wizard_objectives(src)
-					usr << "\blue The objectives for wizard [key] have been generated. You can edit them and anounce manually."
+					usr << "lue The objectives for wizard [key] have been generated. You can edit them and anounce manually."
 
 		else if (href_list["changeling"])
 			switch(href_list["changeling"])
@@ -740,7 +740,7 @@ datum/mind
 						log_admin("[key_name(usr)] has changeling'ed [current].")
 				if("autoobjectives")
 					ticker.mode.forge_changeling_objectives(src)
-					usr << "\blue The objectives for changeling [key] have been generated. You can edit them and anounce manually."
+					usr << "lue The objectives for changeling [key] have been generated. You can edit them and anounce manually."
 
 				if("initialdna")
 					if( !changeling || !changeling.absorbed_dna.len || !istype(current, /mob/living/carbon))
@@ -768,7 +768,7 @@ datum/mind
 						else
 							current.real_name = "[syndicate_name()] Operative #[ticker.mode.syndicates.len-1]"
 						special_role = "Syndicate"
-						current << "\blue You are a [syndicate_name()] agent!"
+						current << "lue You are a [syndicate_name()] agent!"
 						ticker.mode.forge_syndicate_objectives(src)
 						ticker.mode.greet_syndicate(src)
 						message_admins("[key_name_admin(usr)] has nuke op'ed [current].")
@@ -823,7 +823,7 @@ datum/mind
 
 				if("autoobjectives")
 					ticker.mode.forge_traitor_objectives(src)
-					usr << "\blue The objectives for traitor [key] have been generated. You can edit them and anounce manually."
+					usr << "lue The objectives for traitor [key] have been generated. You can edit them and anounce manually."
 
 		else if (href_list["monkey"])
 			var/mob/living/L = current
@@ -836,7 +836,7 @@ datum/mind
 						var/mob/living/carbon/monkey/M = current
 						if (istype(H))
 							log_admin("[key_name(usr)] attempting to monkeyize [key_name(current)]")
-							message_admins("\blue [key_name_admin(usr)] attempting to monkeyize [key_name_admin(current)]")
+							message_admins("lue [key_name_admin(usr)] attempting to monkeyize [key_name_admin(current)]")
 							src = null
 							M = H.monkeyize()
 							src = M.mind
@@ -851,7 +851,7 @@ datum/mind
 						var/mob/living/carbon/monkey/M = current
 						if (istype(H))
 							log_admin("[key_name(usr)] attempting to monkeyize and infect [key_name(current)]")
-							message_admins("\blue [key_name_admin(usr)] attempting to monkeyize and infect [key_name_admin(current)]", 1)
+							message_admins("lue [key_name_admin(usr)] attempting to monkeyize and infect [key_name_admin(current)]", 1)
 							src = null
 							M = H.monkeyize()
 							src = M.mind
@@ -868,7 +868,7 @@ datum/mind
 									D.cure(0)
 									sleep(0) //because deleting of virus is doing throught spawn(0)
 							log_admin("[key_name(usr)] attempting to humanize [key_name(current)]")
-							message_admins("\blue [key_name_admin(usr)] attempting to humanize [key_name_admin(current)]")
+							message_admins("lue [key_name_admin(usr)] attempting to humanize [key_name_admin(current)]")
 							H = M.humanize(TR_KEEPITEMS | TR_KEEPIMPLANTS | TR_KEEPDAMAGE | TR_KEEPVIRUS | TR_DEFAULTMSG)
 							if(H)
 								src = H.mind
@@ -928,7 +928,7 @@ datum/mind
 
 		else if (href_list["obj_announce"])
 			var/obj_count = 1
-			current << "\blue Your current objectives:"
+			current << "lue Your current objectives:"
 			for(var/datum/objective/objective in objectives)
 				current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 				obj_count++
@@ -979,7 +979,7 @@ datum/mind
 				current.real_name = "[syndicate_name()] Operative #[ticker.mode.syndicates.len-1]"
 			special_role = "Syndicate"
 			assigned_role = "MODE"
-			current << "\blue You are a [syndicate_name()] agent!"
+			current << "lue You are a [syndicate_name()] agent!"
 			ticker.mode.forge_syndicate_objectives(src)
 			ticker.mode.greet_syndicate(src)
 

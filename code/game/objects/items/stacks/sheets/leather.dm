@@ -97,9 +97,9 @@
 		istype(W, /obj/item/weapon/hatchet) )
 
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
-		usr.visible_message("\blue \the [usr] starts cutting hair off \the [src]", "\blue You start cutting the hair off \the [src]", "You hear the sound of a knife rubbing against flesh")
+		usr.visible_message("lue \the [usr] starts cutting hair off \the [src]", "lue You start cutting the hair off \the [src]", "You hear the sound of a knife rubbing against flesh")
 		if(do_after(user,50))
-			usr << "\blue You cut the hair from this [src.singular_name]"
+			usr << "lue You cut the hair from this [src.singular_name]"
 			//Try locating an exisitng stack on the tile and add to there if possible
 			for(var/obj/item/stack/sheet/hairlesshide/HS in usr.loc)
 				if(HS.amount < 50)

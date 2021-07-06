@@ -24,7 +24,7 @@
 	var/check_records = 1 //Does it check security records?
 	var/arrest_type = 0 //If true, don't handcuff
 	bot_type = SEC_BOT
-	bot_filter = RADIO_SECBOT
+	bot_filter = "12"
 
 	//List of weapons that secbots will not arrest for
 	var/safe_weapons = list(\

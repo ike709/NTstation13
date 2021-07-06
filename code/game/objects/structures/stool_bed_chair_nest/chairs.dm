@@ -97,10 +97,11 @@
 	name = "comfy chair"
 	desc = "It looks comfy."
 	icon_state = "comfychair"
-	color = rgb(255,255,255)
+	//color = rgb(255,255,255)
 	var/image/armrest = null
 
 /obj/structure/stool/bed/chair/comfy/New()
+	color = rgb(255,255,255)
 	armrest = image("icons/obj/objects.dmi", "comfychair_armrest")
 	armrest.layer = MOB_LAYER + 0.1
 
@@ -112,19 +113,19 @@
 	else
 		overlays -= armrest
 
-/obj/structure/stool/bed/chair/comfy/brown
+/obj/structure/stool/bed/chair/comfy/brown/New()
 	color = rgb(255,113,0)
 
-/obj/structure/stool/bed/chair/comfy/beige
+/obj/structure/stool/bed/chair/comfy/beige/New()
 	color = rgb(255,253,195)
 
-/obj/structure/stool/bed/chair/comfy/teal
+/obj/structure/stool/bed/chair/comfy/teal/New()
 	color = rgb(0,255,255)
 
-/obj/structure/stool/bed/chair/comfy/black
+/obj/structure/stool/bed/chair/comfy/black/New()
 	color = rgb(167,164,153)
 
-/obj/structure/stool/bed/chair/comfy/lime
+/obj/structure/stool/bed/chair/comfy/lime/New()
 	color = rgb(255,251,0)
 
 /obj/structure/stool/bed/chair/office

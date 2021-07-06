@@ -171,12 +171,12 @@ var/syndicate_code_response//Code response for traitors.
 /proc/generate_code_phrase()//Proc is used for phrase and response in master_controller.dm
 
 	var/code_phrase = ""//What is returned when the proc finishes.
-	var/words = pick(//How many words there will be. Minimum of two. 2, 4 and 5 have a lesser chance of being selected. 3 is the most likely.
+	var/words = 2/*= pick(//How many words there will be. Minimum of two. 2, 4 and 5 have a lesser chance of being selected. 3 is the most likely.
 		50; 2,
 		200; 3,
 		50; 4,
 		25; 5
-	)
+	)*/
 
 	var/safety[] = list(1,2,3)//Tells the proc which options to remove later on.
 	var/nouns[] = list("love","hate","anger","peace","pride","sympathy","bravery","loyalty","honesty","integrity","compassion","charity","success","courage","deceit","skill","beauty","brilliance","pain","misery","beliefs","dreams","justice","truth","faith","liberty","knowledge","thought","information","culture","trust","dedication","progress","education","hospitality","leisure","trouble","friendships", "relaxation")
@@ -237,7 +237,7 @@ var/syndicate_code_response//Code response for traitors.
 	set name = "Generate Code Phrase"
 	set category = "Debug"
 
-	world << "\red Code Phrase is: \black [generate_code_phrase()]"
+	world << "\red Code Phrase is: lack [generate_code_phrase()]"
 	return
 
 

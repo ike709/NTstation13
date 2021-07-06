@@ -930,8 +930,8 @@ obj/machinery/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(W,/obj/item/weapon/reagent_containers))
 		if(ckey == null)
 			user << "You inject the contents of the syringe into the seeds."
-
-			for(var/datum/reagent/blood/bloodSample in W:reagents.reagent_list)
+			var/obj/item/weapon/reagent_containers/R = W
+			for(var/datum/reagent/blood/bloodSample in R.reagents.reagent_list)
 				var/mob/living/carbon/human/source = bloodSample.data["donor"] //hacky, since it gets the CURRENT condition of the mob, not how it was when the blood sample was taken
 				if(!istype(source))
 					continue
@@ -947,8 +947,8 @@ obj/machinery/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
 				if(!isnull(source.mind))
 					mind = source.mind
-
-			W:reagents.clear_reagents()
+			
+			R.reagents.clear_reagents()
 		else
 			user << "There is already a genetic sample in these seeds."
 	else

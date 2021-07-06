@@ -6,7 +6,7 @@
 			log_admin("[key_name(usr)] has left build mode.")
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
-			for(var/obj/effect/bmode/buildholder/H)
+			for(var/obj/effect/bmode/buildholder/H in world)
 				if(H.cl == M.client)
 					qdel(H)
 		else
@@ -66,35 +66,35 @@
 	Click()
 		switch(master.cl.buildmode)
 			if(1)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Left Mouse Button        = Construct / Upgrade"
-				usr << "\blue Right Mouse Button       = Deconstruct / Delete / Downgrade"
-				usr << "\blue Left Mouse Button + ctrl = R-Window"
-				usr << "\blue Left Mouse Button + alt  = Airlock"
+				usr << "lue ***********************************************************"
+				usr << "lue Left Mouse Button        = Construct / Upgrade"
+				usr << "lue Right Mouse Button       = Deconstruct / Delete / Downgrade"
+				usr << "lue Left Mouse Button + ctrl = R-Window"
+				usr << "lue Left Mouse Button + alt  = Airlock"
 				usr << ""
-				usr << "\blue Use the button in the upper left corner to"
-				usr << "\blue change the direction of built objects."
-				usr << "\blue ***********************************************************"
+				usr << "lue Use the button in the upper left corner to"
+				usr << "lue change the direction of built objects."
+				usr << "lue ***********************************************************"
 			if(2)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Right Mouse Button on buildmode button = Set object type"
-				usr << "\blue Left Mouse Button on turf/obj          = Place objects"
-				usr << "\blue Right Mouse Button                     = Delete objects"
+				usr << "lue ***********************************************************"
+				usr << "lue Right Mouse Button on buildmode button = Set object type"
+				usr << "lue Left Mouse Button on turf/obj          = Place objects"
+				usr << "lue Right Mouse Button                     = Delete objects"
 				usr << ""
-				usr << "\blue Use the button in the upper left corner to"
-				usr << "\blue change the direction of built objects."
-				usr << "\blue ***********************************************************"
+				usr << "lue Use the button in the upper left corner to"
+				usr << "lue change the direction of built objects."
+				usr << "lue ***********************************************************"
 			if(3)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Right Mouse Button on buildmode button = Select var(type) & value"
-				usr << "\blue Left Mouse Button on turf/obj/mob      = Set var(type) & value"
-				usr << "\blue Right Mouse Button on turf/obj/mob     = Reset var's value"
-				usr << "\blue ***********************************************************"
+				usr << "lue ***********************************************************"
+				usr << "lue Right Mouse Button on buildmode button = Select var(type) & value"
+				usr << "lue Left Mouse Button on turf/obj/mob      = Set var(type) & value"
+				usr << "lue Right Mouse Button on turf/obj/mob     = Reset var's value"
+				usr << "lue ***********************************************************"
 			if(4)
-				usr << "\blue ***********************************************************"
-				usr << "\blue Left Mouse Button on turf/obj/mob      = Throw"
-				usr << "\blue Right Mouse Button on turf/obj/mob     = Select"
-				usr << "\blue ***********************************************************"
+				usr << "lue ***********************************************************"
+				usr << "lue Left Mouse Button on turf/obj/mob      = Throw"
+				usr << "lue Right Mouse Button on turf/obj/mob     = Select"
+				usr << "lue ***********************************************************"
 		return 1
 
 /obj/effect/bmode/buildquit
@@ -176,7 +176,7 @@
 
 /proc/build_click(var/mob/user, buildmode, params, var/obj/object)
 	var/obj/effect/bmode/buildholder/holder = null
-	for(var/obj/effect/bmode/buildholder/H)
+	for(var/obj/effect/bmode/buildholder/H in world)
 		if(H.cl == user.client)
 			holder = H
 			break
@@ -249,14 +249,14 @@
 				if(object.vars.Find(holder.buildmode.varholder))
 					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
 					object.vars[holder.buildmode.varholder] = holder.buildmode.valueholder
-				else
-					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
+			//	else
+			//		usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
 			if(pa.Find("right"))
 				if(object.vars.Find(holder.buildmode.varholder))
 					log_admin("[key_name(usr)] modified [object.name]'s [holder.buildmode.varholder] to [holder.buildmode.valueholder]")
-					object.vars[holder.buildmode.varholder] = initial(object.vars[holder.buildmode.varholder])
-				else
-					usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
+				//	object.vars[holder.buildmode.varholder] = initial(object.vars[holder.buildmode.varholder])
+			//	else
+			//		usr << "\red [initial(object.name)] does not have a var called '[holder.buildmode.varholder]'"
 
 		if(4)
 			if(pa.Find("left"))

@@ -195,7 +195,7 @@
 	src.reset_view(null)
 	src.unset_machine()
 	src:cameraFollow = null
-	var/cameralist[0]
+	var/cameralist = list()
 
 	if(usr.stat == 2)
 		usr << "You can't change your camera network because you are dead!"
@@ -209,7 +209,7 @@
 				cameralist[C.network] = C.network
 
 	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist
-	src << "\blue Switched to [src.network] camera network."
+	src << "lue Switched to [src.network] camera network."
 //End of code by Mord_Sith
 */
 

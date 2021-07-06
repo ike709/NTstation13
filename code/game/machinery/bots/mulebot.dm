@@ -23,7 +23,7 @@ var/global/mulebot_count = 0
 	beacon_freq = 1400
 	control_freq = 1447
 	bot_type = MULE_BOT
-	bot_filter = RADIO_MULEBOT
+	bot_filter = "12"
 
 	suffix = ""
 
@@ -91,12 +91,12 @@ var/global/mulebot_count = 0
 /obj/machinery/bot/mulebot/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I,/obj/item/weapon/card/emag))
 		locked = !locked
-		user << "\blue You [locked ? "lock" : "unlock"] the mulebot's controls!"
+		user << "lue You [locked ? "lock" : "unlock"] the mulebot's controls!"
 		flick("mulebot-emagged", src)
 		playsound(loc, 'sound/effects/sparks1.ogg', 100, 0)
 	else if(istype(I, /obj/item/weapon/card/id))
 		if(toggle_lock(user))
-			user << "\blue Controls [(locked ? "locked" : "unlocked")]."
+			user << "lue Controls [(locked ? "locked" : "unlocked")]."
 
 	else if(istype(I,/obj/item/weapon/stock_parts/cell) && open && !cell)
 		var/obj/item/weapon/stock_parts/cell/C = I
@@ -106,16 +106,16 @@ var/global/mulebot_count = 0
 		updateDialog()
 	else if(istype(I,/obj/item/weapon/screwdriver))
 		if(locked)
-			user << "\blue The maintenance hatch cannot be opened or closed while the controls are locked."
+			user << "lue The maintenance hatch cannot be opened or closed while the controls are locked."
 			return
 
 		open = !open
 		if(open)
-			visible_message("[user] opens the maintenance hatch of [src]", "\blue You open [src]'s maintenance hatch.")
+			visible_message("[user] opens the maintenance hatch of [src]", "lue You open [src]'s maintenance hatch.")
 			on = 0
 			icon_state="mulebot-hatch"
 		else
-			visible_message("[user] closes the maintenance hatch of [src]", "\blue You close [src]'s maintenance hatch.")
+			visible_message("[user] closes the maintenance hatch of [src]", "lue You close [src]'s maintenance hatch.")
 			icon_state = "mulebot0"
 
 		updateDialog()
@@ -124,10 +124,10 @@ var/global/mulebot_count = 0
 			health = min(maxhealth, health+25)
 			user.visible_message(
 				"\red [user] repairs [src]!",
-				"\blue You repair [src]!"
+				"lue You repair [src]!"
 			)
 		else
-			user << "\blue [src] does not need a repair!"
+			user << "lue [src] does not need a repair!"
 	else if(istype(I, /obj/item/device/multitool) || istype(I, /obj/item/weapon/wirecutters))
 		if(open)
 			attack_hand(usr)
@@ -282,7 +282,7 @@ var/global/mulebot_count = 0
 					cell.add_fingerprint(usr)
 					cell = null
 
-					usr.visible_message("\blue [usr] removes the power cell from [src].", "\blue You remove the power cell from [src].")
+					usr.visible_message("lue [usr] removes the power cell from [src].", "lue You remove the power cell from [src].")
 					updateDialog()
 
 			if("cellinsert")
@@ -294,7 +294,7 @@ var/global/mulebot_count = 0
 						C.loc = src
 						C.add_fingerprint(usr)
 
-						usr.visible_message("\blue [usr] inserts a power cell into [src].", "\blue You insert the power cell into [src].")
+						usr.visible_message("lue [usr] inserts a power cell into [src].", "lue You insert the power cell into [src].")
 						updateDialog()
 
 

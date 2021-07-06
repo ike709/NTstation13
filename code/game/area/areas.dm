@@ -105,7 +105,7 @@
 		for(var/obj/machinery/door/firedoor/D in src)
 			if(!D.blocked)
 				if(D.operating)
-					D.nextstate = CLOSED
+					D.nextstate = 2
 				else if(!D.density)
 					spawn(0)
 					D.close()
@@ -280,7 +280,7 @@
 			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
 			L.client.played = 1
 			spawn(600)			//ewww - this is very very bad
-				if(L.&& L.client)
+				if(L && L.client)
 					L.client.played = 0
 
 /area/proc/mob_activate(var/mob/living/L)

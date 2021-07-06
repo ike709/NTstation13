@@ -266,7 +266,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
 
-	var/i, ch, len = length(key)
+	var/i
+	var/ch
+	var/len = length(key)
 
 	for (i = 7, i <= len, ++i)
 		ch = text2ascii(key, i)
@@ -653,9 +655,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-proc/arctan(x)
-	var/y=arcsin(x/sqrt(1+x*x))
-	return y
+
 
 
 proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,flick_anim as text,sleeptime = 0,direction as num)
@@ -925,67 +925,67 @@ atom/proc/CheckForNukeDisk()
 	var/list/fromupdate = new/list()
 	var/list/toupdate = new/list()
 
-	moving:
-		for (var/turf/T in refined_src)
-			var/datum/coords/C_src = refined_src[T]
-			for (var/turf/B in refined_trg)
-				var/datum/coords/C_trg = refined_trg[B]
-				if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
+	//moving:
+	for (var/turf/T in refined_src)
+		var/datum/coords/C_src = refined_src[T]
+		for (var/turf/B in refined_trg)
+			var/datum/coords/C_trg = refined_trg[B]
+			if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
 
-					var/old_dir1 = T.dir
-					var/old_icon_state1 = T.icon_state
-					var/old_icon1 = T.icon
+				var/old_dir1 = T.dir
+				var/old_icon_state1 = T.icon_state
+				var/old_icon1 = T.icon
 
-					var/turf/X = new T.type(B)
-					X.dir = old_dir1
-					X.icon_state = old_icon_state1
-					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
-
-
-					// Give the new turf our air, if simulated
-					if(istype(X, /turf/simulated) && istype(T, /turf/simulated))
-						var/turf/simulated/sim = X
-						sim.copy_air_with_tile(T)
-
-					/* Quick visual fix for some weird shuttle corner artefacts when on transit space tiles */
-					if(direction && findtext(X.icon_state, "swall_s"))
-
-						// Spawn a new shuttle corner object
-						var/obj/corner = new()
-						corner.loc = X
-						corner.density = 1
-						corner.anchored = 1
-						corner.icon = X.icon
-						corner.icon_state = replacetext(X.icon_state, "_s", "_f")
-						corner.tag = "delete me"
-						corner.name = "wall"
-
-						// Find a new turf to take on the property of
-						var/turf/nextturf = get_step(corner, direction)
-						if(!nextturf || !istype(nextturf, /turf/space))
-							nextturf = get_step(corner, turn(direction, 180))
+				var/turf/X = new T.type(B)
+				X.dir = old_dir1
+				X.icon_state = old_icon_state1
+				X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
 
 
-						// Take on the icon of a neighboring scrolling space icon
-						X.icon = nextturf.icon
-						X.icon_state = nextturf.icon_state
+				// Give the new turf our air, if simulated
+				if(istype(X, /turf/simulated) && istype(T, /turf/simulated))
+					var/turf/simulated/sim = X
+					sim.copy_air_with_tile(T)
+
+				/* Quick visual fix for some weird shuttle corner artefacts when on transit space tiles */
+				if(direction && findtext(X.icon_state, "swall_s"))
+
+					// Spawn a new shuttle corner object
+					var/obj/corner = new()
+					corner.loc = X
+					corner.density = 1
+					corner.anchored = 1
+					corner.icon = X.icon
+					corner.icon_state = replacetext(X.icon_state, "_s", "_f")
+					corner.tag = "delete me"
+					corner.name = "wall"
+
+					// Find a new turf to take on the property of
+					var/turf/nextturf = get_step(corner, direction)
+					if(!nextturf || !istype(nextturf, /turf/space))
+						nextturf = get_step(corner, turn(direction, 180))
 
 
-					for(var/obj/O in T)
+					// Take on the icon of a neighboring scrolling space icon
+					X.icon = nextturf.icon
+					X.icon_state = nextturf.icon_state
 
-						// Reset the shuttle corners
-						if(O.tag == "delete me")
-							X.icon = 'icons/turf/shuttle.dmi'
-							X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
-							X.name = "wall"
-							qdel(O) // prevents multiple shuttle corners from stacking
-							continue
-						if(!istype(O,/obj)) continue
-						O.loc = X
-					for(var/mob/M in T)
-						if(!M.move_on_shuttle)
-							continue
-						M.loc = X
+
+				for(var/obj/O in T)
+
+					// Reset the shuttle corners
+					if(O.tag == "delete me")
+						X.icon = 'icons/turf/shuttle.dmi'
+						X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
+						X.name = "wall"
+						qdel(O) // prevents multiple shuttle corners from stacking
+						continue
+					if(!istype(O,/obj)) continue
+					O.loc = X
+				for(var/mob/M in T)
+					if(!M.move_on_shuttle)
+						continue
+					M.loc = X
 
 //					var/area/AR = X.loc
 
@@ -993,10 +993,10 @@ atom/proc/CheckForNukeDisk()
 //						X.opacity = !X.opacity
 //						X.SetOpacity(!X.opacity)
 
-					toupdate += X
+				toupdate += X
 
-					if(turftoleave)
-						var/turf/ttl = new turftoleave(T)
+				if(turftoleave)
+					var/turf/ttl = new turftoleave(T)
 
 //						var/area/AR2 = ttl.loc
 
@@ -1004,14 +1004,14 @@ atom/proc/CheckForNukeDisk()
 //							ttl.opacity = !ttl.opacity
 //							ttl.sd_SetOpacity(!ttl.opacity)
 
-						fromupdate += ttl
+					fromupdate += ttl
 
-					else
-						T.ChangeTurf(/turf/space)
+				else
+					T.ChangeTurf(/turf/space)
 
-					refined_src -= T
-					refined_trg -= B
-					continue moving
+				refined_src -= T
+				refined_trg -= B
+				break
 
 
 	if(toupdate.len)
@@ -1092,66 +1092,66 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	var/copiedobjs = list()
 
 
-	moving:
-		for (var/turf/T in refined_src)
-			var/datum/coords/C_src = refined_src[T]
-			for (var/turf/B in refined_trg)
-				var/datum/coords/C_trg = refined_trg[B]
-				if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
+	//moving:
+	for (var/turf/T in refined_src)
+		var/datum/coords/C_src = refined_src[T]
+		for (var/turf/B in refined_trg)
+			var/datum/coords/C_trg = refined_trg[B]
+			if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
 
-					var/old_dir1 = T.dir
-					var/old_icon_state1 = T.icon_state
-					var/old_icon1 = T.icon
+				var/old_dir1 = T.dir
+				var/old_icon_state1 = T.icon_state
+				var/old_icon1 = T.icon
 
-					if(platingRequired)
-						if(istype(B, /turf/space))
-							continue moving
+				if(platingRequired)
+					if(istype(B, /turf/space))
+						break
 
-					var/turf/X = new T.type(B)
-					X.dir = old_dir1
-					X.icon_state = old_icon_state1
-					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
-
-
-					var/list/objs = new/list()
-					var/list/newobjs = new/list()
-					var/list/mobs = new/list()
-					var/list/newmobs = new/list()
-
-					for(var/obj/O in T)
-
-						if(!istype(O,/obj))
-							continue
-
-						objs += O
+				var/turf/X = new T.type(B)
+				X.dir = old_dir1
+				X.icon_state = old_icon_state1
+				X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
 
 
-					for(var/obj/O in objs)
-						newobjs += DuplicateObject(O , 1)
+				var/list/objs = new/list()
+				var/list/newobjs = new/list()
+				var/list/mobs = new/list()
+				var/list/newmobs = new/list()
+
+				for(var/obj/O in T)
+
+					if(!istype(O,/obj))
+						continue
+
+					objs += O
 
 
-					for(var/obj/O in newobjs)
-						O.loc = X
-
-					for(var/mob/M in T)
-						if(!M.move_on_shuttle)
-							continue
-						mobs += M
-
-					for(var/mob/M in mobs)
-						newmobs += DuplicateObject(M , 1)
-
-					for(var/mob/M in newmobs)
-						M.loc = X
-
-					copiedobjs += newobjs
-					copiedobjs += newmobs
+				for(var/obj/O in objs)
+					newobjs += DuplicateObject(O , 1)
 
 
+				for(var/obj/O in newobjs)
+					O.loc = X
 
-					for(var/V in T.vars)
-						if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key","x","y","z","contents", "luminosity")))
-							X.vars[V] = T.vars[V]
+				for(var/mob/M in T)
+					if(!M.move_on_shuttle)
+						continue
+					mobs += M
+
+				for(var/mob/M in mobs)
+					newmobs += DuplicateObject(M , 1)
+
+				for(var/mob/M in newmobs)
+					M.loc = X
+
+				copiedobjs += newobjs
+				copiedobjs += newmobs
+
+
+
+				for(var/V in T.vars)
+					if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key","x","y","z","contents", "luminosity")))
+						X.vars[V] = T.vars[V]
 
 //					var/area/AR = X.loc
 
@@ -1159,11 +1159,11 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 //						X.opacity = !X.opacity
 //						X.sd_SetOpacity(!X.opacity)			//TODO: rewrite this code so it's not messed by lighting ~Carn
 
-					toupdate += X
+				toupdate += X
 
-					refined_src -= T
-					refined_trg -= B
-					continue moving
+				refined_src -= T
+				refined_trg -= B
+				break
 
 
 	if(toupdate.len)
@@ -1351,7 +1351,7 @@ var/list/WALLITEMS = list(
 	var/pressure = air_contents.return_pressure()
 	var/total_moles = air_contents.total_moles()
 
-	user << "\blue Results of analysis of \icon[icon] [target]."
+	user << "lue Results of analysis of \icon[icon] [target]."
 	if(total_moles>0)
 		var/o2_concentration = air_contents.oxygen/total_moles
 		var/n2_concentration = air_contents.nitrogen/total_moles
@@ -1360,16 +1360,16 @@ var/list/WALLITEMS = list(
 
 		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
 
-		user << "\blue Pressure: [round(pressure,0.1)] kPa"
-		user << "\blue Nitrogen: [round(n2_concentration*100)]%"
-		user << "\blue Oxygen: [round(o2_concentration*100)]%"
-		user << "\blue CO2: [round(co2_concentration*100)]%"
-		user << "\blue Plasma: [round(plasma_concentration*100)]%"
+		user << "lue Pressure: [round(pressure,0.1)] kPa"
+		user << "lue Nitrogen: [round(n2_concentration*100)]%"
+		user << "lue Oxygen: [round(o2_concentration*100)]%"
+		user << "lue CO2: [round(co2_concentration*100)]%"
+		user << "lue Plasma: [round(plasma_concentration*100)]%"
 		if(unknown_concentration>0.01)
 			user << "\red Unknown: [round(unknown_concentration*100)]%"
-		user << "\blue Temperature: [round(air_contents.temperature-T0C)]&deg;C"
+		user << "lue Temperature: [round(air_contents.temperature-T0C)]&deg;C"
 	else
-		user << "\blue [target] is empty!"
+		user << "lue [target] is empty!"
 	return
 
 proc/check_target_facings(mob/living/initator, mob/living/target)

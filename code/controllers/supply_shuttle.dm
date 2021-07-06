@@ -78,7 +78,7 @@ var/global/datum/controller/supply_shuttle/supply_shuttle
 	name = "supply shuttle console"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "supply"
-	req_access = list(access_cargo)
+	//req_access = list(access_cargo)
 	circuit = /obj/item/weapon/circuitboard/supplycomp
 	var/temp = null
 	var/reqtime = 0 //Cooldown for requisitions - Quarxink
@@ -375,9 +375,9 @@ var/global/datum/controller/supply_shuttle/supply_shuttle
 			slip.info +="CONTENTS:<br><ul>"
 
 			//spawn the stuff, finish generating the manifest while you're at it
-			if(SP.access)
-				A:req_access = list()
-				A:req_access += text2num(SP.access)
+//			if(SP.access)
+		//		A:req_access = list()
+				//A:req_access += text2num(SP.access)
 
 			var/list/contains
 			if(istype(SP,/datum/supply_packs/misc/randomised))
@@ -500,7 +500,7 @@ var/global/datum/controller/supply_shuttle/supply_shuttle
 		reqform.info += "RANK: [idrank]<br>"
 		reqform.info += "REASON: [reason]<br>"
 		reqform.info += "SUPPLY CRATE TYPE: [P.name]<br>"
-		reqform.info += "ACCESS RESTRICTION: [replacetext(get_access_desc(P.access))]<br>"
+		//reqform.info += "ACCESS RESTRICTION: [get_access_desc(P.access)]<br>"
 		reqform.info += "CONTENTS:<br>"
 		reqform.info += P.manifest
 		reqform.info += "<hr>"
@@ -690,7 +690,7 @@ var/global/datum/controller/supply_shuttle/supply_shuttle
 		reqform.info += "RANK: [idrank]<br>"
 		reqform.info += "REASON: [reason]<br>"
 		reqform.info += "SUPPLY CRATE TYPE: [P.name]<br>"
-		reqform.info += "ACCESS RESTRICTION: [replacetext(get_access_desc(P.access))]<br>"
+//		reqform.info += "ACCESS RESTRICTION: [get_access_desc(P.access)]<br>"
 		reqform.info += "CONTENTS:<br>"
 		reqform.info += P.manifest
 		reqform.info += "<hr>"

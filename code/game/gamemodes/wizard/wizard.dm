@@ -20,7 +20,7 @@
 
 /datum/game_mode/wizard/announce()
 	world << "<B>The current game mode is - Wizard!</B>"
-	world << "<B>There is a \red SPACE WIZARD\black on the station. You can't let him achieve his objective!</B>"
+	world << "<B>There is a \red SPACE WIZARDlack on the station. You can't let him achieve his objective!</B>"
 
 /datum/game_mode/wizard/pre_setup()
 

@@ -63,7 +63,7 @@ var/round_start_time = 0
 		if((master_mode=="secret") && (secret_force_mode != "secret"))
 			var/datum/game_mode/smode = config.pick_mode(secret_force_mode)
 			if (!smode.can_start())
-				message_admins("\blue Unable to force secret [secret_force_mode]. [smode.required_players] players and [smode.required_enemies] eligible antagonists needed.", 1)
+				message_admins("lue Unable to force secret [secret_force_mode]. [smode.required_players] players and [smode.required_enemies] eligible antagonists needed.", 1)
 			else
 				src.mode = smode
 
@@ -286,18 +286,18 @@ var/round_start_time = 0
 		if(!mode.explosion_in_progress && mode.check_finished())
 			current_state = GAME_STATE_FINISHED
 			auto_toggle_ooc(1) // Turn it on
-			spawn
+			spawn(0)
 				declare_completion()
 
 			spawn(50)
 				if (mode.station_was_nuked)
 					feedback_set_details("end_proper","nuke")
 					if(!delay_end)
-						world << "\blue <B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B>"
+						world << "lue <B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B>"
 				else
 					feedback_set_details("end_proper","proper completion")
 					if(!delay_end)
-						world << "\blue <B>Restarting in [restart_timeout/10] seconds</B>"
+						world << "lue <B>Restarting in [restart_timeout/10] seconds</B>"
 
 
 				if(blackbox)
@@ -308,7 +308,7 @@ var/round_start_time = 0
 					kick_clients_in_lobby("\red The round came to an end with you in the lobby.", 1) //second parameter ensures only afk clients are kicked
 					world.Reboot()
 				else
-					world << "\blue <B>An admin has delayed the round end</B>"
+					world << "lue <B>An admin has delayed the round end</B>"
 
 		return 1
 
@@ -330,7 +330,7 @@ var/round_start_time = 0
 
 		if (aiPlayer.connected_robots.len)
 			var/robolist = "<b>[aiPlayer.real_name]'s loyal minions were:</b> "
-			var/vsrobolist = "\red <b>[aiPlayer.real_name]'s disloyal minions were:</b> \black"
+			var/vsrobolist = "\red <b>[aiPlayer.real_name]'s disloyal minions were:</b> lack"
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
 				if (is_special_character(robo) && robo.mind)
 					vsrobolist += "[robo.name][robo.stat?" (Deactivated) (Played by: [robo.mind.key]), ":" (Played by: [robo.mind.key]), "]"

@@ -26,8 +26,8 @@
 				user.drop_item()
 				I.loc = src
 				grenades += I
-				user << "\blue You put the grenade in the grenade launcher."
-				user << "\blue [grenades.len] / [max_grenades] Grenades."
+				user << "lue You put the grenade in the grenade launcher."
+				user << "lue [grenades.len] / [max_grenades] Grenades."
 			else
 				usr << "\red The grenade launcher cannot hold more grenades."
 

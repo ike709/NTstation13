@@ -57,7 +57,7 @@
 				var/C = S.cores
 				if(S.stat != DEAD)
 					S.loc = loc
-					S.visible_message("\blue [C] crawls free of the processor!")
+					S.visible_message("lue [C] crawls free of the processor!")
 					return
 				for(var/i = 1, i <= C, i++)
 					new S.coretype(loc)
@@ -70,7 +70,7 @@
 				var/mob/living/carbon/monkey/O = what
 				if (O.client) //grief-proof
 					O.loc = loc
-					O.visible_message("\blue Suddenly [O] jumps out from the processor!", \
+					O.visible_message("lue Suddenly [O] jumps out from the processor!", \
 							"You jump out from the processor", \
 							"You hear chimpering")
 					return
@@ -98,7 +98,7 @@
 			input = /mob/living/carbon/monkey
 			output = null
 
-/obj/machinery/processor/proc/select_recipe(var/X)
+/obj/machinery/processor/select_recipe(var/X)
 	for (var/Type in typesof(/datum/food_processor_process) - /datum/food_processor_process - /datum/food_processor_process/mob)
 		var/datum/food_processor_process/P = new Type()
 		if (!istype(X, P.input))
@@ -145,7 +145,7 @@
 			log_admin("DEBUG: [O] in processor havent suitable recipe. How do you put it in?") //-rastaf0
 			continue
 		src.processing = 1
-		user.visible_message("\blue [user] turns on \a [src].", \
+		user.visible_message("lue [user] turns on \a [src].", \
 			"You turn on \a [src].", \
 			"You hear a food processor")
 		playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
@@ -153,6 +153,6 @@
 		sleep(P.time)
 		P.process(src.loc, O)
 		src.processing = 0
-	src.visible_message("\blue \the [src] finished processing.")
+	src.visible_message("lue \the [src] finished processing.")
 
 

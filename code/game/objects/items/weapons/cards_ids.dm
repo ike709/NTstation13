@@ -153,7 +153,7 @@ update_label("John Doe", "Clowny")
 			return
 		src.assignment = u
 		update_label()
-		user << "\blue You successfully forge the ID card."
+		user << "lue You successfully forge the ID card."
 	else
 		..()
 

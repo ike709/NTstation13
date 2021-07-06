@@ -186,7 +186,7 @@
 
 /datum/game_mode/proc/greet_syndicate(var/datum/mind/syndicate, var/you_are=1)
 	if (you_are)
-		syndicate.current << "\blue You are a [syndicate_name()] agent!"
+		syndicate.current << "lue You are a [syndicate_name()] agent!"
 	var/obj_count = 1
 	for(var/datum/objective/objective in syndicate.objectives)
 		syndicate.current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
@@ -199,7 +199,7 @@
 
 
 /datum/game_mode/proc/equip_syndicate(mob/living/carbon/human/synd_mob)
-	var/radio_freq = SYND_FREQ
+	var/radio_freq = 1213
 
 	var/obj/item/device/radio/R = new /obj/item/device/radio/headset/syndicate(synd_mob)
 	R.set_frequency(radio_freq)

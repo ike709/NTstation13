@@ -149,12 +149,12 @@
 
 
 //slower then list2text, but correctly processes associative lists.
-proc/tg_list2text(list/list, glue=",")
-	if(!istype(list) || !list.len)
+proc/tg_list2text(list/L, glue=",")
+	if(!istype(L) || !L.len)
 		return
 	var/output
-	for(var/i=1 to list.len)
-		output += (i!=1? glue : null)+(!isnull(list["[list[i]]"])?"[list["[list[i]]"]]":"[list[i]]")
+	for(var/i=1 to L.len)
+		output += (i!=1? glue : null)+(!isnull(L["[L[i]]"])?"[L["[L[i]]"]]":"[L[i]]")
 	return output
 
 

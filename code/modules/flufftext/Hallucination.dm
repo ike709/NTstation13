@@ -264,7 +264,8 @@ proc/check_panel(mob/M)
 				my_target.hallucinations -= src
 			qdel(src)
 		step_away(src,my_target,2)
-		spawn attack_loop()
+		spawn(0)
+			attack_loop()
 
 
 	proc/updateimage()

@@ -245,10 +245,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		usr << "\blue <B>The scanner is already occupied!</B>"
+		usr << "lue <B>The scanner is already occupied!</B>"
 		return
 	if (usr.abiotic())
-		usr << "\blue <B>Subject cannot have abiotic items on.</B>"
+		usr << "lue <B>Subject cannot have abiotic items on.</B>"
 		return
 	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -267,10 +267,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
 		return
 	if (src.occupant)
-		user << "\blue <B>The scanner is already occupied!</B>"
+		user << "lue <B>The scanner is already occupied!</B>"
 		return
 	if (G.affecting.abiotic())
-		user << "\blue <B>Subject cannot have abiotic items on.</B>"
+		user << "lue <B>Subject cannot have abiotic items on.</B>"
 		return
 	var/mob/M = G.affecting
 	if (M.client)
@@ -866,10 +866,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		usr << "\blue <B>The scanner is already occupied!</B>"
+		usr << "lue <B>The scanner is already occupied!</B>"
 		return
 	if (usr.abiotic())
-		usr << "\blue <B>Subject cannot have abiotic items on.</B>"
+		usr << "lue <B>Subject cannot have abiotic items on.</B>"
 		return
 	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -896,10 +896,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
 		return
 	if (src.occupant)
-		user << "\blue <B>The machine is already occupied!</B>"
+		user << "lue <B>The machine is already occupied!</B>"
 		return
 	if (G.affecting.abiotic())
-		user << "\blue <B>Subject cannot have abiotic items on.</B>"
+		user << "lue <B>Subject cannot have abiotic items on.</B>"
 		return
 	var/mob/M = G.affecting
 	if (M.client)

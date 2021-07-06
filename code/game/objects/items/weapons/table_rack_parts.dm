@@ -20,7 +20,7 @@
 	if (istype(W, /obj/item/stack/rods))
 		if (W:amount >= 4)
 			new /obj/item/weapon/table_parts/reinforced( user.loc )
-			user << "\blue You reinforce the [name]."
+			user << "lue You reinforce the [name]."
 			W:use(4)
 			qdel(src)
 		else if (W:amount < 4)

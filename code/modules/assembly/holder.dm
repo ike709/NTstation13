@@ -119,9 +119,9 @@
 			a_right.toggle_secure()
 			secured = !secured
 			if(secured)
-				user << "\blue \The [src] is ready!"
+				user << "lue \The [src] is ready!"
 			else
-				user << "\blue \The [src] can now be taken apart!"
+				user << "lue \The [src] can now be taken apart!"
 			update_icon()
 			return
 		else

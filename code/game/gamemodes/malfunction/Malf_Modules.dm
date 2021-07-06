@@ -168,7 +168,7 @@
 			if(overload.uses > 0)
 				overload.uses --
 				for(var/mob/V in hearers(M, null))
-					V.show_message("\blue You hear a loud electrical buzzing sound!", 2)
+					V.show_message("lue You hear a loud electrical buzzing sound!", 2)
 				src << "<span class='warning'>Overloading machine circuitry...</span>"
 				spawn(50)
 					if(M)
@@ -195,7 +195,7 @@
 			if(override.uses > 0)
 				override.uses --
 				for(var/mob/V in hearers(M, null))
-					V.show_message("\blue You hear a loud electrical buzzing sound!", 2)
+					V.show_message("lue You hear a loud electrical buzzing sound!", 2)
 				src << "<span class='warning'>Reprogramming machine behaviour...</span>"
 				spawn(50)
 					if(M)

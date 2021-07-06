@@ -321,7 +321,7 @@
 			icon_state = icon_opened
 
 
- /obj/structure/closet/secure_closet/ammunitionlocker
+/obj/structure/closet/secure_closet/ammunitionlocker
  	name = "ammunition locker"
  	req_access = list(access_armory)
 

@@ -119,7 +119,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/harebell
 	seed = "obj/item/seeds/harebellseed"
 	name = "harebell"
-	desc = "\"I'll sweeten thy sad grave: thou shalt not lack the flower that's like thy face, pale primrose, nor the azured hare-bell, like thy veins; no, nor the leaf of eglantine, whom not to slander, out-sweeten’d not thy breath.\""
+	desc = "\"I'll sweeten thy sad grave: thou shalt not lack the flower that's like thy face, pale primrose, nor the azured hare-bell, like thy veins; no, nor the leaf of eglantine, whom not to slander, out-sweetenï¿½d not thy breath.\""
 	icon_state = "harebell"
 	slot_flags = SLOT_HEAD
 	dried_type = /obj/item/weapon/reagent_containers/food/snacks/grown/harebell
@@ -668,7 +668,7 @@
 			return
 
 		M.stop_pulling()
-		M << "\blue You slipped on the [name]!"
+		M << "lue You slipped on the [name]!"
 		playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 		M.Stun(8)
 		M.Weaken(5)

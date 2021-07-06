@@ -33,11 +33,11 @@
 
 	if(amount_grown >= max_grown)	//TODO ~Carn
 		//green is impossible to read, so i made these blue and changed the formatting slightly
-		src << "\blue <b>You are growing into a beautiful alien! It is time to choose a caste.</b>"
-		src << "\blue There are three to choose from:"
-		src << "<B>Hunters</B> \blue are strong and agile, able to hunt away from the hive and rapidly move through ventilation shafts. Hunters generate plasma slowly and have low reserves."
-		src << "<B>Sentinels</B> \blue are tasked with protecting the hive and are deadly up close and at a range. They are not as physically imposing nor fast as the hunters."
-		src << "<B>Drones</B> \blue are the working class, offering the largest plasma storage and generation. They are the only caste which may evolve again, turning into the dreaded alien queen."
+		src << "lue <b>You are growing into a beautiful alien! It is time to choose a caste.</b>"
+		src << "lue There are three to choose from:"
+		src << "<B>Hunters</B> lue are strong and agile, able to hunt away from the hive and rapidly move through ventilation shafts. Hunters generate plasma slowly and have low reserves."
+		src << "<B>Sentinels</B> lue are tasked with protecting the hive and are deadly up close and at a range. They are not as physically imposing nor fast as the hunters."
+		src << "<B>Drones</B> lue are the working class, offering the largest plasma storage and generation. They are the only caste which may evolve again, turning into the dreaded alien queen."
 		var/alien_caste = alert(src, "Please choose which alien caste you shall belong to.",,"Hunter","Sentinel","Drone")
 
 		var/mob/living/carbon/alien/humanoid/new_xeno

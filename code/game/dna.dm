@@ -520,7 +520,7 @@
 	var/radduration = 2
 	var/radstrength = 1
 
-	var/list/buffer[NUMBER_OF_BUFFERS]
+	var/list/buffer = list()
 
 	var/injectorready = 0	//Quick fix for issue 286 (screwdriver the screen twice to restore injector)	-Pete
 	var/current_screen = "mainmenu"
@@ -547,14 +547,13 @@
 /obj/machinery/computer/scan_consolenew/New()
 	..()
 
-	spawn(5)
-		for(dir in list(NORTH,EAST,SOUTH,WEST))
-			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-			if(!isnull(connected))
-				break
-		spawn(250)
-			injectorready = 1
-		return
+	for(var/dir in list(NORTH,EAST,SOUTH,WEST))
+		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+		if(!isnull(connected))
+			break
+	//spawn(250)
+	injectorready = 1
+		//return
 	return
 
 /obj/machinery/computer/scan_consolenew/attack_hand(mob/user)

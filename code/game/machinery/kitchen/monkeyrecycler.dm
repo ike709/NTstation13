@@ -28,11 +28,11 @@
 			else
 				user.drop_item()
 				qdel(target)
-				user << "\blue You stuff the monkey in the machine."
+				user << "lue You stuff the monkey in the machine."
 				playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 				use_power(500)
 				src.grinded++
-				user << "\blue The machine now has [grinded] monkey\s worth of material stored."
+				user << "lue The machine now has [grinded] monkey\s worth of material stored."
 
 		else
 			user << "\red The machine only accepts monkeys!"
@@ -42,11 +42,11 @@
 	if (src.stat != 0) //NOPOWER etc
 		return
 	if(grinded >= 5)
-		user << "\blue The machine hisses loudly as it condenses the grinded monkey meat. After a moment, it dispenses a brand new monkey cube."
+		user << "lue The machine hisses loudly as it condenses the grinded monkey meat. After a moment, it dispenses a brand new monkey cube."
 		playsound(src.loc, 'sound/machines/hiss.ogg', 50, 1)
 		grinded -= 5
 		new /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped(src.loc)
-		user << "\blue The machine's display flashes that it has [grinded] monkeys worth of material left."
+		user << "lue The machine's display flashes that it has [grinded] monkeys worth of material left."
 	else
 		user << "\red The machine needs at least 5 monkeys worth of material to produce a monkey cube. It only has [grinded]."
 	return

@@ -161,7 +161,7 @@
 		qdel(master)
 	qdel(src)
 
-/obj/item/weapon/tank/proc/release()	//This happens when the bomb is not welded. Tank contents are just spat out.
+/obj/item/weapon/tank/release()	//This happens when the bomb is not welded. Tank contents are just spat out.
 	var/datum/gas_mixture/removed = air_contents.remove(air_contents.total_moles())
 	var/turf/simulated/T = get_turf(src)
 	if(!T)

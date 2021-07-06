@@ -170,13 +170,14 @@
 						O:times_used = 0
 						O:icon_state = "flash"
 				if(istype(O,/obj/item/weapon/gun/energy/taser/cyborg))
-					if(O:power_supply.charge < O:power_supply.maxcharge)
+					var/obj/item/weapon/gun/energy/taser/cyborg/C = O
+					if(C.power_supply.charge < C.power_supply.maxcharge)
 						var/obj/item/weapon/gun/energy/G = O
 						var/obj/item/ammo_casing/energy/S = G.ammo_type[G.select]
-						O:power_supply.give(S.e_cost * coeff)
-						O:update_icon()
+						C.power_supply.give(S.e_cost * coeff)
+						C.update_icon()
 					else
-						O:charge_tick = 0
+						C.charge_tick = 0
 				if(istype(O,/obj/item/weapon/melee/baton))
 					var/obj/item/weapon/melee/baton/B = O
 					if(B.bcell)
@@ -194,7 +195,7 @@
 				if(istype(O, /obj/item/device/lightreplacer))
 					var/obj/item/device/lightreplacer/LR = O
 					var/i = 1
-					for(1, i <= coeff, i++)
+					for(i, i <= coeff, i++)
 						LR.Charge(occupier)
 
 			if(occupier)

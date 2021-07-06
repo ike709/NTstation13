@@ -58,7 +58,7 @@
 		if (i>1 && !isnull(recipes[i-1]))
 			t1+="<br>"
 		var/max_multiplier = round(src.amount / R.req_amount)
-		var/title as text
+		var/title// as text
 		var/can_build = 1
 		can_build = can_build && (max_multiplier>0)
 		/*
@@ -115,7 +115,7 @@
 			usr << "\red \The [R.title] must be constructed on the floor!"
 			return
 		if (R.time)
-			usr << "\blue Building [R.title] ..."
+			usr << "lue Building [R.title] ..."
 			if (!do_after(usr, R.time))
 				return
 		if (src.amount < R.req_amount*multiplier)
@@ -191,7 +191,7 @@
 		var/obj/item/stack/S = W
 		if (S.amount >= max_amount)
 			return 1
-		var/to_transfer as num
+		var/to_transfer// as num
 		if (user.get_inactive_hand()==src)
 			to_transfer = 1
 		else

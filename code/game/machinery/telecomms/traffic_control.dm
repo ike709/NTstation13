@@ -28,8 +28,8 @@
 
 /obj/machinery/computer/telecomms/traffic/proc/stop_editing()
 	if(editingcode)
-		if(editingcode.client)
-			winshow(editingcode, "Telecomms IDE", 0) // hide the window!
+		//if(editingcode.client)
+		//	winshow(editingcode, "Telecomms IDE", 0) // hide the window!
 		editingcode.unset_machine()
 		editingcode = null
 
@@ -59,12 +59,12 @@
 		return
 
 	// For the typer, the input is enabled. Buffer the typed text
-	storedcode = "[winget(editingcode, "tcscode", "text")]"
+	//storedcode = "[winget(editingcode, "tcscode", "text")]"
 	winset(editingcode, "tcscode", "is-disabled=false")
 
 	// If the player's not manning the keyboard anymore, adjust everything
 	if(!in_range(editingcode, src) && !issilicon(editingcode) || editingcode.machine != src)
-		winshow(editingcode, "Telecomms IDE", 0) // hide the window!
+		//winshow(editingcode, "Telecomms IDE", 0) // hide the window!
 		editingcode = null
 		return
 
@@ -83,7 +83,7 @@
 				winset(M, "tcscode", "text=\"[showcode]\"")
 			else
 				viewingcode.Remove(M)
-				winshow(M, "Telecomms IDE", 0) // hide the windows
+				//winshow(M, "Telecomms IDE", 0) // hide the windows
 
 
 /obj/machinery/computer/telecomms/traffic/attack_hand(mob/user as mob)
@@ -236,7 +236,7 @@
 				if(!editingcode)
 					lasteditor = usr
 					editingcode = usr
-					winshow(editingcode, "Telecomms IDE", 1) // show the IDE
+				//	winshow(editingcode, "Telecomms IDE", 1) // show the IDE
 					winset(editingcode, "tcscode", "is-disabled=false")
 					winset(editingcode, "tcscode", "text=\"\"")
 					var/showcode = replacetext(storedcode, "\\\"", "\\\\\"")
@@ -245,7 +245,7 @@
 
 				else
 					viewingcode.Add(usr)
-					winshow(usr, "Telecomms IDE", 1) // show the IDE
+					//winshow(usr, "Telecomms IDE", 1) // show the IDE
 					winset(usr, "tcscode", "is-disabled=true")
 					winset(editingcode, "tcscode", "text=\"\"")
 					var/showcode = replacetext(storedcode, "\"", "\\\"")
@@ -277,7 +277,7 @@
 	if(istype(D, /obj/item/weapon/card/emag) && !emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		user << "\blue You you disable the security protocols"
+		user << "lue You you disable the security protocols"
 	else
 		..()
 	src.updateUsrDialog()

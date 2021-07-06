@@ -4,20 +4,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
-	var/const/AREA_ERRNONE = 0
-	var/const/AREA_STATION = 1
-	var/const/AREA_SPACE =   2
-	var/const/AREA_SPECIAL = 3
-
-	var/const/BORDER_ERROR = 0
-	var/const/BORDER_NONE = 1
-	var/const/BORDER_BETWEEN =   2
-	var/const/BORDER_2NDTILE = 3
-	var/const/BORDER_SPACE = 4
-
-	var/const/ROOM_ERR_LOLWAT = 0
-	var/const/ROOM_ERR_SPACE = -1
-	var/const/ROOM_ERR_TOOLARGE = -2
 
 /obj/item/blueprints/attack_self(mob/M as mob)
 	if (!istype(M,/mob/living/carbon/human))
@@ -73,7 +59,7 @@ move an amendment</a> to the drawing.</p>
 	onclose(usr, "blueprints")
 
 
-/obj/item/blueprints/proc/get_area()
+/obj/item/blueprints/get_area()
 	var/turf/T = get_turf(usr)
 	var/area/A = T.loc
 	A = A.master

@@ -45,10 +45,10 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	var/cost = null
 	var/containertype = /obj/structure/closet/crate
 	var/containername = null
-	var/access = null
+	//var/ //access = null
 	var/hidden = 0
 	var/contraband = 0
-	var/group = supply_misc
+	var/group = 8
 
 
 /datum/supply_packs/New()
@@ -71,7 +71,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 /datum/supply_packs/emergency	// Section header - use these to set default supply group and crate type for sections
 	name = "HEADER"				// Use "HEADER" to denote section headers, this is needed for the supply computers to filter them
 	containertype = /obj/structure/closet/crate/internals
-	group = supply_emergency
+	group = 4
 
 
 /datum/supply_packs/emergency/evac
@@ -93,7 +93,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 35
 	containertype = /obj/structure/closet/crate/internals
 	containername = "emergency crate"
-	group = supply_emergency
+	group = 2
 
 /datum/supply_packs/emergency/internals
 	name = "Internals crate"
@@ -130,7 +130,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "firefighting watertank crate"
-	access = access_atmospherics
+	 //access = access_atmospherics
 
 /datum/supply_packs/emergency/weedcontrol
 	name = "Weed Control Crate"
@@ -141,7 +141,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 15
 	containertype = /obj/structure/closet/crate/secure/hydrosec
 	containername = "weed control crate"
-	access = access_hydroponics
+	 //access = access_hydroponics
 
 /datum/supply_packs/emergency/specialops
 	name = "Special Ops supplies"
@@ -164,8 +164,8 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 /datum/supply_packs/security
 	name = "HEADER"
 	containertype = /obj/structure/closet/crate/secure/gear
-	access = access_security
-	group = supply_security
+	 //access = access_security
+	group = 3
 
 
 /datum/supply_packs/security/supplies
@@ -234,7 +234,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 /datum/supply_packs/security/armory
 	name = "HEADER"
 	containertype = /obj/structure/closet/crate/secure/weapon
-	access = access_armory
+	 //access = access_armory
 
 ///// Armor: Specialist
 
@@ -308,7 +308,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 15	// its a fecking flamethrower and some plasma, why the shit did this cost so much before!?
 	containertype = /obj/structure/closet/crate/secure/plasma
 	containername = "incendiary weapons crate"
-	access = access_heads
+	 //access = access_heads
 
 /////// Implants & etc
 
@@ -369,7 +369,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 
 /datum/supply_packs/engineering
 	name = "HEADER"
-	group = supply_engineer
+	group = 4
 
 
 /datum/supply_packs/engineering/fueltank
@@ -459,7 +459,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "emitter crate"
-	access = access_ce
+	 //access = access_ce
 
 /datum/supply_packs/engineering/engine/field_gen
 	name = "Field Generator crate"
@@ -502,7 +502,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 /datum/supply_packs/medical
 	name = "HEADER"
 	containertype = /obj/structure/closet/crate/medical
-	group = supply_medical
+	group = 5
 
 
 /datum/supply_packs/medical/supplies
@@ -575,7 +575,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure/plasma
 	containername = "virus crate"
-	access = access_cmo
+	 //access = access_cmo
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -584,7 +584,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 
 /datum/supply_packs/science
 	name = "HEADER"
-	group = supply_science
+	group = 6
 
 
 /datum/supply_packs/science/robotics
@@ -599,7 +599,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "robotics assembly crate"
-	access = access_robotics
+	 //access = access_robotics
 
 /datum/supply_packs/science/robotics/mecha_ripley
 	name = "Circuit Crate (\"Ripley\" APLU)"
@@ -635,8 +635,8 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure/plasma
 	containername = "plasma assembly crate"
-	access = access_tox_storage
-	group = supply_science
+	// //access = access_tox_storage
+	group = 7
 
 /datum/supply_packs/science/shieldwalls
 	name = "Shield Generators"
@@ -647,7 +647,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure
 	containername = "shield generators crate"
-	access = access_teleporter
+	// //access = access_teleporter
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -656,7 +656,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 
 /datum/supply_packs/organic
 	name = "HEADER"
-	group = supply_organic
+	group = 8
 	containertype = /obj/structure/closet/crate/freezer
 
 
@@ -762,7 +762,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "hydroponics watertank crate"
-	access = access_hydroponics
+	 //access = access_hydroponics
 
 /datum/supply_packs/organic/hydroponics/seeds
 	name = "Seeds Crate"
@@ -837,7 +837,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 
 /datum/supply_packs/materials
 	name = "HEADER"
-	group = supply_materials
+	group = 9
 
 
 /datum/supply_packs/materials/metal50
@@ -889,7 +889,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 
 /datum/supply_packs/misc
 	name = "HEADER"
-	group = supply_misc
+	group = 2
 
 /datum/supply_packs/misc/mule
 	name = "MULEbot Crate"
@@ -1012,7 +1012,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "janitor watertank crate"
-	access = access_janitor
+	 //access = access_janitor
 
 /datum/supply_packs/misc/janitor/lightbulbs
 	name = "Replacement lights"
@@ -1043,7 +1043,7 @@ var/list/all_supply_groups = list(supply_emergency,supply_security,supply_engine
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
 	containername = "standard costumes"
-	access = access_theatre
+	 //access = access_theatre
 
 /datum/supply_packs/misc/wizard
 	name = "Wizard costume"

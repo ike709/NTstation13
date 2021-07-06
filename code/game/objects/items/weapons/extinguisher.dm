@@ -55,7 +55,7 @@
 	if( istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(src,target) <= 1)
 		var/obj/o = target
 		o.reagents.trans_to(src, max_water)
-		user << "\blue \The [src] is now refilled"
+		user << "lue \The [src] is now refilled"
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 

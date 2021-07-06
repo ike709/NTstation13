@@ -120,7 +120,8 @@
 			on = !on
 
 		if("inject" in signal.data)
-			spawn inject()
+			spawn(0)
+				inject()
 			return
 
 		if("set_volume_rate" in signal.data)

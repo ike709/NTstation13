@@ -175,7 +175,7 @@
 		if ("help")
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O.show_message(text("\blue [M] caresses [src] with its scythe like arm."), 1)
+					O.show_message(text("lue [M] caresses [src] with its scythe like arm."), 1)
 
 		if ("harm")
 			if ((prob(95) && health > 0))

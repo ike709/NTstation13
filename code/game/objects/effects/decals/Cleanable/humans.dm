@@ -83,7 +83,7 @@
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(var/list/directions)
 	spawn (0)
 		var/direction = pick(directions)
-		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
+		for (var/i = 0, i < 2/*pick(1, 200; 2, 150; 3, 50; 4)*/, i++)
 			sleep(3)
 			if (i > 0)
 				var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)

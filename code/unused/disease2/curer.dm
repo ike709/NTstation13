@@ -16,7 +16,7 @@
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
-				user << "\blue The broken glass falls out."
+				user << "lue The broken glass falls out."
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/weapon/shard( src.loc )
 				var/obj/item/weapon/circuitboard/curer/M = new /obj/item/weapon/circuitboard/curer( A )
@@ -28,7 +28,7 @@
 				A.anchored = 1
 				del(src)
 			else
-				user << "\blue You disconnect the monitor."
+				user << "lue You disconnect the monitor."
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/weapon/circuitboard/curer/M = new /obj/item/weapon/circuitboard/curer( A )
 				for (var/obj/C in src)
@@ -151,4 +151,4 @@
 
 /obj/machinery/computer/curer/proc/state(var/msg)
 	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] \blue [msg]", 2)
+		O.show_message("\icon[src] lue [msg]", 2)

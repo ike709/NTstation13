@@ -33,7 +33,7 @@
 	if(temp)
 		left_part = temp
 	else if(src.stat == 2)						// Show some flavor text if the pAI is dead
-		left_part = "<b><font color=red>ÈRrÖR Ða†Ä ÇÖRrÚþ†Ìoñ</font></b>"
+		left_part = "<b><font color=red>ï¿½Rrï¿½R ï¿½aï¿½ï¿½ ï¿½ï¿½Rrï¿½ï¿½ï¿½ï¿½oï¿½</font></b>"
 		right_part = "<pre>Program index hash not found</pre>"
 
 	else
@@ -201,7 +201,8 @@
 					if(count >= 6)
 						src << "You are not being carried by anyone!"
 						return 0
-				spawn CheckDNA(M, src)
+				spawn(0)
+					CheckDNA(M, src)
 
 		if("pdamessage")
 			if(!isnull(pda))
@@ -362,7 +363,7 @@
 	if(answer == "Yes")
 		var/turf/T = get_turf(P.loc)
 		for (var/mob/v in viewers(T))
-			v.show_message("\blue [M] presses \his thumb against [P].", 3, "\blue [P] makes a sharp clicking sound as it extracts DNA material from [M].", 2)
+			v.show_message("lue [M] presses \his thumb against [P].", 3, "lue [P] makes a sharp clicking sound as it extracts DNA material from [M].", 2)
 		if(!check_dna_integrity(M))
 			P << "<b>No DNA detected</b>"
 			return
@@ -593,11 +594,11 @@
 // Door Jack - supporting proc
 /mob/living/silicon/pai/proc/hackloop()
 	var/turf/T = get_turf(src.loc)
-	for(var/mob/living/silicon/ai/AI in player_list)
+	for(var/mob/living/silicon/ai/ai in player_list)
 		if(T.loc)
-			AI << "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>"
+			ai << "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>"
 		else
-			AI << "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>"
+			ai << "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>"
 	while(src.hackprogress < 100)
 		if(src.cable && src.cable.machine && istype(src.cable.machine, /obj/machinery/door) && src.cable.machine == src.hackdoor && get_dist(src, src.hackdoor) <= 1)
 			hackprogress += rand(1, 10)

@@ -55,13 +55,13 @@
 				return 1
 	else
 		if(amount < 2)
-			user << "\blue You need at least two rods to do this."
+			user << "lue You need at least two rods to do this."
 			return
-		usr << "\blue Assembling grille..."
+		usr << "lue Assembling grille..."
 		if (!do_after(usr, 10))
 			return
 		var/obj/structure/grille/F = new /obj/structure/grille/ ( usr.loc )
-		usr << "\blue You assemble a grille"
+		usr << "lue You assemble a grille"
 		F.add_fingerprint(usr)
 		use(2)
 	return

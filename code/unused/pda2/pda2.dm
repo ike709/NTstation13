@@ -155,14 +155,14 @@
 	if (istype(C, /obj/item/weapon/disk/data/cartridge) && isnull(src.cartridge))
 		user.drop_item()
 		C.loc = src
-		user << "\blue You insert [C] into [src]."
+		user << "lue You insert [C] into [src]."
 		src.cartridge = C
 		src.updateSelfDialog()
 
 	else if (istype(C, /obj/item/weapon/card/id) && !src.owner && C:registered_name)
 		src.owner = C:registered_name
 		src.name = "PDA-[src.owner]"
-		user << "\blue Card scanned."
+		user << "lue Card scanned."
 		src.updateSelfDialog()
 
 /obj/item/device/pda2/receive_signal(datum/signal/signal)

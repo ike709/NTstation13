@@ -39,13 +39,13 @@
 	component_parts += new /obj/item/stack/cable_coil(null, 5)
 	RefreshParts()
 	spawn(5)
-		dir_loop:
-			for(var/d in cardinal)
-				var/turf/T = get_step(src, d)
-				for(var/obj/machinery/power/terminal/term in T)
-					if(term && term.dir == turn(d, 180))
-						terminal = term
-						break dir_loop
+		//dir_loop:
+		for(var/d in cardinal)
+			var/turf/T = get_step(src, d)
+			for(var/obj/machinery/power/terminal/term in T)
+				if(term && term.dir == turn(d, 180))
+					terminal = term
+					break
 
 		if(!terminal)
 			stat |= BROKEN

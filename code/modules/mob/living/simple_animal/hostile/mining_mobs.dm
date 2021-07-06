@@ -423,9 +423,9 @@
 	if(proximity_flag)
 		if(istype(target, /obj/item/clothing/suit/space/rig/mining) || istype(target, /obj/item/clothing/head/helmet/space/rig/mining))
 			var/obj/item/clothing/C = target
-			var/current_armor = C.armor
-			if(current_armor.["melee"] < 80)
-				current_armor.["melee"] = min(current_armor.["melee"] + 10, 80)
+			var/list/current_armor = C.armor
+			if(current_armor["melee"] < 80)
+				current_armor["melee"] = min(current_armor["melee"] + 10, 80)
 				user << "<span class='info'>You strengthen [target], improving its resistance against melee attacks.</span>"
 				qdel(src)
 			else

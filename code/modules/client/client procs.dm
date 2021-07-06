@@ -93,10 +93,10 @@ var/next_external_rsc = 0
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
-	if(connection != "seeker")					//Invalid connection type.
-		return null
-	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
-		return null
+	//if(connection != "seeker")					//Invalid connection type.
+	//	return null
+	//if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
+	//	return null
 
 #if (PRELOAD_RSC == 0)
 	if(external_rsc_urls && external_rsc_urls.len)
@@ -130,8 +130,8 @@ var/next_external_rsc = 0
 	if(holder)
 		add_admin_verbs()
 		admin_memo_show()
-		if((global.comms_key == "default_pwd" || length(global.comms_key) <= 6) && global.comms_allowed) //It's the default value or less than 6 characters long, but it somehow didn't disable comms.
-			src << "<span class='danger'>The server's API key is either too short or is the default value! Consider changing it immediately!</span>"
+		//if((global.comms_key == "default_pwd" || length(global.comms_key) <= 6) && global.comms_allowed) //It's the default value or less than 6 characters long, but it somehow didn't disable comms.
+		//	src << "<span class='danger'>The server's API key is either too short or is the default value! Consider changing it immediately!</span>"
 
 	log_client_to_db()
 

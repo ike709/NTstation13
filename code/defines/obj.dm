@@ -61,7 +61,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "security"
 
-/obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+//obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 /obj/item/weapon/beach_ball
 	icon = 'icons/misc/beach.dmi'

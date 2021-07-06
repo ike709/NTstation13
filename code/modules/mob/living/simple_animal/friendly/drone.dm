@@ -29,7 +29,7 @@
 	pass_flags = PASSTABLE
 	sight = (SEE_TURFS | SEE_OBJS)
 	var/picked = FALSE
-	var/list/drone_overlays[TOTAL_LAYERS]
+	var/list/drone_overlays = list()
 	var/laws = \
 	{"1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
 	2. You may not harm any being, regardless of intent or circumstance.

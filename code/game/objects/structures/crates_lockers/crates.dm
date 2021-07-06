@@ -83,7 +83,7 @@
 	density = 1
 	icon_opened = "freezeropen"
 	icon_closed = "freezer"
-	var/target_temp = T0C - 40
+	var/target_temp = 40
 	var/cooling_power = 40
 
 	return_air()

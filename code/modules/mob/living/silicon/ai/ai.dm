@@ -280,8 +280,8 @@ var/list/ai_list = list()
 		src << "You can't call the shuttle because you are dead!"
 		return
 	if(istype(usr,/mob/living/silicon/ai))
-		var/mob/living/silicon/ai/AI = src
-		if(AI.control_disabled)
+		var/mob/living/silicon/ai/ai = src
+		if(ai.control_disabled)
 			usr << "Wireless control is disabled!"
 			return
 
@@ -320,8 +320,8 @@ var/list/ai_list = list()
 		src << "You can't send the shuttle back because you are dead!"
 		return
 	if(istype(usr,/mob/living/silicon/ai))
-		var/mob/living/silicon/ai/AI = src
-		if(AI.control_disabled)
+		var/mob/living/silicon/ai/ai = src
+		if(ai.control_disabled)
 			src	 << "Wireless control is disabled!"
 			return
 	cancel_call_proc(src)
@@ -460,7 +460,7 @@ var/list/ai_list = list()
 		if ("help")
 			for(var/mob/O in viewers(src, null))
 				if ((O.client && !( O.blinded )))
-					O.show_message(text("\blue [M] caresses [src]'s plating with its scythe like arm."), 1)
+					O.show_message(text("lue [M] caresses [src]'s plating with its scythe like arm."), 1)
 
 		else //harm
 			var/damage = rand(10, 20)
@@ -535,7 +535,7 @@ var/list/ai_list = list()
 	d += "<A HREF=?src=\ref[src];botrefresh=\ref[Bot]>Query network status</A><br>"
 	d += "<table width='100%'><tr><td width='40%'><h3>Name</h3></td><td width='30%'><h3>Status</h3></td><td width='30%'><h3>Location</h3></td><td width='10%'><h3>Control</h3></td></tr>"
 
-	for (Bot in machines)
+	for (var/obj/machinery/bot/Bot in machines)
 		if(Bot.z == ai_Zlevel && !Bot.remote_disabled) //Only non-emagged bots on the same Z-level are detected!
 			bot_area = get_area(Bot)
 			d += "<tr><td width='30%'>[Bot.hacked ? "<span class='bad'>(!) </span>[Bot.name]" : Bot.name]</td>"
@@ -655,7 +655,7 @@ var/list/ai_list = list()
 	set name = "Jump To Network"
 	unset_machine()
 	src.cameraFollow = null
-	var/cameralist[0]
+	var/cameralist = list()
 
 	if(usr.stat == 2)
 		usr << "You can't change your camera network because you are dead!"
@@ -688,7 +688,7 @@ var/list/ai_list = list()
 			if(network in C.network)
 				U.eyeobj.setLoc(get_turf(C))
 				break
-	src << "\blue Switched to [network] camera network."
+	src << "lue Switched to [network] camera network."
 //End of code by Mord_Sith
 
 
@@ -768,7 +768,7 @@ var/list/ai_list = list()
 
 	var/obj/machinery/power/apc/apc = src.loc
 	if(!istype(apc))
-		src << "\blue You are already in your Main Core."
+		src << "lue You are already in your Main Core."
 		return
 	apc.malfvacate()
 

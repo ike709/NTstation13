@@ -48,7 +48,7 @@
 	req_one_access = list(access_construction, access_robotics)
 	var/targetdirection
 	bot_type = FLOOR_BOT
-	bot_filter = RADIO_FLOORBOT
+	bot_filter = "12"
 
 /obj/machinery/bot/floorbot/New()
 	..()

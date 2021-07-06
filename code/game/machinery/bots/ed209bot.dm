@@ -33,8 +33,8 @@
 	var/arrest_type = 0 //If true, don't handcuff
 	var/projectile = null//Holder for projectile type, to avoid so many else if chains
 	bot_type = SEC_BOT
-	bot_filter = RADIO_SECBOT
-/
+	bot_filter = "11"
+
 	//List of weapons that secbots will not arrest for
 	var/safe_weapons = list(\
 		/obj/item/weapon/gun/energy/laser/bluetag,\

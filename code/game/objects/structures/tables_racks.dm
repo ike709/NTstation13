@@ -13,12 +13,12 @@
 
 /datum/table_recipe
 	var/name = ""
-	var/reqs[] = list()
+	var/list/reqs = list()
 	var/result_path
-	var/tools[] = list()
+	var/list/tools = list()
 	var/time = 0
-	var/parts[] = list()
-	var/chem_catalists[] = list()
+	var/list/parts = list()
+	var/list/chem_catalists = list()
 
 /datum/table_recipe/IED
 	name = "IED"
@@ -149,13 +149,13 @@
 
 /obj/structure/table/proc/check_contents(datum/table_recipe/R)
 	check_table()
-	main_loop:
-		for(var/A in R.reqs)
-			for(var/B in table_contents)
-				if(ispath(B, A))
-					if(table_contents[B] >= R.reqs[A])
-						continue main_loop
-			return 0
+	//main_loop:
+	for(var/A in R.reqs)
+		for(var/B in table_contents)
+			if(ispath(B, A))
+				if(table_contents[B] >= R.reqs[A])
+					break
+		return 0
 	for(var/A in R.chem_catalists)
 		if(table_contents[A] < R.chem_catalists[A])
 			return 0
@@ -224,43 +224,43 @@
 		amt = R.reqs[A]
 		if(ispath(A, /obj/item/stack))
 			var/obj/item/stack/S
-			stack_loop:
-				for(var/B in table_contents)
-					if(ispath(B, A))
-						while(amt > 0)
-							S = locate(B) in loc
-							if(S.amount >= amt)
-								S.use(amt)
-								break stack_loop
-							else
-								amt -= S.amount
-								qdel(S)
+		//	stack_loop:
+			for(var/B in table_contents)
+				if(ispath(B, A))
+					while(amt > 0)
+						S = locate(B) in loc
+						if(S.amount >= amt)
+							S.use(amt)
+							break 
+						else
+							amt -= S.amount
+							qdel(S)
 		else if(ispath(A, /obj/item))
 			var/obj/item/I
-			item_loop:
-				for(var/B in table_contents)
-					if(ispath(B, A))
-						while(amt > 0)
-							I = locate(B) in loc
-							Deletion.Add(I)
-							amt--
-						break item_loop
+			//item_loop:
+			for(var/B in table_contents)
+				if(ispath(B, A))
+					while(amt > 0)
+						I = locate(B) in loc
+						Deletion.Add(I)
+						amt--
+					break// item_loop
 		else
 			var/datum/reagent/RG = new A
-			reagent_loop:
-				for(var/B in table_contents)
-					if(ispath(B, /obj/item/weapon/reagent_containers))
-						var/obj/item/RC = locate(B) in loc
-						if(RC.reagents.has_reagent(RG.id, amt))
-							RC.reagents.remove_reagent(RG.id, amt)
-							RG.volume = amt
-							Deletion.Add(RG)
-							break reagent_loop
-						else if(RC.reagents.has_reagent(RG.id))
-							Deletion.Add(RG)
-							RG.volume += RC.reagents.get_reagent_amount(RG.id)
-							amt -= RC.reagents.get_reagent_amount(RG.id)
-							RC.reagents.del_reagent(RG.id)
+			//reagent_loop:
+			for(var/B in table_contents)
+				if(ispath(B, /obj/item/weapon/reagent_containers))
+					var/obj/item/RC = locate(B) in loc
+					if(RC.reagents.has_reagent(RG.id, amt))
+						RC.reagents.remove_reagent(RG.id, amt)
+						RG.volume = amt
+						Deletion.Add(RG)
+						break// reagent_loop
+					else if(RC.reagents.has_reagent(RG.id))
+						Deletion.Add(RG)
+						RG.volume += RC.reagents.get_reagent_amount(RG.id)
+						amt -= RC.reagents.get_reagent_amount(RG.id)
+						RC.reagents.del_reagent(RG.id)
 
 	for(var/A in R.parts)
 		for(var/B in Deletion)
@@ -653,18 +653,18 @@ Destroy type values:
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			if(src.status == 2)
-				user << "\blue Now weakening the reinforced table"
+				user << "lue Now weakening the reinforced table"
 				playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 				if (do_after(user, 50))
 					if(!src || !WT.isOn()) return
-					user << "\blue Table weakened"
+					user << "lue Table weakened"
 					src.status = 1
 			else
-				user << "\blue Now strengthening the reinforced table"
+				user << "lue Now strengthening the reinforced table"
 				playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 				if (do_after(user, 50))
 					if(!src || !WT.isOn()) return
-					user << "\blue Table strengthened"
+					user << "lue Table strengthened"
 					src.status = 2
 			return
 	..()

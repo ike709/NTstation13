@@ -223,9 +223,9 @@
 				for(var/node/expression/P in stmt.parameters)
 					params+=list(Eval(P))
 				if(isobject(def))	//def is an object which is the target of a function call
-					if( !hascall(def, stmt.func_name) )
+					/*if( !hascall(def, stmt.func_name) )
 						RaiseError(new/runtimeError/UndefinedFunction("[stmt.object.id_name].[stmt.func_name]"))
-						return
+						return*/
 					return call(def, stmt.func_name)(arglist(params))
 				else										//def is a path to a global proc
 					return call(def)(arglist(params))
