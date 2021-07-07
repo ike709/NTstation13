@@ -220,7 +220,7 @@ to destroy them and players will be able to make replacements.
 /obj/item/weapon/circuitboard/vendor/proc/set_type(typepath, mob/user)
 		build_path = typepath
 		name = "circuit board ([names_paths[build_path]] Vendor)"
-		user << "<span class='notice'>You set the board to [names_paths[build_path]].</span>"
+		//user << "<span class='notice'>You set the board to [names_paths[build_path]].</span>"
 		req_components = list("/obj/item/weapon/vending_refill/[copytext("[build_path]", 24)]" = 3)
 		//Never before has i used a method as horrible as this one, im so sorry
 
@@ -329,11 +329,11 @@ to destroy them and players will be able to make replacements.
 		if(build_path == /obj/machinery/atmospherics/unary/cold_sink/freezer)
 			build_path = /obj/machinery/atmospherics/unary/heat_reservoir/heater
 			name = "circuit board (Heater)"
-			user << "<span class='notice'>You set the board to heating.</span>"
+			//user << "<span class='notice'>You set the board to heating.</span>"
 		else
 			build_path = /obj/machinery/atmospherics/unary/cold_sink/freezer
 			name = "circuit board (Freezer)"
-			user << "<span class='notice'>You set the board to cooling.</span>"
+		//	user << "<span class='notice'>You set the board to cooling.</span>"
 
 /obj/item/weapon/circuitboard/biogenerator
 	name = "circuit board (Biogenerator)"

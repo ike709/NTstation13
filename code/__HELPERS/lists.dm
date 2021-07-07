@@ -297,6 +297,7 @@ proc/listclearnulls(list/L)
 	return sortList(Q)
 
 /proc/mergeLists(var/list/L, var/list/R)
+	if(!length(L) ||!length(R)) return
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -318,6 +319,7 @@ proc/listclearnulls(list/L)
 	return mergeAssoc(sortAssoc(L.Copy(0,middle)), sortAssoc(L.Copy(middle))) //second parameter null = to end of list
 
 /proc/mergeAssoc(var/list/L, var/list/R)
+	if(!length(L) || !length(R)) return
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()

@@ -12,10 +12,10 @@
 	var/operating = 0 // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?
 	var/broken = 0 // ={0,1,2} How broken is it???
-	var/global/list/datum/recipe/available_recipes // List of the recipes you can use
-	var/global/list/acceptable_items // List of the items you can put in
-	var/global/list/acceptable_reagents // List of the reagents you can put in
-	var/global/max_n_of_items = 0
+	var/list/available_recipes = list()// List of the recipes you can use
+	var/list/acceptable_items = list() // List of the items you can put in
+	var/list/acceptable_reagents = list() // List of the reagents you can put in
+	var/max_n_of_items = 0
 	var/efficiency = 0
 
 

@@ -42,14 +42,15 @@ datum/light_source
 
 
 	New(atom/A)
-		if(!istype(A))
-			CRASH("The first argument to the light object's constructor must be the atom that is the light source. Expected atom, received '[A]' instead.")
+		/*if(!istype(A))
+			CRASH("The first argument to the light object's constructor must be the atom that is the light source. Expected atom, received '[A]' instead.")*/
 		..()
 		owner = A
 		__x = owner.x
 		__y = owner.y
 		// the lighting object maintains a list of all light sources
-		lighting_controller.lights += src
+		if(lighting_controller)
+			lighting_controller.lights += src
 
 
 	//Check a light to see if its effect needs reprocessing. If it does, remove any old effect and create a new one
@@ -121,7 +122,7 @@ atom
 turf/New()
 	..()
 	if(luminosity)
-		if(light)	WARNING("[type] - Don't set lights up manually during New(), We do it automatically.")
+		//if(light)	WARNING("[type] - Don't set lights up manually during New(), We do it automatically.")
 		trueLuminosity = luminosity * luminosity
 		light = new(src)
 
@@ -317,9 +318,10 @@ area
 //We don't need to worry about lights which lit us but moved away, since they will have change status set already
 //This proc can cause lots of lights to be updated. :(
 atom/proc/UpdateAffectingLights()
+	return/*
 	for(var/atom/A in oview(LIGHTING_MAX_LUMINOSITY_STATIC-1,src))
-		if(A.light)
-			A.light.changed = 1			//force it to update at next process()
+		if(A && A.light)
+			A.light.changed = 1			//force it to update at next process()*/
 
 //caps luminosity effects max-range based on what type the light's owner is.
 atom/proc/get_light_range()

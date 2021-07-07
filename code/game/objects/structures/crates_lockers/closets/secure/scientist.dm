@@ -10,7 +10,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		if(prob(40))
 			new /obj/item/weapon/storage/backpack/satchel_tox(src)
 		if(prob(40))
@@ -39,7 +39,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/weapon/storage/backpack/satchel_tox(src)
 		new /obj/item/clothing/suit/labcoat/coat/science(src)
 		new /obj/item/clothing/suit/bio_suit/scientist(src)

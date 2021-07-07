@@ -18,6 +18,8 @@
 /obj/item/weapon/gun/energy/New()
 	..()
 	if(cell_type)
+		if(istext(cell_type))
+			cell_type = text2path(cell_type)
 		power_supply = new cell_type(src)
 	else
 		power_supply = new(src)

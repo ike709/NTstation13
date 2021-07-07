@@ -10,7 +10,7 @@
 
 	New()
 		..()
-		sleep(2)
+		//sleep(2)
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/captain(src)
 		else
@@ -42,7 +42,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/under/rank/head_of_personnel(src)
 		new /obj/item/clothing/head/hopcap(src)
 		new /obj/item/weapon/cartridge/hop(src)
@@ -71,7 +71,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/suit/armor/vest(src)
 		new /obj/item/clothing/suit/armor/hos/jensen(src)
 		new /obj/item/clothing/head/helmet/HoS/dermal(src)
@@ -105,7 +105,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/suit/labcoat/coat/security(src)
 		if(prob(35))
 			new /obj/item/clothing/suit/armor/vest/jacket(src)
@@ -146,7 +146,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 
 		new /obj/item/clothing/suit/labcoat/coat/security(src)
 		new /obj/item/clothing/suit/armor/vest(src)
@@ -216,7 +216,7 @@
 
 	New()
 		..()
-		sleep(2)
+		//sleep(2)
 		new /obj/item/clothing/under/det/grey(src)
 		new /obj/item/clothing/head/det_hat/grey(src)
 		new /obj/item/clothing/suit/det_suit/grey(src)
@@ -256,7 +256,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/weapon/reagent_containers/syringe/lethal/choral(src)
 		new /obj/item/weapon/reagent_containers/syringe/lethal/choral(src)
 		new /obj/item/weapon/reagent_containers/syringe/lethal/choral(src)
@@ -283,7 +283,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/shoes/sneakers/brown(src)
 		new /obj/item/weapon/paper/Court (src)
 		new /obj/item/weapon/paper/Court (src)

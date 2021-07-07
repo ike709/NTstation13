@@ -8,6 +8,8 @@
 #define MUTE_DEADCHAT	16
 #define MUTE_ALL		31
 
+#define SHOULD_NOT_SLEEP(X) set SpacemanDMM_should_not_sleep = X
+
 //Some constants for DB_Ban
 #define BANTYPE_PERMA		1
 #define BANTYPE_TEMP		2

@@ -11,7 +11,8 @@ datum/shuttle_manager/New(var/area, var/delay, var/block_disk) //Create a new sh
 	tickstomove = delay
 	check_disk = block_disk
 	var/area/A = locate(location)
-	A.has_gravity = 1
+	if(A && isarea(A))
+		A.has_gravity = 1
 
 
 datum/shuttle_manager/proc/move_shuttle(var/override_delay, var/override_diskcheck)

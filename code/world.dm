@@ -23,11 +23,11 @@
 //		log = file("data/logs/runtime/[copytext(revdata.revision,1,8)].log")
 //	else
 //		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM")].log")		//funtimelog
-	href_logfile = file("data/logs/[date_string] hrefs.htm")
+	/*href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
 	diaryofmeanpeople = file("data/logs/[date_string] Attack.log")
 	diary << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
-	diaryofmeanpeople << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
+	diaryofmeanpeople << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"*/
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	//if(byond_version < RECOMMENDED_VERSION)
@@ -61,11 +61,11 @@
 	data_core = new /obj/effect/datacore()
 	paiController = new /datum/paiController()
 
-	if(config.sql_enabled)
+	/*if(config.sql_enabled)
 		if(!setup_database_connection())
 			world.log << "Your server failed to establish a connection with the database."
 		else
-			world.log << "Database connection established."
+			world.log << "Database connection established."*/
 
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'
@@ -80,9 +80,9 @@
 	slmaster.mouse_opacity = 0
 
 	master_controller = new /datum/controller/game_controller()
-	spawn(-1)
-		master_controller.setup()
-		lighting_controller.Initialize()
+	//spawn(-1)
+	master_controller.setup()
+	lighting_controller.Initialize()
 
 	src.update_status()
 
@@ -96,9 +96,9 @@
 	map_name = "Unknown"
 	#endif
 
-	spawn(3000)		//so we aren't adding to the round-start lag
+	/*spawn(3000)		//so we aren't adding to the round-start lag
 		if(config.kick_inactive)
-			KickInactiveClients()
+			KickInactiveClients()*/
 	return
 
 #undef RECOMMENDED_VERSION

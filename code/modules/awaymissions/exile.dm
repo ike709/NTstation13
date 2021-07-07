@@ -38,7 +38,7 @@
 
 /obj/structure/closet/secure_closet/exile/New()
 	..()
-	sleep(2)
+	//sleep(2)
 	new /obj/item/weapon/implanter/exile(src)
 	new /obj/item/weapon/implantcase/exile(src)
 	new /obj/item/weapon/implantcase/exile(src)

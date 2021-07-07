@@ -95,10 +95,10 @@
 	container.reagents.clear_reagents()
 	return result_obj
 
-/proc/select_recipe(var/list/datum/recipe/avaiable_recipes, var/obj/obj as obj, var/exact = 1 as num)
+/proc/select_recipe(var/list/avaiable_recipes, var/obj/obj as obj, var/exact = 1 as num)
 	if (!exact)
 		exact = -1
-	var/list/datum/recipe/possible_recipes = new
+	var/list/possible_recipes = new
 	for (var/datum/recipe/recipe in avaiable_recipes)
 		if (recipe.check_reagents(obj.reagents)==exact && recipe.check_items(obj)==exact)
 			possible_recipes+=recipe

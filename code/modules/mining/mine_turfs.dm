@@ -31,25 +31,26 @@
 	return
 
 /turf/simulated/mineral/New()
-
-	spawn(1)
-		var/turf/T
-		if((istype(get_step(src, NORTH), /turf/simulated/floor)) || (istype(get_step(src, NORTH), /turf/space)) || (istype(get_step(src, NORTH), /turf/simulated/shuttle/floor)))
-			T = get_step(src, NORTH)
-			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_s")
-		if((istype(get_step(src, SOUTH), /turf/simulated/floor)) || (istype(get_step(src, SOUTH), /turf/space)) || (istype(get_step(src, SOUTH), /turf/simulated/shuttle/floor)))
-			T = get_step(src, SOUTH)
-			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_n", layer=6)
-		if((istype(get_step(src, EAST), /turf/simulated/floor)) || (istype(get_step(src, EAST), /turf/space)) || (istype(get_step(src, EAST), /turf/simulated/shuttle/floor)))
-			T = get_step(src, EAST)
-			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_w", layer=6)
-		if((istype(get_step(src, WEST), /turf/simulated/floor)) || (istype(get_step(src, WEST), /turf/space)) || (istype(get_step(src, WEST), /turf/simulated/shuttle/floor)))
-			T = get_step(src, WEST)
-			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_e", layer=6)
+	..()
+	return
+	//spawn(1)
+	/*var/turf/T
+	if((istype(get_step(src, NORTH), /turf/simulated/floor)) || (istype(get_step(src, NORTH), /turf/space)) || (istype(get_step(src, NORTH), /turf/simulated/shuttle/floor)))
+		T = get_step(src, NORTH)
+		if (T)
+			T.overlays += image('icons/turf/walls.dmi', "rock_side_s")
+	if((istype(get_step(src, SOUTH), /turf/simulated/floor)) || (istype(get_step(src, SOUTH), /turf/space)) || (istype(get_step(src, SOUTH), /turf/simulated/shuttle/floor)))
+		T = get_step(src, SOUTH)
+		if (T)
+			T.overlays += image('icons/turf/walls.dmi', "rock_side_n", layer=6)
+	if((istype(get_step(src, EAST), /turf/simulated/floor)) || (istype(get_step(src, EAST), /turf/space)) || (istype(get_step(src, EAST), /turf/simulated/shuttle/floor)))
+		T = get_step(src, EAST)
+		if (T)
+			T.overlays += image('icons/turf/walls.dmi', "rock_side_w", layer=6)
+	if((istype(get_step(src, WEST), /turf/simulated/floor)) || (istype(get_step(src, WEST), /turf/space)) || (istype(get_step(src, WEST), /turf/simulated/shuttle/floor)))
+		T = get_step(src, WEST)
+		if (T)
+			T.overlays += image('icons/turf/walls.dmi', "rock_side_e", layer=6)
 
 	if (mineralName && mineralAmt && spread && spreadChance)
 		for(var/dir in cardinal)
@@ -59,7 +60,7 @@
 					Spread(T)
 
 	HideRock()
-	return
+	return*/
 
 /turf/simulated/mineral/proc/HideRock()
 	if(hidden)
@@ -77,35 +78,6 @@
 
 /turf/simulated/mineral/random/New()
 	..()
-	if (prob(mineralChance))
-		var/mName = pickweight(mineralSpawnChanceList) //temp mineral name
-
-		if (mName)
-			var/turf/simulated/mineral/M
-			switch(mName)
-				if("Uranium")
-					M = new/turf/simulated/mineral/uranium(src)
-				if("Iron")
-					M = new/turf/simulated/mineral/iron(src)
-				if("Diamond")
-					M = new/turf/simulated/mineral/diamond(src)
-				if("Gold")
-					M = new/turf/simulated/mineral/gold(src)
-				if("Silver")
-					M = new/turf/simulated/mineral/silver(src)
-				if("Plasma")
-					M = new/turf/simulated/mineral/plasma(src)
-				if("Cave")
-					new/turf/simulated/floor/plating/asteroid/airless/cave(src)
-				if("Gibtonite")
-					M = new/turf/simulated/mineral/gibtonite(src)
-				if("Clown")
-					M = new/turf/simulated/mineral/clown(src)
-				/*if("Adamantine")
-					M = new/turf/simulated/mineral/adamantine(src)*/
-			if(M)
-				src = M
-				M.levelupdate()
 	return
 
 /turf/simulated/mineral/random/high_chance

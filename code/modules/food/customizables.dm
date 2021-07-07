@@ -70,7 +70,7 @@
 	icon_state = "personal_pizza"
 	baseicon = "personal_pizza"
 	basename = "personal pizza"
-	add_overlays = 0
+	add_overlays
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/pasta

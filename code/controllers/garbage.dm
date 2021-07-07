@@ -57,7 +57,7 @@ var/datum/controller/garbage_collector/garbage = new()
 		// Let our friend know they're about to get fucked up.
 		. = !A.Destroy()
 		if(. && A)
-			if(garbage && !isturf(A))
+			if(garbage && !isnull(A) && !isturf(A))
 				garbage.AddTrash(A)
 			else
 				del(A)

@@ -11,7 +11,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/weapon/reagent_containers/food/drinks/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/beer( src )
 		new /obj/item/weapon/reagent_containers/food/drinks/beer( src )

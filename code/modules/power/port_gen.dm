@@ -118,6 +118,8 @@ display round(lastgen) and plasmatank amount
 	component_parts += new /obj/item/stack/cable_coil(src, 1)
 	component_parts += new /obj/item/stack/cable_coil(src, 1)
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
+	if(istext(board_path))
+		board_path = text2path(board_path)
 	component_parts += new board_path(src)
 	var/obj/sheet = new sheet_path(null)
 	sheet_name = sheet.name

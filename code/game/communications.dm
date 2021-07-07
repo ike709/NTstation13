@@ -183,7 +183,7 @@ datum/controller/radio
 
 datum/radio_frequency
 	var/frequency as num
-	var/list/list/obj/devices = list()
+	var/list/devices = list()
 
 	proc
 		post_signal(obj/source as obj|null, datum/signal/signal, var/filter = null as text|null, var/range = null as num|null)
@@ -247,7 +247,7 @@ datum/radio_frequency
 			if (!filter)
 				filter = "_default"
 			//log_admin("add_listener(device=[device],filter=[filter]) frequency=[frequency]")
-			var/list/obj/devices_line = devices[filter]
+			var/list/devices_line = devices[filter]
 			if (!devices_line)
 				devices_line = new
 				devices[filter] = devices_line

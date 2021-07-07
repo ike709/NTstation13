@@ -15,7 +15,7 @@
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't like things over 1000.
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
-	var/item_quants = list()
+	var/list/item_quants = list()
 /*
 /obj/machinery/smartfridge/power_change()
 	..()
@@ -99,7 +99,8 @@
 		return 1
 	return 0
 
-/obj/machinery/smartfridge/proc/load(var/obj/item/O as obj)
+/obj/machinery/smartfridge/proc/load(var/obj/item/O)
+	if(isnull(O)) return
 	if(istype(O.loc,/mob))
 		var/mob/M = O.loc
 		if(!M.unEquip(O))
@@ -230,7 +231,7 @@ obj/machinery/smartfridge/drying_rack/load() //For updating the filled overlay
 
 /obj/machinery/smartfridge/drying_rack/update_icon()
 	..()
-	overlays = 0
+	overlays.Cut()
 	if(drying)
 		overlays += "drying_rack_drying"
 	if(contents.len)

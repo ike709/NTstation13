@@ -27,10 +27,10 @@
 
 /turf/New()
 	..()
-	for(var/atom/movable/AM as mob|obj in src)
+	/*for(var/atom/movable/AM as mob|obj in src)
 		spawn( 0 )
 			src.Entered(AM)
-			return
+			return*/
 	return
 
 // Adds the adjacent turfs to the current atmos processing
@@ -94,10 +94,10 @@
 
 	if ((atom && atom.density && !( istype(atom, /obj/effect/beam) )))
 		for(var/obj/effect/beam/i_beam/I in src)
-			spawn( 0 )
-				if (I)
-					I.hit()
-				break
+		//	spawn( 0 )
+			if (I)
+				I.hit()
+			break
 
 //^^^^^ Infared beam stuff ^^^^^
 
@@ -122,10 +122,10 @@
 	for(var/atom/A as mob|obj|turf|area in range(1))
 		if(objects > loopsanity)	break
 		objects++
-		spawn( 0 )
-			if ((A && M))
-				A.HasProximity(M, 1)
-			return
+		//spawn( 0 )
+		if ((A && M))
+			A.HasProximity(M, 1)
+		return
 	return
 
 /turf/proc/is_plating()

@@ -84,7 +84,7 @@
 					totalPlayers++
 					if(player.ready)totalPlayersReady++
 
-	Topic(href, href_list[])
+	Topic(href, list/href_list)
 		if(src != usr)
 			return 0
 
@@ -108,13 +108,14 @@
 				var/mob/dead/observer/observer = new()
 
 				spawning = 1
-				src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
+				//src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
 
 				observer.started_as_observer = 1
 				close_spawn_windows()
 				var/obj/O = locate("landmark*Observer-Start")
-				src << "lue Now teleporting."
-				observer.loc = O.loc
+				//src << "lue Now teleporting."
+				if(O)
+					observer.loc = O.loc
 				if(client.prefs.be_random_name)
 					client.prefs.real_name = random_name(gender)
 				observer.real_name = client.prefs.real_name

@@ -41,7 +41,7 @@
 		usr << "lue You can't directly interact with this machine. Use the area atmos computer."
 
 	update_icon()
-		src.overlays = 0
+		src.overlays.Cut()
 
 		if(on)
 			icon_state = "scrubber:1"
@@ -74,7 +74,7 @@
 
 
 /obj/machinery/portable_atmospherics/scrubber/update_icon()
-	src.overlays = 0
+	src.overlays.Cut()
 
 	if(on)
 		icon_state = "pscrubber:1"

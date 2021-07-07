@@ -86,13 +86,13 @@
 	var/auto_name = 0
 	var/update_state = -1
 	var/update_overlay = -1
-	var/global/status_overlays = 0
+	var/status_overlays = 0
 	var/updating_icon = 0
-	var/global/list/status_overlays_lock
-	var/global/list/status_overlays_charging
-	var/global/list/status_overlays_equipment
-	var/global/list/status_overlays_lighting
-	var/global/list/status_overlays_environ
+	var/list/status_overlays_lock
+	var/list/status_overlays_charging
+	var/list/status_overlays_equipment
+	var/list/status_overlays_lighting
+	var/list/status_overlays_environ
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -277,7 +277,7 @@
 
 	if(!(update_state & UPSTATE_ALLGOOD))
 		if(overlays.len)
-			overlays = 0
+			overlays.Cut()
 
 	if(update & 2)
 		if(overlays.len)

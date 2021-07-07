@@ -341,8 +341,8 @@
 
 /obj/machinery/computer/turbine_computer/New()
 	..()
-	spawn(5)
-		search_turbine()
+	//spawn(5)
+	search_turbine()
 
 /obj/machinery/computer/turbine_computer/proc/search_turbine()
 	compressor = locate(/obj/machinery/power/compressor) in range(5)

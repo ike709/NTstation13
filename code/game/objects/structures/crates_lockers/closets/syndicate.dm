@@ -11,7 +11,7 @@
 
 /obj/structure/closet/syndicate/personal/New()
 	..()
-	sleep(2)
+	//sleep(2)
 	new /obj/item/clothing/glasses/night(src)
 	new /obj/item/clothing/under/syndicate(src)
 	new /obj/item/weapon/storage/belt/military(src)
@@ -24,7 +24,7 @@
 
 /obj/structure/closet/syndicate/nuclear/New()
 	..()
-	sleep(2)
+	//sleep(2)
 	new /obj/item/ammo_box/magazine/m10mm(src)
 	new /obj/item/ammo_box/magazine/m10mm(src)
 	new /obj/item/ammo_box/magazine/m10mm(src)
@@ -57,7 +57,7 @@
 		var/rare_max = 20 //Maximum HONK HONK HONK in the HONK for HONK rare HONK
 
 
-		sleep(2)
+		//sleep(2)
 
 		var/pickednum = rand(1, 50)
 
@@ -122,7 +122,7 @@
 		/obj/item/stack/rods
 		)
 
-		sleep(2)
+		//sleep(2)
 
 		for(var/i = 0, i<2, i++)
 			for(var/res in resources)

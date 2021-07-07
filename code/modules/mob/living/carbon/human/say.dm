@@ -68,7 +68,7 @@
 	if(stat == CONSCIOUS)
 		if(client)
 			var/virgin = 1	//has the text been modified yet?
-			var/temp =// winget(client, "input", "text")
+			var/temp //=// winget(client, "input", "text")
 			if(findtextEx(temp, "Say \"", 1, 7) && length(temp) > 5)	//case sensitive means
 
 				temp = replacetext(temp, ";", "")	//general radio

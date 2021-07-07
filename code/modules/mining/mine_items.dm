@@ -21,7 +21,7 @@
 
 /obj/structure/closet/secure_closet/miner/New()
 	..()
-	sleep(2)
+	//sleep(2)
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else

@@ -12,7 +12,7 @@
 	volume = 1000
 
 /obj/machinery/portable_atmospherics/pump/update_icon()
-	src.overlays = 0
+	src.overlays.Cut()
 
 	if(on)
 		icon_state = "psiphon:1"

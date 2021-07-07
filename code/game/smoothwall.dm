@@ -76,12 +76,13 @@
 	return
 
 /atom/proc/relativewall_neighbours()
+	return /*
 	for(var/turf/simulated/wall/W in range(src,1))
 		W.relativewall()
 	for(var/obj/structure/falsewall/W in range(src,1))
 		W.relativewall()
 		W.update_icon()//Refreshes the wall to make sure the icons don't desync
-	return
+	return*/
 
 /turf/simulated/wall/New()
 	relativewall_neighbours()

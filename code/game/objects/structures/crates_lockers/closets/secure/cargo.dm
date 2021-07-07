@@ -10,7 +10,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/suit/labcoat/coat/cargo(src)
 		new /obj/item/clothing/under/rank/cargotech(src)
 		new /obj/item/clothing/shoes/sneakers/black(src)
@@ -32,7 +32,7 @@
 
 	New()
 		..()
-		sleep(2)
+	//	sleep(2)
 		new /obj/item/clothing/suit/labcoat/coat/cargo(src)
 		new /obj/item/clothing/under/rank/cargo(src)
 		new /obj/item/clothing/shoes/sneakers/brown(src)

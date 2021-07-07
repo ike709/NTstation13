@@ -9549,7 +9549,7 @@
 "dBG" = (/obj/structure/table,/obj/machinery/microwave{pixel_y = 10},/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/centcom/misc/fleet)
 "dBH" = (/obj/structure/table,/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/centcom/misc/fleet)
 "dBI" = (/turf/unsimulated/floor/engine,/area/centcom/misc/plane)
-"dBJ" = (/turf/unsimulated/floor/engine{color = "FF0000"},/area/centcom/misc/plane)
+"dBJ" = (/turf/unsimulated/floor/engine,/area/centcom/misc/plane)
 "dBK" = (/obj/machinery/door/window/brigdoor/westright,/obj/machinery/door/window/brigdoor/eastright,/obj/machinery/door/airlock/silver{icon_state = "door_locked"; locked = 1; name = "External Access"},/turf/simulated/shuttle/floor,/area/centcom/misc/fleet)
 "dBL" = (/obj/machinery/door/window/brigdoor/westleft,/obj/machinery/door/window/brigdoor/eastleft,/obj/machinery/door/airlock/silver{icon_state = "door_locked"; locked = 1; name = "External Access"},/turf/simulated/shuttle/floor,/area/centcom/misc/fleet)
 "dBM" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/structure/table,/obj/item/weapon/storage/box/donkpockets,/turf/simulated/shuttle/floor,/area/centcom/misc/fleet)
