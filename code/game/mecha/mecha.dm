@@ -29,7 +29,7 @@
 	var/list/damage_absorption = list("brute"=0.8,"fire"=1.2,"bullet"=0.9,"laser"=1,"energy"=1,"bomb"=1)
 	var/obj/item/weapon/stock_parts/cell/cell
 	var/state = 0
-	var/list/log = new
+	var/list/log = list()
 	var/last_message = 0
 	var/add_req_access = 1
 	var/maint_access = 1
@@ -986,7 +986,7 @@
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
-	if(H && H.client && H in range(1))
+	if(H && H.client && H in range(1, src))
 		H.reset_view(src)
 		/*
 		H.client.perspective = EYE_PERSPECTIVE
@@ -1045,7 +1045,7 @@
 	return 0
 
 /obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
-	if(mmi_as_oc && user in range(1))
+	if(mmi_as_oc && user in range(1, src))
 		if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
 			user << "Consciousness matrix not detected."
 			return 0
@@ -1431,8 +1431,8 @@
 	return
 
 /obj/mecha/proc/log_message(message as text,red=null)
-	log.len++
-	log[log.len] = list("time"="[worldtime2text()]","date","year"="[year_integer+540]","message"="[red?"<font color='red'>":null][message][red?"</font>":null]")
+	//log.len++
+	//log += list("time"="[worldtime2text()]","date","year"="[year_integer+540]","message"="[red?"<font color='red'>":null][message][red?"</font>":null]")
 	return log.len
 
 /obj/mecha/proc/log_append_to_last(message as text,red=null)
@@ -1440,8 +1440,9 @@
 	last_entry["message"] += "<br>[red?"<font color='red'>":null][message][red?"</font>":null]"
 	return
 
-var/year = time2text(world.realtime,"YYYY")
-var/year_integer = text2num(year) // = 2013???
+//var/year = time2text(world.realtime,"YYYY")
+//var/year_integer = text2num(year) // = 2013???
+#define year_integer 2021
 
 /////////////////
 ///// Topic /////

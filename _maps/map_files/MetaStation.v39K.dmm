@@ -3276,7 +3276,7 @@
 "bkZ" = (/obj/machinery/turret{dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/turret_protected/ai)
 "bla" = (/obj/structure/window/reinforced{dir = 4; pixel_x = 0},/obj/structure/window/reinforced{dir = 8},/obj/machinery/light/small{dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/construction/hallway{name = "\improper MiniSat Exterior"})
 "blb" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/shuttle/plating,/area/shuttle/arrival/station)
-"blc" = (/obj/effect/landmark{name = "Observer-Start"},/turf/simulated/shuttle/floor,/area/shuttle/arrival/station)
+"blc" = (/obj/effect/landmark/observer,/turf/simulated/shuttle/floor,/area/shuttle/arrival/station)
 "bld" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{req_access_txt = 1},/obj/machinery/door/firedoor,/turf/simulated/floor{dir = 8; icon_state = "warning"},/area/hallway/secondary/entry{name = "Arrivals"})
 "ble" = (/obj/structure/cable/yellow{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/obj/machinery/door/firedoor,/turf/simulated/floor{dir = 4; icon_state = "arrival"},/area/hallway/secondary/entry{name = "Arrivals"})
 "blf" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 5},/turf/simulated/wall,/area/security/checkpoint2{name = "Customs"})

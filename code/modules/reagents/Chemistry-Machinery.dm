@@ -13,7 +13,7 @@
 	var/energy = 50
 	var/max_energy = 50
 	var/amount = 30
-	var/beaker = null
+	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/recharged = 0
 	var/recharge_delay = 15  //Time it game ticks between recharges
 	var/list/dispensable_reagents = list("hydrogen","lithium","carbon","nitrogen","oxygen","fluorine",
@@ -87,20 +87,20 @@
 
 	var beakerContents[0]
 	var beakerCurrentVolume = 0
-	if(beaker && beaker:reagents && beaker:reagents.reagent_list.len)
-		for(var/datum/reagent/R in beaker:reagents.reagent_list)
+	if(beaker && beaker.reagents && length(beaker.reagents.reagent_list))
+		for(var/datum/reagent/R in beaker.reagents.reagent_list)
 			beakerContents.Add(list(list("name" = R.name, "volume" = R.volume))) // list in a list because Byond merges the first list...
 			beakerCurrentVolume += R.volume
 	data["beakerContents"] = beakerContents
 
 	if (beaker)
 		data["beakerCurrentVolume"] = beakerCurrentVolume
-		data["beakerMaxVolume"] = beaker:volume
+		data["beakerMaxVolume"] = beaker.volume
 	else
 		data["beakerCurrentVolume"] = null
 		data["beakerMaxVolume"] = null
 
-	var chemicals[0]
+	var/list/chemicals = list()
 	for (var/re in dispensable_reagents)
 		var/datum/reagent/temp = chemical_reagents_list[re]
 		if(temp)

@@ -398,8 +398,8 @@ ________________________________________________________________________________
 /obj/item/clothing/suit/space/space_ninja/proc/lock_suit(mob/living/carbon/U, X = 0)
 	if(X)//If you want to check for icons.
 		icon_state = U.gender==FEMALE ? "s-ninjanf" : "s-ninjan"
-		U:gloves.icon_state = "s-ninjan"
-		U:gloves.item_state = "s-ninjan"
+		//U.gloves.icon_state = "s-ninjan"
+	//	U.gloves.item_state = "s-ninjan"
 	else
 		if(U.mind.special_role!="Space Ninja")
 			U << "\red <B>f�TaL ��RRoR</B>: 382200-*#00C�DE <B>RED</B>\nUNAU�HORIZED US� DET�C���eD\nCoMM�NCING SUB-R0U�IN3 13...\nT�RMInATING U-U-US�R..."
@@ -2374,7 +2374,7 @@ ________________________________________________________________________________
 				var/turf/location = get_turf(U)
 				for(var/mob/living/silicon/ai/ai in player_list)
 					ai << "\red <b>Network Alert: Hacking attempt detected[location?" in [location]":". Unable to pinpoint location"]</b>."
-			if(A:files&&A:files.known_tech.len)
+			/*if(A:files&&A:files.known_tech.len)
 				for(var/datum/tech/current_data in S.stored_research)
 					U << "lue Checking \the [current_data.name] database."
 					if(do_after(U, S.s_delay)&&G.candrain&&!isnull(A))
@@ -2383,9 +2383,10 @@ ________________________________________________________________________________
 								if(analyzing_data.level>current_data.level)
 									U << "lue Database: lack <b>UPDATED</b>."
 									current_data.level = analyzing_data.level
-								break//Move on to next.
-					else	break//Otherwise, quit processing.
+								breakMove on to next.
+					else	breakOtherwise, quit processing.
 			U << "lue Data analyzed. Process finished."
+			*/
 
 		if("WIRE")
 			var/obj/structure/cable/A = target

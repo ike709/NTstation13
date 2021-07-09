@@ -105,11 +105,11 @@ obj/item/weapon/gun/energy/laser/retro/sc_retro
  */
 
 //These vars hold the code itself, they'll be generated at round-start
-var/sc_safecode1 = "[rand(0,9)]"
-var/sc_safecode2 = "[rand(0,9)]"
-var/sc_safecode3 = "[rand(0,9)]"
-var/sc_safecode4 = "[rand(0,9)]"
-var/sc_safecode5 = "[rand(0,9)]"
+var/sc_safecode1 = "1"
+var/sc_safecode2 = "2"
+var/sc_safecode3 = "3"
+var/sc_safecode4 = "4"
+var/sc_safecode5 = "5"
 
 //Pieces of paper actually containing the hints
 /obj/item/weapon/paper/sc_safehint_paper_prison

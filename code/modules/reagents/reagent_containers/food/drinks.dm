@@ -103,7 +103,7 @@
 	examine()
 		set src in view()
 		..()
-		if (!(usr in range(0)) && usr!=src.loc) return
+		if (!(usr in range(0, src)) && usr!=src.loc) return
 		if(!reagents || reagents.total_volume==0)
 			usr << "lue \The [src] is empty!"
 		else if (reagents.total_volume<=src.volume/4)

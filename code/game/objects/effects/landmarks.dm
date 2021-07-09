@@ -5,6 +5,9 @@
 	anchored = 1.0
 	unacidable = 1
 
+/obj/effect/landmark/observer
+	name = "Observer-Start"
+
 /obj/effect/landmark/New()
 
 	..()

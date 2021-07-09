@@ -56,11 +56,11 @@
 	action_intent = using
 
 //Cell
-	mymob:cells = new /obj/screen()
+	/*mymob:cells = new /obj/screen()
 	mymob:cells.icon = 'icons/mob/screen_cyborg.dmi'
 	mymob:cells.icon_state = "charge-empty"
 	mymob:cells.name = "cell"
-	mymob:cells.screen_loc = ui_toxin
+	mymob:cells.screen_loc = ui_toxin*/
 
 //Health
 	mymob.healths = new /obj/screen()
@@ -128,8 +128,8 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list(mymob.zone_sel, mymob.oxygen, mymob.fire, mymob.hands, mymob.healths, mymob:cells, mymob.pullin, mymob.blind, mymob.flash) //, mymob.rest, mymob.sleep, mymob.mach )
-	mymob.client.screen += adding + other
+	mymob.client.screen += list(mymob.zone_sel, mymob.oxygen, mymob.fire, mymob.hands, mymob.healths, /*mymob:cells, */mymob.pullin, mymob.blind, mymob.flash) //, mymob.rest, mymob.sleep, mymob.mach )
+	mymob.client.screen += (adding + other)
 
 	return
 

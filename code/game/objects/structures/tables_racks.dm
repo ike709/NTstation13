@@ -334,7 +334,8 @@
 				skip_sum = 1
 				continue
 		if(!skip_sum) //means there is a window between the two tiles in this direction
-			if(locate(/obj/structure/table,get_step(src,direction)))
+			//if(locate(/obj/structure/table,get_step(src,direction)))
+			for(var/obj/structure/table/T in get_step(src,direction))
 				if(direction <5)
 					dir_sum += direction
 				else
@@ -348,6 +349,7 @@
 						dir_sum += 64
 					if(direction == 9)
 						dir_sum += 128
+				break
 
 	var/table_type = 0 //stand_alone table
 	if(dir_sum%16 in cardinal)

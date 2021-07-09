@@ -174,7 +174,7 @@
 			src.show_to(user)
 		else
 			..()
-			for(var/mob/M in range(1))
+			for(var/mob/M in range(1, src))
 				if (M.s_active == src)
 					src.close(M)
 			src.orient2hud(user)

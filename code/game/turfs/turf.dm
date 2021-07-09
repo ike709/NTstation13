@@ -119,7 +119,7 @@
 			O.inertia_dir = 0
 	..()
 	var/objects = 0
-	for(var/atom/A as mob|obj|turf|area in range(1))
+	for(var/atom/A as mob|obj|turf|area in range(1, src))
 		if(objects > loopsanity)	break
 		objects++
 		//spawn( 0 )

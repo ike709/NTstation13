@@ -118,11 +118,11 @@
 		return
 
 	// this is the data which will be sent to the ui
-	var/data[0]
+	var/list/data = list()
 	data["isOperating"] = on
 	data["hasOccupant"] = occupant ? 1 : 0
 
-	var/occupantData[0]
+	var/list/occupantData = list()
 	if (!occupant)
 		occupantData["name"] = null
 		occupantData["stat"] = null
@@ -156,9 +156,9 @@
 		data["cellTemperatureStatus"] = "average"
 
 	data["isBeakerLoaded"] = beaker ? 1 : 0
-	var beakerContents[0]
-	if(beaker && beaker:reagents && beaker:reagents.reagent_list.len)
-		for(var/datum/reagent/R in beaker:reagents.reagent_list)
+	var/list/beakerContents = list()
+	if(beaker && beaker.reagents && length(beaker.reagents.reagent_list))
+		for(var/datum/reagent/R in beaker.reagents.reagent_list)
 			beakerContents.Add(list(list("name" = R.name, "volume" = R.volume))) // list in a list because Byond merges the first list...
 	data["beakerContents"] = beakerContents
 

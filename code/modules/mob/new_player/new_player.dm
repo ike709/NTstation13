@@ -112,10 +112,15 @@
 
 				observer.started_as_observer = 1
 				close_spawn_windows()
-				var/obj/O = locate("landmark*Observer-Start")
-				//src << "lue Now teleporting."
-				if(O)
+				for(var/obj/effect/landmark/observer/O in landmarks_list)
+					src.loc = O.loc
 					observer.loc = O.loc
+					break
+				//var/obj/O = locate("landmark*Observer-Start")
+				//src << "lue Now teleporting."
+				//if(O)
+				//	observer.loc = O.loc
+				//observer.loc = pick_st
 				if(client.prefs.be_random_name)
 					client.prefs.real_name = random_name(gender)
 				observer.real_name = client.prefs.real_name
@@ -368,9 +373,9 @@
 
 
 	proc/close_spawn_windows()
-
-		src << browse(null, "window=latechoices") //closes late choices window
-		src << browse(null, "window=playersetup") //closes the player setup window
-		src << browse(null, "window=preferences") //closes job selection
-		src << browse(null, "window=mob_occupation")
-		src << browse(null, "window=latechoices") //closes late job selection
+		return
+		//src << browse(null, "window=latechoices") //closes late choices window
+		//src << browse(null, "window=playersetup") //closes the player setup window
+		//src << browse(null, "window=preferences") //closes job selection
+		//src << browse(null, "window=mob_occupation")
+		//src << browse(null, "window=latechoices") //closes late job selection

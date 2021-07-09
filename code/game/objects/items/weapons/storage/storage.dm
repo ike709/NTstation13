@@ -100,7 +100,7 @@
 
 /obj/item/weapon/storage/proc/close_all() //returns 1 if any mobs actually got a close(M) call
 	var/actually_closed = 0
-	for(var/mob/M in range(1))
+	for(var/mob/M in range(1, src))
 		if(M.s_active == src)
 			close(M)
 			actually_closed = 1
@@ -356,7 +356,7 @@
 		show_to(user)
 	else
 		..()
-		for(var/mob/M in range(1))
+		for(var/mob/M in range(1, src))
 			if(M.s_active == src)
 				close(M)
 

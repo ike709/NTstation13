@@ -113,7 +113,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/examine()
 	set src in view()
 	..()
-	if(!(usr in range(1)) && usr != loc)
+	if(!(usr in range(1, src)) && usr != loc)
 		return
 	if(bitecount == 0)
 		return
