@@ -249,6 +249,7 @@
 ///Called by client/Move()
 ///Checks to see if you are being grabbed and if so attemps to break it
 /client/proc/Process_Grab()
+	return/*
 	if(locate(/obj/item/weapon/grab, locate(/obj/item/weapon/grab, mob.grabbed_by.len)))
 		var/list/grabbing = list()
 
@@ -277,7 +278,7 @@
 					return 1
 				mob.visible_message("<span class='warning'>[mob] has broken free of [G.assailant]'s headlock!</span>")
 				qdel(G)
-	return 0
+	return 0*/
 
 
 ///Process_Incorpmove
