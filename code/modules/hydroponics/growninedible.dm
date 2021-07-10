@@ -22,13 +22,13 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-	transform *= TransformUsingVariable(potency, 100, 0.5)
+	//transform *= TransformUsingVariable(potency, 100, 0.5)
 
 	create_reagents(50)
 
 /obj/item/weapon/grown/proc/changePotency(newValue) //-QualityVan
 	potency = newValue
-	transform *= TransformUsingVariable(potency, 100, 0.5) //Makes the resulting produce's sprite larger or smaller based on potency!
+	//transform *= TransformUsingVariable(potency, 100, 0.5) //Makes the resulting produce's sprite larger or smaller based on potency!
 
 /obj/item/weapon/grown/log
 	name = "tower-cap log"

@@ -346,7 +346,7 @@
 			return
 		var/junction = 0 //will be used to determine from which side the window is connected to other windows
 		if(anchored)
-			for(var/obj/structure/window/W in orange(src,1))
+			for(var/obj/structure/window/W in orange(1,src))
 				if(W.anchored && W.density	&& W.is_fulltile()) //Only counts anchored, not-destroyed fill-tile windows.
 					if(abs(x-W.x)-abs(y-W.y) ) 		//doesn't count windows, placed diagonally to src
 						junction |= get_dir(src,W)

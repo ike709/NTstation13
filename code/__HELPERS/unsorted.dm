@@ -1215,7 +1215,7 @@ proc/oview_or_orange(distance = world.view , center = usr , type)
 
 /proc/get_turf(atom/movable/AM)
 	if(istype(AM))
-		return locate(/turf) in AM.locs
+		return AM.loc
 	else if(isturf(AM))
 		return AM
 

@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
 /datum/game_mode
-	var/list/datum/mind/cult = list()
+	var/list/cult = list()
 	var/list/allwords = list("travel","self","see","hell","blood","join","tech","destroy", "other", "hide")
 	var/list/grantwords = list("travel", "see", "hell", "tech", "destroy", "other", "hide")
 	var/list/cult_objectives = list()

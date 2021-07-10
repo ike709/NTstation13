@@ -9,7 +9,7 @@
 	name = "monkey"
 	config_tag = "monkey"
 	var/state = MONKEY_MODE_RUNNING
-	var/list/datum/mind/initial_monkeys = new
+	var/list/initial_monkeys = new
 
 /datum/game_mode/monkey/announce()
 	world << "<B>The current game mode is - Monkey!</B>"

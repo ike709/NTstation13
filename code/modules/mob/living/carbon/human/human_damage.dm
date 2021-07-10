@@ -30,17 +30,17 @@
 	return amount
 
 
-/mob/living/carbon/human/adjustBruteLoss(var/amount)
+/mob/living/carbon/human/adjustBruteLoss(var/amount = 0)
 	if(amount > 0)
 		take_overall_damage(amount, 0)
 	else
-		heal_overall_damage(-amount, 0)
+		heal_overall_damage(amount * -1, 0)
 
-/mob/living/carbon/human/adjustFireLoss(var/amount)
+/mob/living/carbon/human/adjustFireLoss(var/amount = 0)
 	if(amount > 0)
 		take_overall_damage(0, amount)
 	else
-		heal_overall_damage(0, -amount)
+		heal_overall_damage(0, -1 * amount)
 
 /mob/living/carbon/human/Stun(amount)
 	if(has_organic_effect(/datum/organic_effect/hulk))	return

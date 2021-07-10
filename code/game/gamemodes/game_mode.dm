@@ -20,8 +20,8 @@
 	var/probability = 1
 	var/station_was_nuked = 0 //see nuclearbomb.dm and malfunction.dm
 	var/explosion_in_progress = 0 //sit back and relax
-	var/list/datum/mind/modePlayer = new
-	var/list/datum/mind/antag_candidates = list()	// List of possible starting antags goes here
+	var/list/modePlayer = new
+	var/list/antag_candidates = list()	// List of possible starting antags goes here
 	var/list/restricted_jobs = list()	// Jobs it doesn't make sense to be.  I.E chaplain or AI cultist
 	var/list/protected_jobs = list()	// Jobs that can't be traitors because
 	var/required_players = 0
@@ -70,7 +70,7 @@
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_roundstart_logout_report()
 
-	feedback_set_details("round_start","[time2text(world.realtime)]")
+//	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(ticker && ticker.mode)
 		feedback_set_details("game_mode","[ticker.mode]")
 	if(revdata.revision)

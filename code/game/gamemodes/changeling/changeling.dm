@@ -1,7 +1,7 @@
 var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega")
 
 /datum/game_mode
-	var/list/datum/mind/changelings = list()
+	var/list/changelings = list()
 
 
 /datum/game_mode/changeling

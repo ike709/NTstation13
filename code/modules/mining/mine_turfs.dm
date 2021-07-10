@@ -320,6 +320,7 @@
 
 
 /turf/simulated/floor/plating/asteroid/airless/cave/proc/SpawnFloor(var/turf/T)
+	return/*
 	for(var/turf/S in range(2,T))
 		if(istype(S, /turf/space) || istype(S.loc, /area/mine/explored))
 			sanity = 0
@@ -329,10 +330,12 @@
 
 	SpawnMonster(T)
 	var/turf/simulated/floor/t = new /turf/simulated/floor/plating/asteroid/airless(T)
-	spawn(2)
-		t.fullUpdateMineralOverlays()
+	//spawn(2)
+	if(t)
+		t.fullUpdateMineralOverlays()*/
 
 /turf/simulated/floor/plating/asteroid/airless/cave/proc/SpawnMonster(var/turf/T)
+	return/*
 	if(prob(30))
 		if(istype(loc, /area/mine/explored))
 			return
@@ -349,7 +352,7 @@
 				new /mob/living/simple_animal/hostile/asteroid/basilisk(T)
 			if("Hivelord")
 				new /mob/living/simple_animal/hostile/asteroid/hivelord(T)
-	return
+	return*/
 
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 

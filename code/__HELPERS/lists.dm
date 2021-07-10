@@ -283,7 +283,7 @@ proc/listclearnulls(list/L)
 
 
 //Mergesort: any value in a list
-/proc/sortList(var/list/L)
+/proc/sortList(var/list/L = list())
 	if(L.len < 2)
 		return L
 	var/middle = L.len / 2 + 1 // Copy is first,second-1

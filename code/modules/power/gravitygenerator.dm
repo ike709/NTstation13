@@ -82,7 +82,8 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 
 /obj/machinery/gravity_generator/main/station/initialize()
 	setup_parts()
-	middle.overlays += "activated"
+	if(middle)
+		middle.overlays += "activated"
 	update_list()
 
 //
@@ -124,6 +125,7 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 	..()
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
+	return/*
 	var/turf/our_turf = get_turf(src)
 	// 9x9 block obtained from the bottom middle of the block
 	var/list/spawn_turfs = block(locate(our_turf.x - 1, our_turf.y + 2, our_turf.z), locate(our_turf.x + 1, our_turf.y, our_turf.z))
@@ -141,7 +143,7 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 		part.sprite_number = count
 		part.main_part = src
 		parts += part
-		part.update_icon()
+		part.update_icon()*/
 
 /obj/machinery/gravity_generator/main/proc/connected_parts()
 	return parts.len == 8

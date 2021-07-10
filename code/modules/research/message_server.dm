@@ -194,7 +194,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	var/list/msg_service = list()
 	var/list/msg_cargo = list()
 
-	var/list/datum/feedback_variable/feedback = new()
+	var/list/feedback = list()
 
 	//Only one can exsist in the world!
 /obj/machinery/blackbox_recorder/New()

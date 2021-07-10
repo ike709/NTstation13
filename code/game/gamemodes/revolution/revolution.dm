@@ -9,8 +9,8 @@
 // If the game somtimes isn't registering a win properly, then Rev.check_win() isn't being called somewhere.
 
 /datum/game_mode
-	var/list/datum/mind/head_revolutionaries = list()
-	var/list/datum/mind/revolutionaries = list()
+	var/list/head_revolutionaries = list()
+	var/list/revolutionaries = list()
 
 /datum/game_mode/revolution
 	name = "revolution"

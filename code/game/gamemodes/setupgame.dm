@@ -54,6 +54,7 @@
 
 
 /proc/setupfactions()
+	world.log << "Initializing factions..."
 
 	// Populate the factions list:
 	for(var/x in typesof(/datum/faction))

@@ -100,6 +100,7 @@
 	return 0
 
 /obj/machinery/smartfridge/proc/load(var/obj/item/O)
+	return/*
 	if(isnull(O)) return
 	if(istype(O.loc,/mob))
 		var/mob/M = O.loc
@@ -117,7 +118,7 @@
 		item_quants[n]++
 	else
 		item_quants[n] = 1
-	item_quants = sortAssoc(item_quants)
+	item_quants = sortAssoc(item_quants)*/
 
 /obj/machinery/smartfridge/attack_paw(mob/user as mob)
 	return src.attack_hand(user)

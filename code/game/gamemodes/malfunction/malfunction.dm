@@ -1,5 +1,5 @@
 /datum/game_mode
-	var/list/datum/mind/malf_ai = list()
+	var/list/malf_ai = list()
 
 /datum/game_mode/malfunction
 	name = "AI malfunction"

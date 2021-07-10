@@ -17,7 +17,7 @@ var/round_start_time = 0
 
 	var/login_music			// music played in pregame lobby
 
-	var/list/datum/mind/minds = list()//The people in the game. Used for objective tracking.
+	var/list/minds = list()//The people in the game. Used for objective tracking.
 
 	var/list/syndicate_coalition = list() // list of traitor-compatible factions
 	var/list/factions = list()			  // list of all factions
@@ -52,6 +52,8 @@ var/round_start_time = 0
 
 			if(pregame_timeleft <= 0)
 				current_state = GAME_STATE_SETTING_UP
+			world.log << "Time left: [pregame_timeleft]"
+			world << "Time left: [pregame_timeleft]"
 	while (!setup())
 
 /datum/controller/gameticker/proc/setup()

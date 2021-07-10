@@ -32,7 +32,8 @@
 	createCorpse()
 
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
-	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
+	return/*
+	var/mob/living/carbon/human/M = new /mob/living/carbon/human(src.loc)
 	M.real_name = src.name
 	M.gender = src.mobgender
 	M.death(1) //Kills the new mob
@@ -84,7 +85,7 @@
 		W.registered_name = M.real_name
 		W.update_label()
 		M.equip_to_slot_or_del(W, slot_wear_id)
-	qdel(src)
+	qdel(src)*/
 
 /obj/effect/landmark/corpse/AICorpse/createCorpse() //Creates a corrupted AI
 	var/A = locate(/mob/living/silicon/ai) in loc //variable A looks for an AI at the location of the landmark

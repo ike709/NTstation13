@@ -26,7 +26,7 @@
 	if(config.protect_roles_from_antagonist)
 		restricted_jobs += protected_jobs
 
-	var/list/datum/mind/possible_changelings = get_players_for_role(BE_CHANGELING)
+	var/list/possible_changelings = get_players_for_role(BE_CHANGELING)
 
 	var/num_changelings = 1
 

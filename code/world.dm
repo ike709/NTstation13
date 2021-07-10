@@ -34,28 +34,34 @@
 	//	world.log << "Your server's BYOND version does not meet the recommended requirements for NTstation code. Please update BYOND."
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
-
+	world.log << "Load config"
 	load_configuration()
+	world.log << "Load mode"
 	load_mode()
+	world.log << "Load motd"
 	load_motd()
+	world.log << "Load admins"
 	load_admins()
-	LoadBansjob()
-	if(config.usewhitelist)
-		load_whitelist()
-	jobban_loadbanfile()
-	appearance_loadbanfile()
-	jobban_updatelegacybans()
-	LoadBans()
-	investigate_reset()
+	//world.log << "Load jobbans"
+	//LoadBansjob()
+	//if(config.usewhitelist)
+		//load_whitelist()
+	//jobban_loadbanfile()
+	//appearance_loadbanfile()
+	//jobban_updatelegacybans()
+	//LoadBans()
+	//investigate_reset()
+
+	world.log << "Load server stuff"
 
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
 	timezoneOffset = text2num(time2text(0,"hh")) * 36000
-
+	world.log << "Load powernets"
 	makepowernets()
-
+	world.log << "Load radios"
 	sun = new /datum/sun()
 	radio_controller = new /datum/controller/radio()
 	data_core = new /obj/effect/datacore()
@@ -66,6 +72,8 @@
 			world.log << "Your server failed to establish a connection with the database."
 		else
 			world.log << "Database connection established."*/
+	
+	world.log << "Load plasma overlay?"
 
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'
@@ -73,22 +81,31 @@
 	plmaster.layer = FLY_LAYER
 	plmaster.mouse_opacity = 0
 
+	world.log << "Load sleeping overlay?"
+
 	slmaster = new /obj/effect/overlay()
 	slmaster.icon = 'icons/effects/tile_effects.dmi'
 	slmaster.icon_state = "sleeping_agent"
 	slmaster.layer = FLY_LAYER
 	slmaster.mouse_opacity = 0
 
+	world.log << "Load game controller"
+
 	master_controller = new /datum/controller/game_controller()
 	//spawn(-1)
+	world.log << "Load MC"
 	master_controller.setup()
+	world.log << "Load lighting"
 	lighting_controller.Initialize()
-
+	world.log << "Load status"
 	src.update_status()
 
+	world.log << "Load teleport locs"
 	process_teleport_locs()			//Sets up the wizard teleport locations
 	process_ghost_teleport_locs()	//Sets up ghost teleport locations.
 	sleep_offline = 1
+
+	world.log << "Load map name"
 
 	#ifdef MAP_NAME
 	map_name = "[MAP_NAME]"
@@ -99,6 +116,7 @@
 	/*spawn(3000)		//so we aren't adding to the round-start lag
 		if(config.kick_inactive)
 			KickInactiveClients()*/
+	world.log << "Finalized world/New()"
 	return
 
 #undef RECOMMENDED_VERSION

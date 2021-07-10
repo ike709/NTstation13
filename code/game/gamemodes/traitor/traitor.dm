@@ -1,7 +1,7 @@
 /datum/game_mode
 	// this includes admin-appointed traitors and multitraitors. Easy!
 	var/traitor_name = "traitor"
-	var/list/datum/mind/traitors = list()
+	var/list/traitors = list()
 
 	var/datum/mind/exchange_red
 	var/datum/mind/exchange_blue

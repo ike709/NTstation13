@@ -27,10 +27,11 @@
 	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/corpseidicon = null //For setting it to be a gold, silver, centcom etc ID
 
-/obj/effect/landmark/mobcorpse/New()
-	createCorpse()
+//obj/effect/landmark/mobcorpse/New()
+	//createCorpse()
 
 /obj/effect/landmark/mobcorpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
+	return/*
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
 	M.real_name = src.name
 	M.stat = 2 //Kills the new mob
@@ -78,7 +79,7 @@
 		W.registered_name = M.real_name
 		W.update_label()
 		M.equip_to_slot_or_del(W, slot_wear_id)
-	qdel(src)
+	qdel(src)*/
 
 
 

@@ -102,13 +102,14 @@ DEBUG
 
 
 /proc/jobban_updatelegacybans()
+	return/*
 	if(!jobban_runonce)
 		log_admin("Updating jobbanfile!")
 		// Updates bans.. Or fixes them. Either way.
 		for(var/T in jobban_keylist)
 			if(!T)	continue
 		jobban_runonce++	//don't run this update again
-
+*/
 
 /proc/jobban_remove(X)
 	for (var/i = 1; i <= length(jobban_keylist); i++)

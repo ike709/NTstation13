@@ -56,13 +56,18 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 //load our rank - > rights associations
 /proc/load_admin_ranks()
 	admin_ranks.Cut()
+	var/datum/admin_rank/R = new("Host")
+	R.rights |= 65535
+	//if(!R)	continue
+	admin_ranks += R
+	return/*
 
 	if(config.admin_legacy_system)
 		var/previous_rights = 0
 		//load text from file and process each line seperately
 		for(var/line in file2list("config/admin_ranks.txt"))
 			if(!line)						continue
-			if(findtextEx(line,"#",1,2))	continue
+			if(length(line) < 2 || findtextEx(line,"#",1,2))	continue
 
 			var/next = findtext(line, "=")
 			var/datum/admin_rank/R = new(ckeyEx(copytext(line, 1, next)))
@@ -70,7 +75,7 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 			admin_ranks += R
 
 			var/prev = findchar(line, "+-", next, 0)
-			while(prev)
+			while(prev && prev+1 <= length(prev))
 				next = findchar(line, "+-", prev+1, 0)
 				R.process_keyword(copytext(line, prev, next), previous_rights)
 				prev = next
@@ -103,6 +108,7 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 		if(rights)	msg += "\t\t[rights]\n"
 	testing(msg)
 	#endif
+	*/
 
 
 /proc/load_admins()
@@ -113,11 +119,15 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 		C.holder = null
 	admins.Cut()
 	load_admin_ranks()
+	
 
 	var/list/rank_names = list()
 	for(var/datum/admin_rank/R in admin_ranks)
 		rank_names[R.name] = R
-
+	var/datum/admins/D = new(rank_names["Host"], "TestUser")	//create the admin datum and store it for later use
+			//if(!D)	continue									//will occur if an invalid rank is provided
+	D.associate(directory["TestUser"])
+/*
 	if(config.admin_legacy_system)
 		//load text from file
 		var/list/Lines = file2list("config/admins.txt")
@@ -172,7 +182,7 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 		msg += "\t[ckey] - [D.rank.name]\n"
 	testing(msg)
 	#endif
-
+*/
 
 #ifdef TESTING
 /client/verb/changerank(newrank in admin_ranks)

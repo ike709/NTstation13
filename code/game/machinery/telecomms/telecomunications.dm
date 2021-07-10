@@ -125,7 +125,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	// receive information from linked machinery
-	..()
+	//..()
+	return
 
 /obj/machinery/telecomms/proc/is_freq_listening(datum/signal/signal)
 	// return 1 if found, 0 if not found
@@ -145,7 +146,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(!listening_level)
 		//Defaults to our Z level!
 		var/turf/position = get_turf(src)
-		listening_level = position.z
+		if(position)
+			listening_level = position.z
 
 /obj/machinery/telecomms/initialize()
 	if(autolinkers.len)
@@ -168,8 +170,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 // Used in auto linking
 /obj/machinery/telecomms/proc/add_link(var/obj/machinery/telecomms/T)
 	var/turf/position = get_turf(src)
-	var/turf/T_position = get_turf(T)
-	if((position.z == T_position.z) || (src.long_range_link && T.long_range_link))
+	var/turf/T_position = isnull(T) ? get_turf(T) : null
+	if(position && T_position && (position.z == T_position.z) || (src.long_range_link && T.long_range_link))
 		if(src != T)
 			for(var/x in autolinkers)
 				if(x in T.autolinkers)

@@ -345,7 +345,7 @@
 	search_turbine()
 
 /obj/machinery/computer/turbine_computer/proc/search_turbine()
-	compressor = locate(/obj/machinery/power/compressor) in range(5)
+	compressor = locate(/obj/machinery/power/compressor) in range(5, src)
 
 /obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
 	if(..())

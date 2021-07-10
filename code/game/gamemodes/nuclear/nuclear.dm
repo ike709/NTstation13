@@ -1,5 +1,5 @@
 /datum/game_mode
-	var/list/datum/mind/syndicates = list()
+	var/list/syndicates = list()
 
 
 /datum/game_mode/nuclear
